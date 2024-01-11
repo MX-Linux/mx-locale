@@ -21,6 +21,7 @@
  **********************************************************************/
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDateTime>
 #include <QDebug>
 #include <QIcon>
@@ -40,7 +41,9 @@ int main(int argc, char *argv[])
         return EXIT_SUCCESS;
     }
 
-    a.setWindowIcon(QIcon::fromTheme("mx-locale"));
+    QApplication::setWindowIcon(QIcon::fromTheme(QApplication::applicationName()));
+    QApplication::setOrganizationName("MX-Linux");
+    QApplication::setApplicationVersion(VERSION);
 
     QTranslator qtTran;
     qtTran.load(QString("qt_") + QLocale::system().name());
@@ -50,9 +53,37 @@ int main(int argc, char *argv[])
     appTran.load(QString("mx-locale_") + QLocale::system().name(), "/usr/share/mx-locale/locale");
     a.installTranslator(&appTran);
 
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QObject::tr("MX Locale is a tool used for managing locale settings in MX Linux"));
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addOption({{"l", "only-lang"}, QObject::tr("Show only langauage selection tab.")});
+    parser.process(a);
+
+    // Root guard
+    QFile loginUidFile {"/proc/self/loginuid"};
+    if (loginUidFile.open(QIODevice::ReadOnly)) {
+        QString loginUid = QString(loginUidFile.readAll()).trimmed();
+        loginUidFile.close();
+        if (loginUid == "0") {
+            QMessageBox::critical(
+                nullptr, QObject::tr("Error"),
+                QObject::tr(
+                    "You seem to be logged in as root, please log out and log in as normal user to use this program."));
+            exit(EXIT_FAILURE);
+        }
+    }
+    if (getuid() != 0) {
+        if (!QFile::exists("/usr/bin/pkexec") && !QFile::exists("/usr/bin/gksu")) {
+            QMessageBox::critical(nullptr, QObject::tr("Error"),
+                                  QObject::tr("You must run this program with admin access."));
+            exit(EXIT_FAILURE);
+        }
+    }
+
     qDebug() << "Program Version:" << VERSION;
 
-    MainWindow w;
+    MainWindow w(parser);
     w.show();
     return a.exec();
 }

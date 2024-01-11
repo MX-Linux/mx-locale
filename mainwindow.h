@@ -23,6 +23,7 @@
 #pragma once
 
 #include <QButtonGroup>
+#include <QCommandLineParser>
 #include <QFile>
 #include <QListWidget>
 #include <QMessageBox>
@@ -60,7 +61,7 @@ class MainWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(const QCommandLineParser &args, QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:

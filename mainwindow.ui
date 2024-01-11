@@ -217,7 +217,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabSubvaraibles">
+     <widget class="QWidget" name="tabSubvariables">
       <attribute name="title">
        <string extracomment="defines individual subvariables for locale">Locale subvariables</string>
       </attribute>

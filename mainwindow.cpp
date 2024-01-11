@@ -35,13 +35,17 @@
 #include "cmd.h"
 #include <unistd.h>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
     : QDialog(parent),
       ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::Window); // For the close, min and max buttons
     setup();
+    if (args.isSet("only-lang")) {
+        ui->tabWidget->setTabVisible(1, false);
+        ui->tabWidget->setTabVisible(2, false);
+    }
     this->adjustSize();
 }
 
@@ -56,7 +60,6 @@ MainWindow::~MainWindow()
 // Setup versious items first time program runs
 void MainWindow::setup()
 {
-    cmd = new Cmd(this);
     this->setWindowTitle(tr("MX Locale"));
     ui->tabWidget->setCurrentIndex(0);
     ui->buttonLang->setText(getCurrentLang());
@@ -111,7 +114,6 @@ void MainWindow::helpClicked()
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()), true);
 }
 
-// Get current language
 QString MainWindow::getCurrentLang() const
 {
     QSettings defaultlocale("/etc/default/locale", QSettings::NativeFormat);
@@ -268,6 +270,7 @@ void MainWindow::localeGen()
 {
     ui->tabWidget->setDisabled(true);
     QProgressDialog prog("Updating locales, please wait", nullptr, 0, countEnabled + 1);
+    cmd = new Cmd(this);
     connect(cmd, &Cmd::outputAvailable, this, [&prog] { prog.setValue(prog.value() + 1); });
     prog.show();
     cmd->runAsRoot("locale-gen");
