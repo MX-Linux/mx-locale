@@ -5,6 +5,6 @@ Comment=Set language and locale variables
 Exec=mx-locale
 Terminal=false
 Type=Application
-Icon=formatusb
+Icon=mx-locale
 Categories=System;MX-Setup;X-antiX;
 NoDisplay=false

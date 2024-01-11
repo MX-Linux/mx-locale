@@ -14,7 +14,7 @@
    <string>Program_Name</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="formatusb">
+   <iconset theme="mx-locale">
     <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
