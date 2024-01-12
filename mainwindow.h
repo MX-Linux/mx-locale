@@ -40,6 +40,7 @@ class MainWindow;
 namespace ButtonID
 {
 enum {
+    Lang,
     Address,
     Collate,
     CType,
@@ -51,8 +52,7 @@ enum {
     Numeric,
     Paper,
     Telephone,
-    Time,
-    Lang
+    Time
 };
 }
 
@@ -93,5 +93,5 @@ private:
     void setConnections();
     void setSubvariables();
     void setup();
-    bool checkDifferentSubvars();
+    bool anyDifferentSubvars();
 };

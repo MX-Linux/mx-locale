@@ -66,13 +66,14 @@ void MainWindow::setup()
     setSubvariables();
     setButtons();
     setConnections();
-    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
+    ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
-// Check if there are subvaariables different than LANG
-bool MainWindow::checkDifferentSubvars()
+// Check if there are subvariables different than LANG
+bool MainWindow::anyDifferentSubvars()
 {
-    return std::any_of(buttonGroup->buttons().constBegin(), buttonGroup->buttons().constEnd(),
+    // Start for +1 to skip ButtonID::LANG
+    return std::any_of(buttonGroup->buttons().constBegin() + 1, buttonGroup->buttons().constEnd(),
                        [&](const auto &button) { return button->text() != ui->buttonLang->text(); });
 }
 
@@ -100,7 +101,11 @@ void MainWindow::onGroupButton(int button_id)
         {ButtonID::Time, "LC_TIME"},
     };
     Cmd().runAsRoot("update-locale " + hashVarName.value(button_id) + '=' + buttonGroup->button(button_id)->text());
-    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
+    if (button_id == ButtonID::Lang && !anyDifferentSubvars()) {
+        resetSubvariables();
+    } else {
+        ui->pushResetSubvar->setVisible(anyDifferentSubvars());
+    }
 }
 
 void MainWindow::resetSubvariables()
@@ -108,7 +113,7 @@ void MainWindow::resetSubvariables()
     Cmd().runAsRoot("rm /etc/default/locale");
     Cmd().runAsRoot("update-locale LANG=" + buttonGroup->button(ButtonID::Lang)->text());
     setSubvariables();
-    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
+    ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
 void MainWindow::aboutClicked()
