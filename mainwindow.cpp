@@ -66,6 +66,14 @@ void MainWindow::setup()
     setSubvariables();
     setButtons();
     setConnections();
+    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
+}
+
+// Check if there are subvaariables different than LANG
+bool MainWindow::checkDifferentSubvars()
+{
+    return std::any_of(buttonGroup->buttons().constBegin(), buttonGroup->buttons().constEnd(),
+                       [&](const auto &button) { return button->text() != ui->buttonLang->text(); });
 }
 
 void MainWindow::onGroupButton(int button_id)
@@ -92,6 +100,15 @@ void MainWindow::onGroupButton(int button_id)
         {ButtonID::Time, "LC_TIME"},
     };
     Cmd().runAsRoot("update-locale " + hashVarName.value(button_id) + '=' + buttonGroup->button(button_id)->text());
+    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
+}
+
+void MainWindow::resetSubvariables()
+{
+    Cmd().runAsRoot("rm /etc/default/locale");
+    Cmd().runAsRoot("update-locale LANG=" + buttonGroup->button(ButtonID::Lang)->text());
+    setSubvariables();
+    ui->pushResetSubvar->setVisible(checkDifferentSubvars());
 }
 
 void MainWindow::aboutClicked()
@@ -187,6 +204,7 @@ void MainWindow::setConnections()
     connect(ui->comboFilter, &QComboBox::currentTextChanged, this, &MainWindow::onFilterChanged);
     connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
     connect(ui->pushDisableLocales, &QPushButton::clicked, this, &MainWindow::disableAllButCurrent);
+    connect(ui->pushResetSubvar, &QPushButton::clicked, this, &MainWindow::resetSubvariables);
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::tabWidgetCurrentChanged);
 }
 

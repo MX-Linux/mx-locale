@@ -75,6 +75,7 @@ private slots:
     void listItemChanged(QListWidgetItem *item);
     void onFilterChanged(const QString &text);
     void onGroupButton(int button_id);
+    void resetSubvariables();
     void tabWidgetCurrentChanged();
 
 private:
@@ -92,4 +93,5 @@ private:
     void setConnections();
     void setSubvariables();
     void setup();
+    bool checkDifferentSubvars();
 };
