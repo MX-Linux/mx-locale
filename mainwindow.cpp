@@ -43,8 +43,8 @@ MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
     setWindowFlags(Qt::Window); // For the close, min and max buttons
     setup();
     if (args.isSet("only-lang")) {
-        ui->tabWidget->setTabVisible(1, false);
-        ui->tabWidget->setTabVisible(2, false);
+        ui->tabWidget->setTabVisible(Tab::Subvariables, false);
+        ui->tabWidget->setTabVisible(Tab::Management, false);
     }
     this->adjustSize();
 }

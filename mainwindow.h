@@ -56,6 +56,11 @@ enum {
 };
 }
 
+namespace Tab
+{
+enum { Language, Subvariables, Management };
+}
+
 class MainWindow : public QDialog
 {
     Q_OBJECT
