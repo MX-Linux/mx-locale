@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>517</width>
-    <height>636</height>
+    <width>590</width>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -181,7 +181,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -231,7 +231,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>LC_CTYPE</string>
+             <string>CType</string>
             </property>
            </widget>
           </item>
@@ -245,7 +245,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>LC_NUMERIC</string>
+             <string>Numeric</string>
             </property>
            </widget>
           </item>
@@ -259,7 +259,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>LC_TIME</string>
+             <string>Time</string>
             </property>
            </widget>
           </item>
@@ -273,7 +273,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>LC_COLLATE</string>
+             <string>Collate</string>
             </property>
            </widget>
           </item>
@@ -287,7 +287,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>LC_MONETARY</string>
+             <string>Monetary</string>
             </property>
            </widget>
           </item>
@@ -301,7 +301,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>LC_MESSAGES</string>
+             <string>Messages</string>
             </property>
            </widget>
           </item>
@@ -315,7 +315,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>LC_PAPER</string>
+             <string>Paper</string>
             </property>
            </widget>
           </item>
@@ -329,7 +329,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>LC_NAME</string>
+             <string>Name</string>
             </property>
            </widget>
           </item>
@@ -343,7 +343,7 @@
           <item row="8" column="0">
            <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>LC_ADDRESS</string>
+             <string>Address</string>
             </property>
            </widget>
           </item>
@@ -357,7 +357,7 @@
           <item row="9" column="0">
            <widget class="QLabel" name="label_11">
             <property name="text">
-             <string>LC_TELEPHONE</string>
+             <string>Telephone</string>
             </property>
            </widget>
           </item>
@@ -371,7 +371,7 @@
           <item row="10" column="0">
            <widget class="QLabel" name="label_12">
             <property name="text">
-             <string>LC_MEASUREMENT</string>
+             <string>Measurement</string>
             </property>
            </widget>
           </item>
@@ -385,7 +385,7 @@
           <item row="11" column="0">
            <widget class="QLabel" name="label_13">
             <property name="text">
-             <string>LC_IDENTIFICATION</string>
+             <string>Indentification</string>
             </property>
            </widget>
           </item>
