@@ -79,7 +79,7 @@ void MainWindow::onGroupButton(int button_id)
     QHash<int, QString> hashVarName {
         {ButtonID::Lang, "LANG"},
         {ButtonID::Address, "LC_ADDRESS"},
-        {ButtonID::Collate, "LC_COLATE"},
+        {ButtonID::Collate, "LC_COLLATE"},
         {ButtonID::CType, "LC_CTYPE"},
         {ButtonID::Identification, "LC_IDENTIFICATION"},
         {ButtonID::Measurement, "LC_MEASUREMENT"},
