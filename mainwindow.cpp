@@ -244,7 +244,7 @@ void MainWindow::displayLocalesGen()
     ui->listWidget->clear();
     QFile file("/etc/locale.gen");
     if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg("/etc/locale.gen"));
+        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
         return;
     }
     QTextStream in(&file);
