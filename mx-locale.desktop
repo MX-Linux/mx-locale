@@ -5,6 +5,6 @@ Comment=Set language and locale variables
 Exec=mx-locale
 Terminal=false
 Type=Application
-Icon=mx-locale
+Icon=preferences-desktop-locale
 Categories=System;MX-Setup;X-antiX;
 NoDisplay=false

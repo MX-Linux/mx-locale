@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         return EXIT_SUCCESS;
     }
 
-    QApplication::setWindowIcon(QIcon::fromTheme(QApplication::applicationName()));
+    QApplication::setWindowIcon(QIcon::fromTheme("preferences-desktop-locale"));
     QApplication::setOrganizationName("MX-Linux");
     QApplication::setApplicationVersion(VERSION);
 
