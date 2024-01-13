@@ -100,8 +100,9 @@ void MainWindow::onGroupButton(int button_id)
         {ButtonID::Telephone, "LC_TELEPHONE"},
         {ButtonID::Time, "LC_TIME"},
     };
-    if (button_id == ButtonID::Lang && !anyDifferentSubvars()) {
-        resetSubvariables();
+    if (button_id == ButtonID::Lang) {
+        setSubvariables();
+        ui->pushResetSubvar->setVisible(anyDifferentSubvars());
     } else {
         Cmd().runAsRoot("update-locale " + hashVarName.value(button_id) + '=' + buttonGroup->button(button_id)->text());
         ui->pushResetSubvar->setVisible(anyDifferentSubvars());
@@ -181,6 +182,7 @@ void MainWindow::setSubvariables()
     ui->pushButtonTelephone->setText(telephone);
     ui->pushButtonMeasurement->setText(measurement);
     ui->pushButtonIdentification->setText(identification);
+
 }
 
 void MainWindow::setButtons()
