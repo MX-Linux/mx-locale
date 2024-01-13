@@ -84,7 +84,7 @@ void MainWindow::onGroupButton(int button_id)
     if (dialog.exec() != QDialog::Accepted) {
         return;
     }
-    buttonGroup->button(button_id)->setText(dialog.selection().section('\t', 0, 0).trimmed());
+    buttonGroup->button(button_id)->setText(dialog.selection());
     QHash<int, QString> hashVarName {
         {ButtonID::Lang, "LANG"},
         {ButtonID::Address, "LC_ADDRESS"},
@@ -102,11 +102,9 @@ void MainWindow::onGroupButton(int button_id)
     };
     if (button_id == ButtonID::Lang) {
         setSubvariables();
-        ui->pushResetSubvar->setVisible(anyDifferentSubvars());
-    } else {
-        Cmd().runAsRoot("update-locale " + hashVarName.value(button_id) + '=' + buttonGroup->button(button_id)->text());
-        ui->pushResetSubvar->setVisible(anyDifferentSubvars());
     }
+    Cmd().runAsRoot("update-locale " + hashVarName.value(button_id) + '=' + buttonGroup->button(button_id)->text());
+    ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
 void MainWindow::resetSubvariables()
@@ -145,7 +143,7 @@ QString MainWindow::getCurrentLang() const
 
 void MainWindow::disableAllButCurrent()
 {
-    Cmd().runAsRoot("sed -i \"/^$LANG\\|^#/! s/#*/# /\" /etc/locale.gen");
+    Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|^#/! s/#*/# /\" /etc/locale.gen");
     localeGenChanged = true;
     onFilterChanged(ui->comboFilter->currentText());
 }
@@ -182,7 +180,6 @@ void MainWindow::setSubvariables()
     ui->pushButtonTelephone->setText(telephone);
     ui->pushButtonMeasurement->setText(measurement);
     ui->pushButtonIdentification->setText(identification);
-
 }
 
 void MainWindow::setButtons()
