@@ -1,3 +1,12 @@
+mx-locale (24.1.02) mx; urgency=medium
+
+  * Added icon
+  * Renamed tabs
+  * Use UTF-8 insted of utf8
+  * Use selected LANG from button instead of $LANG when disabing other locales
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 12 Jan 2024 21:15:26 -0500
+
 mx-locale (24.1.01) mx; urgency=medium
 
   * Various improvements
