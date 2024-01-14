@@ -1,3 +1,10 @@
+mx-locale (24.1.04) mx; urgency=medium
+
+  * use /usr/share/locale/SUPPORTED AND /usr/local/share/SUPPORTED for available locales list
+  * add to locale.gen if missing when enabling a locale for generation
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 14 Jan 2024 15:09:41 -0500
+
 mx-locale (24.1.03) mx; urgency=medium
 
   * add message about taking effect on login
