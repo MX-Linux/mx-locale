@@ -43,9 +43,9 @@ bool Cmd::run(const QString &cmd, bool quiet, bool asRoot)
     QEventLoop loop;
     connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
     if (asRoot && getuid() != 0) {
-        start(elevate, {helper, "LC_ALL=C " + cmd});
+        start(elevate, {helper, "LC_ALL=C.utf8 " + cmd});
     } else {
-        start("/bin/bash", {"-c", "LC_ALL=C " + cmd});
+        start("/bin/bash", {"-c", "LC_ALL=C.utf8 " + cmd});
     }
     loop.exec();
     emit done();
