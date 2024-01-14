@@ -1,6 +1,6 @@
 mx-locale (24.1.04) mx; urgency=medium
 
-  * use /usr/share/locale/SUPPORTED AND /usr/local/share/SUPPORTED for available locales list
+  * use /usr/share/i18n/SUPPORTED AND /usr/local/share/i18n/SUPPORTED for available locales list
   * add to locale.gen if missing when enabling a locale for generation
   * don't allow disable of locale if in use as LANG
   * adjustments to Cmd
