@@ -269,11 +269,34 @@ void MainWindow::displayLocalesGen()
 {
     countEnabled = 0;
     ui->listWidget->clear();
-    QFile file("/etc/locale.gen");
+    QFile file("/usr/share/i18n/SUPPORTED");
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
         return;
     }
+
+    QFile file2("/usr/local/share/i18n/SUPPORTED");
+    if (file2.exists()){
+        if (!file2.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
+            return;
+        }
+    }
+
+    QFile file3("/etc/locale.gen");
+    if (!file3.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
+        return;
+    }
+    QStringList enabledlocale;
+    QTextStream in3(&file3);
+    while (!in3.atEnd()) {
+        QString line = in3.readLine().trimmed();
+        if (line.contains(QRegularExpression("^.._"))) {
+            enabledlocale.append(line);
+        }
+    }
+
     QTextStream in(&file);
     while (!in.atEnd()) {
         QString line = in.readLine().trimmed();
@@ -284,12 +307,42 @@ void MainWindow::displayLocalesGen()
             ui->listWidget->addItem(item);
         } else if (line.contains(QRegularExpression("^.._"))) {
             auto item = new QListWidgetItem;
-            item->setCheckState(Qt::Checked);
-            item->setText(line);
-            ui->listWidget->addItem(item);
-            ++countEnabled;
+            if (enabledlocale.contains(line)){
+                item->setCheckState(Qt::Checked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+                ++countEnabled;
+            } else {
+                item->setCheckState(Qt::Unchecked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+            }
         }
     }
+
+    QTextStream in2(&file2);
+    while (!in2.atEnd()) {
+        QString line = in2.readLine().trimmed();
+        if (line.contains(QRegularExpression("^# .._"))) {
+            auto item = new QListWidgetItem;
+            item->setCheckState(Qt::Unchecked);
+            item->setText(line);
+            ui->listWidget->addItem(item);
+        } else if (line.contains(QRegularExpression("^.._"))) {
+            auto item = new QListWidgetItem;
+            if (enabledlocale.contains(line)){
+                item->setCheckState(Qt::Checked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+                ++countEnabled;
+            } else {
+                item->setCheckState(Qt::Unchecked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+            }
+        }
+    }
+    ui->listWidget->sortItems();
     ui->labelCountLocale->setText(tr("Locales enabled: %1").arg(countEnabled));
 }
 
