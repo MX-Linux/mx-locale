@@ -34,6 +34,7 @@ void chooseDialog::buildLocaleList()
 
     QString locales = Cmd().getOut("locale --all-locales |grep \\\\.");
     QStringList availableLocales = locales.split(QRegExp("(\\r\\n)|(\\n\\r)|\\r|\\n"), Qt::SkipEmptyParts);
+    availableLocales.removeOne("C.utf8");
 
     if (!libFile.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(libFile.fileName()));
