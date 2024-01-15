@@ -138,7 +138,7 @@ void MainWindow::helpClicked()
 QString MainWindow::getCurrentLang() const
 {
     QSettings defaultlocale("/etc/default/locale", QSettings::NativeFormat);
-    return defaultlocale.value("LANG", "C").toString();
+    return defaultlocale.value("LANG", "C").toString().replace(".utf8", ".UTF-8");
 }
 
 void MainWindow::disableAllButCurrent()
@@ -240,7 +240,7 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    if (item->text().section(" ", 0, 0) == getCurrentLang()) {
+    if (item->text().section(' ', 0, 0) == getCurrentLang()) {
         QMessageBox::warning(this, tr("Error"), tr("Can't disable locale in use"));
         onFilterChanged(ui->comboFilter->currentText());
         return;
@@ -281,7 +281,7 @@ void MainWindow::displayLocalesGen()
     }
 
     QFile file2("/usr/local/share/i18n/SUPPORTED");
-    if (file2.exists()){
+    if (file2.exists()) {
         if (!file2.open(QIODevice::ReadOnly)) {
             QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
             return;
@@ -312,7 +312,7 @@ void MainWindow::displayLocalesGen()
             ui->listWidget->addItem(item);
         } else if (line.contains(QRegularExpression("^.._"))) {
             auto item = new QListWidgetItem;
-            if (enabledlocale.contains(line)){
+            if (enabledlocale.contains(line)) {
                 item->setCheckState(Qt::Checked);
                 item->setText(line);
                 ui->listWidget->addItem(item);
@@ -335,7 +335,7 @@ void MainWindow::displayLocalesGen()
             ui->listWidget->addItem(item);
         } else if (line.contains(QRegularExpression("^.._"))) {
             auto item = new QListWidgetItem;
-            if (enabledlocale.contains(line)){
+            if (enabledlocale.contains(line)) {
                 item->setCheckState(Qt::Checked);
                 item->setText(line);
                 ui->listWidget->addItem(item);

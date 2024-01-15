@@ -32,8 +32,8 @@ void chooseDialog::buildLocaleList()
 {
     QFile libFile("/usr/lib/mx-locale/locale.lib");
 
-    QString locales = Cmd().getOut("locale --all-locales |grep \\\\. |grep -v iso");
-    QStringList availableLocales = locales.split(QRegExp("(\\r\\n)|(\\n\\r)|\\r|\\n"), Qt::SkipEmptyParts);
+    QString locales = Cmd().getOut(R"(locale --all-locales |grep \\. |grep -v iso)");
+    QStringList availableLocales = locales.split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts);
 
     if (!libFile.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(libFile.fileName()));
