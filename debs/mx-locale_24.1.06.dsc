@@ -2,15 +2,15 @@ Format: 3.0 (native)
 Source: mx-locale
 Binary: mx-locale
 Architecture: any
-Version: 24.1.05
+Version: 24.1.06
 Maintainer: Dolphin Oracle <dolphinoracle@gmail.com>
 Standards-Version: 3.9.8
 Build-Depends: debhelper (>= 10), qtbase5-dev, qttools5-dev-tools
 Package-List:
  mx-locale deb admin optional arch=any
 Checksums-Sha1:
- 72cf8c55e4995a8e0549fb2d78f0cbff2e9fe821 486052 mx-locale_24.1.05.tar.xz
+ 69dfdb81362b6464817ec1d708a9daaa172f5a4d 161040 mx-locale_24.1.06.tar.xz
 Checksums-Sha256:
- 5ece41aa41a94c581e78f9cee3020a11ea9804176cc72782e70496511ca42c9b 486052 mx-locale_24.1.05.tar.xz
+ 4f407b5a89ca617cf8cec6f649c471597efc9a8d94b53115a2d3eb6e8a13428d 161040 mx-locale_24.1.06.tar.xz
 Files:
- 31b66f7c53b90c116bd8fc65d54e7b28 486052 mx-locale_24.1.05.tar.xz
+ 05ca84eb44587688aa41b1c80b15b263 161040 mx-locale_24.1.06.tar.xz
