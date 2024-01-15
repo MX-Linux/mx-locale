@@ -177,7 +177,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -194,7 +194,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="labelLanguage">
          <property name="text">
-          <string>Current language:</string>
+          <string>Current System Language:</string>
          </property>
         </widget>
        </item>
