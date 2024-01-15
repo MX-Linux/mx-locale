@@ -177,7 +177,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -222,7 +222,7 @@
      </widget>
      <widget class="QWidget" name="tabSubvariables">
       <attribute name="title">
-       <string extracomment="defines individual subvariables for locale">Locale categories</string>
+       <string extracomment="defines individual subvariables for locale">Locale Categories</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="0">
@@ -406,7 +406,7 @@
      </widget>
      <widget class="QWidget" name="tabManagement">
       <attribute name="title">
-       <string>Locale management</string>
+       <string>Locale Management</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="2">
