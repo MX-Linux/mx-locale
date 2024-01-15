@@ -1,6 +1,6 @@
 mx-locale (24.1.06) mx; urgency=medium
 
-  * filter iso out of choose list
+  * filter iso out of choose dialog 
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 14 Jan 2024 22:56:48 -0500
 
