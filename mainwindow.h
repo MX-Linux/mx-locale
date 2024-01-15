@@ -86,6 +86,7 @@ private:
     int countEnabled {};
 
     [[nodiscard]] QString getCurrentLang() const;
+    [[nodiscard]] QString getCurrentSessionLang() const;
     void disableAllButCurrent();
     void displayLocalesGen();
     void localeGen();
