@@ -248,11 +248,12 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
     ui->listWidget->disconnect();
     localeGenChanged = true;
     if (item->checkState() == Qt::Checked) {
-        QString uncommentedText = item->text().remove(QRegularExpression("^# "));
-        if (Cmd().getOut("grep \"" + uncommentedText + "\" /etc/locale.gen").isEmpty()) {
+        QString uncommentedText = item->text().remove(QRegularExpression("^[^a-zA-Z0-9]*(?=[a-zA-Z0-9])"));
+        QString check = Cmd().getOut("grep \"" + uncommentedText + "\" /etc/locale.gen");
+        if (check.isEmpty()) {
             Cmd().runAsRoot("echo " + uncommentedText + " >>/etc/locale.gen");
         } else {
-            Cmd().runAsRoot("sed -i 's/" + item->text() + "/" + uncommentedText + "/' /etc/locale.gen");
+            Cmd().runAsRoot("sed -i 's/" + check + "/" + uncommentedText + "/' /etc/locale.gen");
         }
         item->setText(uncommentedText);
         ++countEnabled;
