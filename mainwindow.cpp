@@ -141,6 +141,13 @@ QString MainWindow::getCurrentLang() const
     return defaultlocale.value("LANG", "C").toString().replace(".utf8", ".UTF-8");
 }
 
+QString MainWindow::getCurrentSessionLang() const
+{
+    QString sessionlang = Cmd().getOut("locale |grep LANG=").section("=",1,1).remove("\"");
+    qDebug() << "session lang" << sessionlang.replace(".utf8", ".UTF-8");
+    return sessionlang.replace(".utf8", ".UTF-8");
+}
+
 void MainWindow::disableAllButCurrent()
 {
     Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|^#/! s/#*/# /\" /etc/locale.gen");
@@ -240,7 +247,7 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    if (item->text().section(' ', 0, 0) == getCurrentLang()) {
+    if (item->text().section(' ', 0, 0) == getCurrentLang() || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
         QMessageBox::warning(this, tr("Error"), tr("Can't disable locale in use"));
         onFilterChanged(ui->comboFilter->currentText());
         return;
