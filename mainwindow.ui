@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
+    <width>725</width>
     <height>748</height>
    </rect>
   </property>
@@ -177,7 +177,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -232,7 +232,7 @@
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_Ctype">
             <property name="text">
              <string>CType</string>
             </property>
@@ -332,7 +332,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>Name</string>
+             <string>Name Style</string>
             </property>
            </widget>
           </item>
@@ -386,9 +386,9 @@
            </widget>
           </item>
           <item row="11" column="0">
-           <widget class="QLabel" name="label_13">
+           <widget class="QLabel" name="label_Ident">
             <property name="text">
-             <string>Name Style</string>
+             <string>Identification</string>
             </property>
            </widget>
           </item>
