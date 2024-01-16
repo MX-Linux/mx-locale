@@ -46,7 +46,7 @@ MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
         ui->tabWidget->setTabVisible(Tab::Subvariables, false);
         ui->tabWidget->setTabVisible(Tab::Management, false);
     }
-    if (args.isSet("full-categories")){
+    if (args.isSet("full-categories")) {
         ui->label_Ctype->setHidden(false);
         ui->pushButtonCType->setHidden(false);
         ui->label_Ident->setHidden(false);
@@ -154,14 +154,15 @@ QString MainWindow::getCurrentLang() const
 
 QString MainWindow::getCurrentSessionLang() const
 {
-    QString sessionlang = Cmd().getOut("locale |grep LANG=").section("=",1,1).remove("\"");
-    qDebug() << "session lang" << sessionlang.replace(".utf8", ".UTF-8");
+    QString sessionlang = Cmd().getOut("locale | grep LANG=", true).section('=', 1, 1).remove('"');
+    qDebug() << "Session lang" << sessionlang.replace(".utf8", ".UTF-8");
     return sessionlang.replace(".utf8", ".UTF-8");
 }
 
 void MainWindow::disableAllButCurrent()
 {
-    Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|^#/! s/#*/# /\" /etc/locale.gen");
+    Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|" + getCurrentSessionLang()
+                    + "\\|^#/! s/#*/# /\" /etc/locale.gen");
     localeGenChanged = true;
     onFilterChanged(ui->comboFilter->currentText());
 }
@@ -233,7 +234,8 @@ void MainWindow::setConnections()
 void MainWindow::tabWidgetCurrentChanged()
 {
     if (ui->tabWidget->currentWidget() == ui->tabManagement) {
-        ui->labelCurrentLocale->setText(tr("Locale in use: <b>%1</b>","shows the current system locale, in bold").arg(getCurrentLang()));
+        ui->labelCurrentLocale->setText(
+            tr("Locale in use: <b>%1</b>", "shows the current system locale, in bold").arg(getCurrentLang()));
         displayLocalesGen();
     }
     if (localeGenChanged) {
@@ -244,7 +246,7 @@ void MainWindow::tabWidgetCurrentChanged()
 void MainWindow::onFilterChanged(const QString &text)
 {
     displayLocalesGen();
-    if (text == tr("All","all as in everything")) {
+    if (text == tr("All", "all as in everything")) {
         return;
     }
     for (int i = 0; i < ui->listWidget->count(); ++i) {
@@ -258,8 +260,11 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    if (item->text().section(' ', 0, 0) == getCurrentLang() || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
-        QMessageBox::warning(this, tr("Error"), tr("Can't disable locale in use","message that the chosen locale cannot be disabled because it is in active usage"));
+    if (item->text().section(' ', 0, 0) == getCurrentLang()
+        || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
+        QMessageBox::warning(this, tr("Error"),
+                             tr("Can't disable locale in use",
+                                "message that the chosen locale cannot be disabled because it is in active usage"));
         onFilterChanged(ui->comboFilter->currentText());
         return;
     }
@@ -281,7 +286,8 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         item->setText(commentedText);
         --countEnabled;
     }
-    ui->labelCountLocale->setText(tr("Locales enabled: %1","label for a numerical count of enabled and available locales").arg(countEnabled));
+    ui->labelCountLocale->setText(
+        tr("Locales enabled: %1", "label for a numerical count of enabled and available locales").arg(countEnabled));
     connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
     if (ui->comboFilter->currentText() != tr("All")) {
         onFilterChanged(ui->comboFilter->currentText());
