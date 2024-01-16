@@ -1,3 +1,9 @@
+mx-locale (24.1.08) mx; urgency=medium
+
+  * allow enabling of any locale, no check against running or system locale
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Tue, 16 Jan 2024 13:20:49 -0500
+
 mx-locale (24.1.07) mx; urgency=medium
 
   * Don't disable current session lang when disabing all the other locales
