@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOption({{"l", "only-lang"}, QObject::tr("Show only langauage selection tab.")});
+    parser.addOption({{"f", "full-categories"}, QObject::tr("Show all locale categories.")});
     parser.process(a);
 
     // Root guard

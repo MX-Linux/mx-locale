@@ -46,6 +46,17 @@ MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
         ui->tabWidget->setTabVisible(Tab::Subvariables, false);
         ui->tabWidget->setTabVisible(Tab::Management, false);
     }
+    if (args.isSet("full-categories")){
+        ui->label_Ctype->setHidden(false);
+        ui->pushButtonCType->setHidden(false);
+        ui->label_Ident->setHidden(false);
+        ui->pushButtonIdentification->setHidden(false);
+    } else {
+        ui->label_Ident->setHidden(true);
+        ui->pushButtonIdentification->setHidden(true);
+        ui->label_Ctype->setHidden(true);
+        ui->pushButtonCType->setHidden(true);
+    }
     this->adjustSize();
 }
 
