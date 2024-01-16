@@ -1,140 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="sv">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Program_Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Program_Namn</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="46"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>Avsluta programmet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="94"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>Om detta program</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>Om...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="104"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="120"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Visa hjälp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="123"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Hjälp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="130"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="184"/>
         <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Systemspråk-inställningar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="190"/>
         <source>PushButton</source>
-        <translation type="unfinished"></translation>
+        <translation>Knapp att trycka på</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
         <source>Current System Language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuvarande Systemspråk.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="217"/>
         <source>Set all locale categories to current language</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställ in alla språkkategorier på nuvarande språk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="225"/>
         <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Språkkategorier</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="251"/>
         <source>Numeric</source>
-        <translation type="unfinished"></translation>
+        <translation>Numerisk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="265"/>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Tid</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="279"/>
         <source>Collate</source>
-        <translation type="unfinished"></translation>
+        <translation>Jämför</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="293"/>
         <source>Currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Valuta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="307"/>
         <source>Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Meddelanden</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="321"/>
         <source>Paper Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Pappersstorlek</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="335"/>
         <source>Name Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Namnstil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="349"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Adress</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="363"/>
         <source>Telephone</source>
-        <translation type="unfinished"></translation>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="377"/>
         <source>Measurement</source>
-        <translation type="unfinished"></translation>
+        <translation>Mått</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="409"/>
         <source>Locale Management</source>
         <extracomment>Tab to manage generation of locale caches</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Språkhantering</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="415"/>
@@ -142,77 +142,89 @@
         <location filename="../mainwindow.cpp" line="286"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Alla</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <location filename="../mainwindow.cpp" line="254"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverad</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
         <location filename="../mainwindow.cpp" line="253"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaktiverad</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stäng av alla språk utom det som används</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="468"/>
         <source>Changes go into effect on login</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändringarna genomförs vid inloggning</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Språk</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="132"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Om %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="134"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Version:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="135"/>
         <source>Program for changing language and locale categories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="138"/>
-        <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="139"/>
-        <source>%1 License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="146"/>
-        <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Program för att byta språk och språkinställningskategorier</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="236"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
-        <translation type="unfinished"></translation>
+        <translation>Använt språk: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="247"/>
         <source>All</source>
         <comment>all as in everything</comment>
-        <translation type="unfinished"></translation>
+        <translation>Alla</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="262"/>
+        <source>Can&apos;t disable locale in use</source>
+        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
+        <translation>Kan inte stänga av använda språkinställningar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="284"/>
+        <source>Locales enabled: %1</source>
+        <comment>label for a numerical count of enabled and available locales</comment>
+        <translation>Aktiverade språkinställningar: %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="138"/>
+        <source>Copyright (c) MX Linux</source>
+        <translation>Copyright (c) MX Linux</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="139"/>
+        <source>%1 License</source>
+        <translation>%1 Licens</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="146"/>
+        <source>%1 Help</source>
+        <translation>%1 Hjälp</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="262"/>
@@ -220,31 +232,19 @@
         <location filename="../mainwindow.cpp" line="304"/>
         <location filename="../mainwindow.cpp" line="311"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
-        <source>Can&apos;t disable locale in use</source>
-        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="284"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>Locales enabled: %1</source>
-        <comment>label for a numerical count of enabled and available locales</comment>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverade språkinställningar: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <location filename="../mainwindow.cpp" line="304"/>
         <location filename="../mainwindow.cpp" line="311"/>
         <source>Could not open %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="369"/>
-        <source>Locales enabled: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte öppna %1</translation>
     </message>
 </context>
 <context>
@@ -252,54 +252,54 @@
     <message>
         <location filename="../about.cpp" line="34"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licens</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="35"/>
         <location filename="../about.cpp" line="45"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändringslogg</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="36"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stäng</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Språkinställningar är ett verktyg för att hantera språkinställningar i  MX Linux</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa enbart språkvalsfliken.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>
         <source>Show all locale categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa alla språkinställningskategorier.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
         <location filename="../main.cpp" line="79"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="72"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du verkar vara inloggad som rot, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>You must run this program with admin access.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du måste köra detta program med administratörsrättigheter.</translation>
     </message>
 </context>
 <context>
@@ -307,34 +307,34 @@
     <message>
         <location filename="../choosedialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="48"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>sök</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
         <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Om språket du vill ha inte är listat här, aktivera det i &quot;Språkhanterings&quot; fliken</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
         <comment>name of application</comment>
-        <translation type="unfinished"></translation>
+        <translation>MX Språk</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte öppna %1</translation>
     </message>
 </context>
 </TS>
