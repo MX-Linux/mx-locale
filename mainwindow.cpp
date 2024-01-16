@@ -260,13 +260,16 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    if (item->text().section(' ', 0, 0) == getCurrentLang()
-        || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
-        QMessageBox::warning(this, tr("Error"),
-                             tr("Can't disable locale in use",
-                                "message that the chosen locale cannot be disabled because it is in active usage"));
-        onFilterChanged(ui->comboFilter->currentText());
-        return;
+    //check for disabling of running locale
+    if (item->checkState() == Qt::Unchecked){
+        if (item->text().section(' ', 0, 0) == getCurrentLang()
+                || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
+            QMessageBox::warning(this, tr("Error"),
+                                 tr("Can't disable locale in use",
+                                    "message that the chosen locale cannot be disabled because it is in active usage"));
+            onFilterChanged(ui->comboFilter->currentText());
+            return;
+        }
     }
     ui->listWidget->disconnect();
     localeGenChanged = true;
