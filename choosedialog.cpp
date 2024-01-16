@@ -22,7 +22,7 @@ chooseDialog::~chooseDialog()
 // Setup versious items first time program runs
 void chooseDialog::setup()
 {
-    this->setWindowTitle(tr("MX Locale"));
+    this->setWindowTitle(tr("MX Locale","name of application"));
     buildLocaleList();
     ui->textSearch->setFocus();
     connect(ui->textSearch, &QLineEdit::textChanged, this, &chooseDialog::textSearch_textChanged);
@@ -36,7 +36,7 @@ void chooseDialog::buildLocaleList()
     QStringList availableLocales = locales.split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts);
 
     if (!libFile.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(libFile.fileName()));
+        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1","message that a file could not be open, file takes place of %1").arg(libFile.fileName()));
         return;
     }
 

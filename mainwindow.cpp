@@ -132,7 +132,7 @@ void MainWindow::aboutClicked()
     displayAboutMsgBox(tr("About %1").arg(this->windowTitle()),
                        "<p align=\"center\"><b><h2>" + this->windowTitle() + "</h2></b></p><p align=\"center\">"
                            + tr("Version: ") + VERSION + "</p><p align=\"center\"><h3>"
-                           + tr("Program for changing language and locale variables")
+                           + tr("Program for changing language and locale categories")
                            + "</h3></p><p align=\"center\"><a href=\"http://mxlinux.org\">http://mxlinux.org</a><br "
                              "/></p><p align=\"center\">"
                            + tr("Copyright (c) MX Linux") + "<br /><br /></p>",
@@ -233,7 +233,7 @@ void MainWindow::setConnections()
 void MainWindow::tabWidgetCurrentChanged()
 {
     if (ui->tabWidget->currentWidget() == ui->tabManagement) {
-        ui->labelCurrentLocale->setText(tr("Locale in use: <b>%1</b>").arg(getCurrentLang()));
+        ui->labelCurrentLocale->setText(tr("Locale in use: <b>%1</b>","shows the current system locale, in bold").arg(getCurrentLang()));
         displayLocalesGen();
     }
     if (localeGenChanged) {
@@ -244,7 +244,7 @@ void MainWindow::tabWidgetCurrentChanged()
 void MainWindow::onFilterChanged(const QString &text)
 {
     displayLocalesGen();
-    if (text == tr("All")) {
+    if (text == tr("All","all as in everything")) {
         return;
     }
     for (int i = 0; i < ui->listWidget->count(); ++i) {
@@ -259,7 +259,7 @@ void MainWindow::onFilterChanged(const QString &text)
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
     if (item->text().section(' ', 0, 0) == getCurrentLang() || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
-        QMessageBox::warning(this, tr("Error"), tr("Can't disable locale in use"));
+        QMessageBox::warning(this, tr("Error"), tr("Can't disable locale in use","message that the chosen locale cannot be disabled because it is in active usage"));
         onFilterChanged(ui->comboFilter->currentText());
         return;
     }
@@ -281,7 +281,7 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         item->setText(commentedText);
         --countEnabled;
     }
-    ui->labelCountLocale->setText(tr("Locales enabled: %1").arg(countEnabled));
+    ui->labelCountLocale->setText(tr("Locales enabled: %1","label for a numerical count of enabled and available locales").arg(countEnabled));
     connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
     if (ui->comboFilter->currentText() != tr("All")) {
         onFilterChanged(ui->comboFilter->currentText());
