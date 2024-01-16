@@ -3,7 +3,7 @@ Encoding=UTF-8
 #Translator comment:  name of application in menu
 Name=MX Locale
 #Translator comment:  description comment of application in menu
-Comment=Set language and locale variables
+Comment=Set language and locale categories
 Exec=mx-locale
 Terminal=false
 Type=Application
