@@ -139,20 +139,20 @@
     <message>
         <location filename="../mainwindow.ui" line="415"/>
         <location filename="../mainwindow.ui" line="419"/>
-        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="292"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Kaikki</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
-        <location filename="../mainwindow.cpp" line="254"/>
+        <location filename="../mainwindow.cpp" line="256"/>
         <source>Enabled</source>
         <translation>Käytössä</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
-        <location filename="../mainwindow.cpp" line="253"/>
+        <location filename="../mainwindow.cpp" line="255"/>
         <source>Disabled</source>
         <translation>Poistettu käytöstä</translation>
     </message>
@@ -188,25 +188,25 @@
         <translation>Ohjelma kielen ja maa-asetusten vaihtaminen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="238"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
         <translation>Käytössä oleva kielialue: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="247"/>
+        <location filename="../mainwindow.cpp" line="249"/>
         <source>All</source>
         <comment>all as in everything</comment>
         <translation>Kaikki</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>Käytössä olevaa kielialuetta ei voi poistaa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="284"/>
+        <location filename="../mainwindow.cpp" line="290"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Kielialue käytössä: %1</translation>
@@ -227,22 +227,22 @@
         <translation>%1 ohje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="265"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="375"/>
         <source>Locales enabled: %1</source>
         <translation>Kielialue käytössä: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Could not open %1</source>
         <translation>Ei voi avata %1</translation>
     </message>
@@ -276,9 +276,13 @@
         <translation>MX Locale työkalua käytetään maa-asetusten hallintaan MX Linuxissa</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation>Näytä vain kielen valintavälilehti.</translation>
+        <translation type="vanished">Näytä vain kielen valintavälilehti.</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="60"/>
+        <source>Show only langauage selection tab.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>

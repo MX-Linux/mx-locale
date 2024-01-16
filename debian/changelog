@@ -1,3 +1,9 @@
+mx-locale (24.1.07) mx; urgency=medium
+
+  * Don't disable current session lang when disabing all the other locales
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 16 Jan 2024 11:24:35 -0500
+
 mx-locale (24.1.06) mx; urgency=medium
 
   * filter iso out of choose dialog 

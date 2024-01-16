@@ -139,20 +139,20 @@
     <message>
         <location filename="../mainwindow.ui" line="415"/>
         <location filename="../mainwindow.ui" line="419"/>
-        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="292"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Tous</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
-        <location filename="../mainwindow.cpp" line="254"/>
+        <location filename="../mainwindow.cpp" line="256"/>
         <source>Enabled</source>
         <translation>Activé</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
-        <location filename="../mainwindow.cpp" line="253"/>
+        <location filename="../mainwindow.cpp" line="255"/>
         <source>Disabled</source>
         <translation>Désactivé</translation>
     </message>
@@ -188,25 +188,25 @@
         <translation>Programme pour changer les langues et les catégories de paramètres régionaux.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="238"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
         <translation>Paramètres régionaux en cours: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="247"/>
+        <location filename="../mainwindow.cpp" line="249"/>
         <source>All</source>
         <comment>all as in everything</comment>
         <translation>Tous</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>Impossible de désactiver les paramètres régionaux en cours d’utilisation.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="284"/>
+        <location filename="../mainwindow.cpp" line="290"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Paramètres régionaux activés: %1</translation>
@@ -227,22 +227,22 @@
         <translation>%1 Aide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="265"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="375"/>
         <source>Locales enabled: %1</source>
         <translation>Paramètres régionaux activés: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Could not open %1</source>
         <translation>Impossible d’ouvrir %1</translation>
     </message>
@@ -276,9 +276,13 @@
         <translation>MX Locale est un outil utilisé pour gérer les paramètres régionaux dans MX Linux.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation>Afficher uniquement l’onglet de sélection de la langue.</translation>
+        <translation type="vanished">Afficher uniquement l’onglet de sélection de la langue.</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="60"/>
+        <source>Show only langauage selection tab.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>

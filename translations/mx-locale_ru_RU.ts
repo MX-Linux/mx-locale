@@ -1,140 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Program_Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Название программы</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="46"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>Выйти из приложения</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="94"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>Об этом приложении</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>О программе...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="104"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="120"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Показать справку</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="123"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="130"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="184"/>
         <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Системная локаль</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="190"/>
         <source>PushButton</source>
-        <translation type="unfinished"></translation>
+        <translation>НажатьКнопку</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
         <source>Current System Language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Текущий язык системы</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="217"/>
         <source>Set all locale categories to current language</source>
-        <translation type="unfinished"></translation>
+        <translation>Установите все локальные категории на текущий язык.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="225"/>
         <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Категории локали</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="251"/>
         <source>Numeric</source>
-        <translation type="unfinished"></translation>
+        <translation>Числовой</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="265"/>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Время</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="279"/>
         <source>Collate</source>
-        <translation type="unfinished"></translation>
+        <translation>Сопоставить</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="293"/>
         <source>Currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Валюта</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="307"/>
         <source>Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщения</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="321"/>
         <source>Paper Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер бумаги</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="335"/>
         <source>Name Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль имени</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="349"/>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="363"/>
         <source>Telephone</source>
-        <translation type="unfinished"></translation>
+        <translation>Телефон</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="377"/>
         <source>Measurement</source>
-        <translation type="unfinished"></translation>
+        <translation>Измерение</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="409"/>
         <source>Locale Management</source>
         <extracomment>Tab to manage generation of locale caches</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Управление локализацией</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="415"/>
@@ -142,77 +142,77 @@
         <location filename="../mainwindow.cpp" line="292"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Всех</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <location filename="../mainwindow.cpp" line="256"/>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
         <location filename="../mainwindow.cpp" line="255"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключено</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Отключить все локали, кроме используемой.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="468"/>
         <source>Changes go into effect on login</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменения вступают в силу при входе в систему</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Локаль</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="132"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>О %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="134"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Версия: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="135"/>
         <source>Program for changing language and locale categories</source>
-        <translation type="unfinished"></translation>
+        <translation>Программа для изменения языка и категорий локали.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="138"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="139"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Лицензия</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="146"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Справка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="238"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
-        <translation type="unfinished"></translation>
+        <translation>Используемая локаль: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="249"/>
         <source>All</source>
         <comment>all as in everything</comment>
-        <translation type="unfinished"></translation>
+        <translation>Всех</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="265"/>
@@ -220,31 +220,31 @@
         <location filename="../mainwindow.cpp" line="310"/>
         <location filename="../mainwindow.cpp" line="317"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="266"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно отключить используемую локаль</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
-        <translation type="unfinished"></translation>
+        <translation>Локали включены: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="303"/>
         <location filename="../mainwindow.cpp" line="310"/>
         <location filename="../mainwindow.cpp" line="317"/>
         <source>Could not open %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось открыть %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="375"/>
         <source>Locales enabled: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Локали включены: %1</translation>
     </message>
 </context>
 <context>
@@ -252,28 +252,32 @@
     <message>
         <location filename="../about.cpp" line="34"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензия</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="35"/>
         <location filename="../about.cpp" line="45"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Список изменений</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="36"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Закрыть</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Locale - это инструмент, используемый для управления настройками локали в MX Linux.</translation>
+    </message>
+    <message>
+        <source>Show only language selection tab.</source>
+        <translation type="vanished">Показывать только вкладку выбора языка.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="60"/>
@@ -283,23 +287,23 @@
     <message>
         <location filename="../main.cpp" line="61"/>
         <source>Show all locale categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать все категории локали.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
         <location filename="../main.cpp" line="79"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="72"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"></translation>
+        <translation>Программа запущена суперпользователем. Для использования программы войдите в систему как обычный пользователь.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>You must run this program with admin access.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы должны запустить эту программу с правами администратора.</translation>
     </message>
 </context>
 <context>
@@ -307,34 +311,34 @@
     <message>
         <location filename="../choosedialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Диалоговое окно</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="48"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>поиск</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
         <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Если ваш язык не указан здесь, включите его во вкладке &quot;Управление локализацией&quot;</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
         <comment>name of application</comment>
-        <translation type="unfinished"></translation>
+        <translation>MX Локаль</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось открыть %1</translation>
     </message>
 </context>
 </TS>

@@ -139,20 +139,20 @@
     <message>
         <location filename="../mainwindow.ui" line="415"/>
         <location filename="../mainwindow.ui" line="419"/>
-        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="292"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Alle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
-        <location filename="../mainwindow.cpp" line="254"/>
+        <location filename="../mainwindow.cpp" line="256"/>
         <source>Enabled</source>
         <translation>Ingeschakeld</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
-        <location filename="../mainwindow.cpp" line="253"/>
+        <location filename="../mainwindow.cpp" line="255"/>
         <source>Disabled</source>
         <translation>Uitgeschakeld</translation>
     </message>
@@ -188,25 +188,25 @@
         <translation>Programma voor het wijzigen van taal- en locale categorieën</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="238"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
         <translation>Locale in gebruik: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="247"/>
+        <location filename="../mainwindow.cpp" line="249"/>
         <source>All</source>
         <comment>all as in everything</comment>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>Kan locale in gebruik niet uitschakelen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="284"/>
+        <location filename="../mainwindow.cpp" line="290"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Locales ingeschakeld: %1</translation>
@@ -227,22 +227,22 @@
         <translation>%1 Help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="262"/>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="265"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="375"/>
         <source>Locales enabled: %1</source>
         <translation>Locales ingeschakeld: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="297"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="303"/>
+        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="317"/>
         <source>Could not open %1</source>
         <translation>Kon %1 niet openen</translation>
     </message>
@@ -276,9 +276,13 @@
         <translation>MX Locale is een hulpprogramma voor het beheren van locale-instellingen in MX Linux</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation>Toon alleen taalselectietab.</translation>
+        <translation type="vanished">Toon alleen taalselectietab.</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="60"/>
+        <source>Show only langauage selection tab.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>
