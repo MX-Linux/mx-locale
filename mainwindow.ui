@@ -228,20 +228,20 @@
        <item row="1" column="0">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Locale subvariables</string>
+          <string notr="true"/>
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="label_Ctype">
             <property name="text">
-             <string>CType</string>
+             <string notr="true">CType</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QPushButton" name="pushButtonCType">
             <property name="text">
-             <string>CType</string>
+             <string notr="true">CType</string>
             </property>
            </widget>
           </item>
@@ -255,7 +255,7 @@
           <item row="1" column="1">
            <widget class="QPushButton" name="pushButtonNumeric">
             <property name="text">
-             <string>Numeric</string>
+             <string notr="true">Numeric</string>
             </property>
            </widget>
           </item>
@@ -269,7 +269,7 @@
           <item row="2" column="1">
            <widget class="QPushButton" name="pushButtonTime">
             <property name="text">
-             <string>Time</string>
+             <string notr="true">Time</string>
             </property>
            </widget>
           </item>
@@ -283,7 +283,7 @@
           <item row="3" column="1">
            <widget class="QPushButton" name="pushButtonCollate">
             <property name="text">
-             <string>Collate</string>
+             <string notr="true">Collate</string>
             </property>
            </widget>
           </item>
@@ -297,7 +297,7 @@
           <item row="4" column="1">
            <widget class="QPushButton" name="pushButtonMonetary">
             <property name="text">
-             <string>Monetary</string>
+             <string notr="true">Monetary</string>
             </property>
            </widget>
           </item>
@@ -311,7 +311,7 @@
           <item row="5" column="1">
            <widget class="QPushButton" name="pushButtonMessages">
             <property name="text">
-             <string>Messages</string>
+             <string notr="true">Messages</string>
             </property>
            </widget>
           </item>
@@ -325,7 +325,7 @@
           <item row="6" column="1">
            <widget class="QPushButton" name="pushButtonPaper">
             <property name="text">
-             <string>Paper</string>
+             <string notr="true">Paper</string>
             </property>
            </widget>
           </item>
@@ -339,7 +339,7 @@
           <item row="7" column="1">
            <widget class="QPushButton" name="pushButtonName">
             <property name="text">
-             <string>Name</string>
+             <string notr="true">Name</string>
             </property>
            </widget>
           </item>
@@ -353,7 +353,7 @@
           <item row="8" column="1">
            <widget class="QPushButton" name="pushButtonAddress">
             <property name="text">
-             <string>Address</string>
+             <string notr="true">Address</string>
             </property>
            </widget>
           </item>
@@ -367,7 +367,7 @@
           <item row="9" column="1">
            <widget class="QPushButton" name="pushButtonTelephone">
             <property name="text">
-             <string>Telephone</string>
+             <string notr="true">Telephone</string>
             </property>
            </widget>
           </item>
@@ -381,21 +381,21 @@
           <item row="10" column="1">
            <widget class="QPushButton" name="pushButtonMeasurement">
             <property name="text">
-             <string>Measurement</string>
+             <string notr="true">Measurement</string>
             </property>
            </widget>
           </item>
           <item row="11" column="0">
            <widget class="QLabel" name="label_Ident">
             <property name="text">
-             <string>Identification</string>
+             <string notr="true">Identification</string>
             </property>
            </widget>
           </item>
           <item row="11" column="1">
            <widget class="QPushButton" name="pushButtonIdentification">
             <property name="text">
-             <string>Identification</string>
+             <string notr="true">Identification</string>
             </property>
            </widget>
           </item>
@@ -406,11 +406,14 @@
      </widget>
      <widget class="QWidget" name="tabManagement">
       <attribute name="title">
-       <string>Locale Management</string>
+       <string extracomment="Tab to manage generation of locale caches">Locale Management</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="2">
         <widget class="QComboBox" name="comboFilter">
+         <property name="currentText">
+          <string extracomment="elements of filter box">All</string>
+         </property>
          <item>
           <property name="text">
            <string>All</string>
@@ -441,14 +444,14 @@
        <item row="3" column="0">
         <widget class="QLabel" name="labelCountLocale">
          <property name="text">
-          <string notr="true">Locales enabled:</string>
+          <string notr="true" extracomment="count of the number of loca">Locales enabled:</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1" colspan="2">
         <widget class="QPushButton" name="pushDisableLocales">
          <property name="text">
-          <string>Disable all locales except the one in use</string>
+          <string extracomment="disables generation of any locale except on that is currently in use">Disable all locales except the one in use</string>
          </property>
          <property name="autoDefault">
           <bool>false</bool>

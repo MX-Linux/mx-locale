@@ -9,275 +9,240 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="50"/>
+        <location filename="../mainwindow.ui" line="46"/>
         <source>Quit application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="53"/>
+        <location filename="../mainwindow.ui" line="49"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="60"/>
+        <location filename="../mainwindow.ui" line="56"/>
         <source>Alt+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="124"/>
-        <source>Display help </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="127"/>
-        <source>Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="134"/>
-        <source>Alt+H</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="98"/>
+        <location filename="../mainwindow.ui" line="94"/>
         <source>About this application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="101"/>
+        <location filename="../mainwindow.ui" line="97"/>
         <source>About...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="108"/>
+        <location filename="../mainwindow.ui" line="104"/>
         <source>Alt+B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="188"/>
-        <source>Language</source>
+        <location filename="../mainwindow.ui" line="120"/>
+        <source>Display help </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="123"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="130"/>
+        <source>Alt+H</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="184"/>
+        <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="207"/>
+        <location filename="../mainwindow.ui" line="190"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="222"/>
-        <location filename="../mainwindow.ui" line="228"/>
-        <source>Locale subvariables</source>
+        <location filename="../mainwindow.ui" line="197"/>
+        <source>Current System Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="217"/>
+        <source>Set all locale categories to current language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="225"/>
+        <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="353"/>
-        <source>Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="367"/>
-        <source>Telephone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="374"/>
-        <source>LC_MEASUREMENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="332"/>
-        <source>LC_NAME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="214"/>
-        <source>Current language:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="241"/>
-        <source>CType</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="248"/>
-        <source>LC_NUMERIC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="255"/>
+        <location filename="../mainwindow.ui" line="251"/>
         <source>Numeric</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="269"/>
+        <location filename="../mainwindow.ui" line="265"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="283"/>
+        <location filename="../mainwindow.ui" line="279"/>
         <source>Collate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="297"/>
-        <source>Monetary</source>
+        <location filename="../mainwindow.ui" line="293"/>
+        <source>Currency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="311"/>
+        <location filename="../mainwindow.ui" line="307"/>
         <source>Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="325"/>
-        <source>Paper</source>
+        <location filename="../mainwindow.ui" line="321"/>
+        <source>Paper Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="339"/>
-        <source>Name</source>
+        <location filename="../mainwindow.ui" line="335"/>
+        <source>Name Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
-        <source>LC_ADDRESS</source>
+        <location filename="../mainwindow.ui" line="349"/>
+        <source>Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="395"/>
-        <source>Identification</source>
+        <location filename="../mainwindow.ui" line="363"/>
+        <source>Telephone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="406"/>
-        <source>Locale management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="413"/>
-        <location filename="../mainwindow.cpp" line="207"/>
-        <location filename="../mainwindow.cpp" line="236"/>
-        <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="418"/>
-        <location filename="../mainwindow.cpp" line="214"/>
-        <source>Enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="423"/>
-        <location filename="../mainwindow.cpp" line="213"/>
-        <source>Disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="448"/>
-        <source>Disable all locales except the one in use</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="290"/>
-        <source>LC_MONETARY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="234"/>
-        <source>LC_CTYPE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="318"/>
-        <source>LC_PAPER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="262"/>
-        <source>LC_TIME</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="360"/>
-        <source>LC_TELEPHONE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="304"/>
-        <source>LC_MESSAGES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="381"/>
+        <location filename="../mainwindow.ui" line="377"/>
         <source>Measurement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="388"/>
-        <source>LC_IDENTIFICATION</source>
+        <location filename="../mainwindow.ui" line="409"/>
+        <source>Locale Management</source>
+        <extracomment>Tab to manage generation of locale caches</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="276"/>
-        <source>LC_COLLATE</source>
+        <location filename="../mainwindow.ui" line="415"/>
+        <location filename="../mainwindow.ui" line="419"/>
+        <location filename="../mainwindow.cpp" line="286"/>
+        <source>All</source>
+        <extracomment>elements of filter box</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="100"/>
-        <source>About %1</source>
+        <location filename="../mainwindow.ui" line="424"/>
+        <location filename="../mainwindow.cpp" line="254"/>
+        <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="102"/>
-        <source>Version: </source>
+        <location filename="../mainwindow.ui" line="429"/>
+        <location filename="../mainwindow.cpp" line="253"/>
+        <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.ui" line="454"/>
+        <source>Disable all locales except the one in use</source>
+        <extracomment>disables generation of any locale except on that is currently in use</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="468"/>
+        <source>Changes go into effect on login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
-        <source>Program for changing language and locale variables</source>
+        <location filename="../mainwindow.cpp" line="132"/>
+        <source>About %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="106"/>
+        <location filename="../mainwindow.cpp" line="134"/>
+        <source>Version: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="135"/>
+        <source>Program for changing language and locale categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="236"/>
+        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
+        <comment>shows the current system locale, in bold</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="247"/>
+        <source>All</source>
+        <comment>all as in everything</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="262"/>
+        <source>Can&apos;t disable locale in use</source>
+        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="284"/>
+        <source>Locales enabled: %1</source>
+        <comment>label for a numerical count of enabled and available locales</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="138"/>
         <source>Copyright (c) MX Linux</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="107"/>
+        <location filename="../mainwindow.cpp" line="139"/>
         <source>%1 License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="114"/>
+        <location filename="../mainwindow.cpp" line="146"/>
         <source>%1 Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="196"/>
-        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="234"/>
-        <location filename="../mainwindow.cpp" line="266"/>
-        <source>Locales enabled: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="247"/>
+        <location filename="../mainwindow.cpp" line="262"/>
+        <location filename="../mainwindow.cpp" line="297"/>
+        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="247"/>
+        <location filename="../mainwindow.cpp" line="369"/>
+        <source>Locales enabled: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="297"/>
+        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Could not open %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -316,18 +281,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="70"/>
-        <location filename="../main.cpp" line="78"/>
-        <source>Error</source>
+        <location filename="../main.cpp" line="61"/>
+        <source>Show all locale categories.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
+        <location filename="../main.cpp" line="79"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="72"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="80"/>
         <source>You must run this program with admin access.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -352,6 +322,7 @@
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
+        <comment>name of application</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -362,6 +333,7 @@
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Could not open %1</source>
+        <comment>message that a file could not be open, file takes place of %1</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
