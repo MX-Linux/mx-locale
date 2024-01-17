@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription(QObject::tr("MX Locale is a tool used for managing locale settings in MX Linux"));
     parser.addHelpOption();
     parser.addVersionOption();
-    parser.addOption({{"l", "only-lang"}, QObject::tr("Show only langauage selection tab.")});
+    parser.addOption({{"l", "only-lang"}, QObject::tr("Show only language selection tab.")});
     parser.addOption({{"f", "full-categories"}, QObject::tr("Show all locale categories.")});
     parser.process(a);
 

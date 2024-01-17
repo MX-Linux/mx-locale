@@ -286,6 +286,8 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
     } else {
         QString commentedText = "# " + item->text();
         Cmd().runAsRoot("sed -i 's/" + item->text() + "/" + commentedText + "/' /etc/locale.gen");
+        Cmd().runAsRoot("sed -i '/" + item->text().section(" ",0,0) + "/d' /etc/default/locale");
+        setSubvariables();
         item->setText(commentedText);
         --countEnabled;
     }
