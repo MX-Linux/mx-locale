@@ -62,7 +62,7 @@
     <message>
         <location filename="../mainwindow.ui" line="190"/>
         <source>PushButton</source>
-        <translation type="unfinished"></translation>
+        <translation>DruckTaste</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
-        <translation>MX Gebietsschemata</translation>
+        <translation>MX Gebietsschema</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="132"/>
@@ -242,7 +242,7 @@
         <translation>Konnte %1 nicht öffnen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>Locales enabled: %1</source>
         <translation>Aktivierte Gebietsschemata: %1</translation>
     </message>
@@ -323,7 +323,7 @@
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
         <comment>name of application</comment>
-        <translation>MX Gebietsschemata</translation>
+        <translation>MX Gebietsschema</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>

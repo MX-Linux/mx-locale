@@ -93,7 +93,7 @@
     <message>
         <location filename="../mainwindow.ui" line="279"/>
         <source>Collate</source>
-        <translation type="unfinished"></translation>
+        <translation>Razvrsti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="293"/>
@@ -188,33 +188,9 @@
         <translation>Program za spreminjanje jezika in krajevnih kateogrij</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="238"/>
-        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
-        <comment>shows the current system locale, in bold</comment>
-        <translation>Uporabljena lokalizacija: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="249"/>
-        <source>All</source>
-        <comment>all as in everything</comment>
-        <translation>Vse</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="268"/>
-        <source>Can&apos;t disable locale in use</source>
-        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="295"/>
-        <source>Locales enabled: %1</source>
-        <comment>label for a numerical count of enabled and available locales</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="138"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation>Avtorska zaščita (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="139"/>
@@ -227,6 +203,18 @@
         <translation>%1 pomoč</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="238"/>
+        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
+        <comment>shows the current system locale, in bold</comment>
+        <translation>Uporabljena lokalizacija: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="249"/>
+        <source>All</source>
+        <comment>all as in everything</comment>
+        <translation>Vse</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="267"/>
         <location filename="../mainwindow.cpp" line="308"/>
         <location filename="../mainwindow.cpp" line="315"/>
@@ -235,16 +223,28 @@
         <translation>Napaka</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="268"/>
+        <source>Can&apos;t disable locale in use</source>
+        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
+        <translation>Ne morem onemogočiti uporabljene lokalizacije</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="295"/>
         <source>Locales enabled: %1</source>
-        <translation type="unfinished"></translation>
+        <comment>label for a numerical count of enabled and available locales</comment>
+        <translation>Omogočene lokalizacije: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="308"/>
         <location filename="../mainwindow.cpp" line="315"/>
         <location filename="../mainwindow.cpp" line="322"/>
         <source>Could not open %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne morem odpreti %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="370"/>
+        <source>Locales enabled: %1</source>
+        <translation>Onemogočene lokalizacije: %1</translation>
     </message>
 </context>
 <context>
@@ -273,17 +273,17 @@
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>MX lokalizacija je orodje za upravljanje krajevnih nastavitev v MX Linux</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži le zavihek za izbiro jezika.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>
         <source>Show all locale categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži vse krajevne kategorije.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../choosedialog.ui" line="58"/>
         <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Če željeni jezik tukaj ni naveden, ga vklopite na zavihku &quot;Upravljanje lokalizacije&quot;</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
@@ -334,7 +334,7 @@
         <location filename="../choosedialog.cpp" line="39"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ne morem odpreti %1</translation>
     </message>
 </context>
 </TS>
