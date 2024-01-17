@@ -1,3 +1,12 @@
+mx-locale (24.1.09) mx; urgency=medium
+
+  * addjust regexp patterns, two+three letter language and 2 letter regional code
+  * ignore commented out locale in SUPPORTED
+  * trim spaces in updated locale.gen
+  * remove locale dublicates
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 17 Jan 2024 15:39:25 -0500
+
 mx-locale (24.1.08) mx; urgency=medium
 
   * allow enabling of any locale, no check against running or system locale
