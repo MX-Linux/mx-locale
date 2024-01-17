@@ -188,30 +188,6 @@
         <translation>Programa per canviar d&apos;idioma i categoria de localització</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="238"/>
-        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
-        <comment>shows the current system locale, in bold</comment>
-        <translation>Localització en ús: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="249"/>
-        <source>All</source>
-        <comment>all as in everything</comment>
-        <translation>Tots </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="268"/>
-        <source>Can&apos;t disable locale in use</source>
-        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation>No puc desactivar la localització en ús</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="295"/>
-        <source>Locales enabled: %1</source>
-        <comment>label for a numerical count of enabled and available locales</comment>
-        <translation>Localitzacions activades: %1</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="138"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
@@ -227,6 +203,18 @@
         <translation>Ajuda de %1</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="238"/>
+        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
+        <comment>shows the current system locale, in bold</comment>
+        <translation>Localització en ús: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="249"/>
+        <source>All</source>
+        <comment>all as in everything</comment>
+        <translation>Tots </translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="267"/>
         <location filename="../mainwindow.cpp" line="308"/>
         <location filename="../mainwindow.cpp" line="315"/>
@@ -235,8 +223,15 @@
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="268"/>
+        <source>Can&apos;t disable locale in use</source>
+        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
+        <translation>No puc desactivar la localització en ús</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="295"/>
         <source>Locales enabled: %1</source>
+        <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Localitzacions activades: %1</translation>
     </message>
     <message>
@@ -245,6 +240,11 @@
         <location filename="../mainwindow.cpp" line="322"/>
         <source>Could not open %1</source>
         <translation>No puc obrir %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="370"/>
+        <source>Locales enabled: %1</source>
+        <translation>Localitzacions activades: %1</translation>
     </message>
 </context>
 <context>

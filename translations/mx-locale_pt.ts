@@ -242,7 +242,7 @@
         <translation>Não foi possível abrir %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>Locales enabled: %1</source>
         <translation>Regiões permitidas: %1</translation>
     </message>
@@ -278,7 +278,7 @@
     <message>
         <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir apenas o separador de seleção de língua.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>

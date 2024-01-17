@@ -188,30 +188,6 @@
         <translation>Programme pour changer les langues et les catégories de paramètres régionaux.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="238"/>
-        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
-        <comment>shows the current system locale, in bold</comment>
-        <translation>Paramètres régionaux en cours&#xa0;: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="249"/>
-        <source>All</source>
-        <comment>all as in everything</comment>
-        <translation>Tous</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="268"/>
-        <source>Can&apos;t disable locale in use</source>
-        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation>Impossible de désactiver les paramètres régionaux en cours d’utilisation.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="295"/>
-        <source>Locales enabled: %1</source>
-        <comment>label for a numerical count of enabled and available locales</comment>
-        <translation>Paramètres régionaux activés&#xa0;: %1</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="138"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
@@ -227,6 +203,18 @@
         <translation>%1 Aide</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="238"/>
+        <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
+        <comment>shows the current system locale, in bold</comment>
+        <translation>Paramètres régionaux en cours&#xa0;: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="249"/>
+        <source>All</source>
+        <comment>all as in everything</comment>
+        <translation>Tous</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="267"/>
         <location filename="../mainwindow.cpp" line="308"/>
         <location filename="../mainwindow.cpp" line="315"/>
@@ -235,8 +223,15 @@
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="268"/>
+        <source>Can&apos;t disable locale in use</source>
+        <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
+        <translation>Impossible de désactiver les paramètres régionaux en cours d’utilisation.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="295"/>
         <source>Locales enabled: %1</source>
+        <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Paramètres régionaux activés&#xa0;: %1</translation>
     </message>
     <message>
@@ -245,6 +240,11 @@
         <location filename="../mainwindow.cpp" line="322"/>
         <source>Could not open %1</source>
         <translation>Impossible d’ouvrir %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="370"/>
+        <source>Locales enabled: %1</source>
+        <translation>Paramètres régionaux activés&#xa0;: %1</translation>
     </message>
 </context>
 <context>

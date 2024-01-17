@@ -242,7 +242,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>Locales enabled: %1</source>
         <translation type="unfinished"></translation>
     </message>
