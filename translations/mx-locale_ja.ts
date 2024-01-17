@@ -139,7 +139,7 @@
     <message>
         <location filename="../mainwindow.ui" line="415"/>
         <location filename="../mainwindow.ui" line="419"/>
-        <location filename="../mainwindow.cpp" line="292"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>すべて</translation>
@@ -200,13 +200,13 @@
         <translation>すべて</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="266"/>
+        <location filename="../mainwindow.cpp" line="268"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>使用中のロケールは無効にできません</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="290"/>
+        <location filename="../mainwindow.cpp" line="295"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>有効なロケール: %1</translation>
@@ -227,22 +227,22 @@
         <translation>%1 ヘルプ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="265"/>
-        <location filename="../mainwindow.cpp" line="303"/>
-        <location filename="../mainwindow.cpp" line="310"/>
-        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="267"/>
+        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="315"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="380"/>
         <source>Locales enabled: %1</source>
         <translation>利用可能なロケール: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="303"/>
-        <location filename="../mainwindow.cpp" line="310"/>
-        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="315"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>Could not open %1</source>
         <translation>%1 を開くことができません</translation>
     </message>
@@ -276,13 +276,9 @@
         <translation>MX ロケールは、MX Linux 用のロケール設定の管理ツールです</translation>
     </message>
     <message>
-        <source>Show only language selection tab.</source>
-        <translation type="vanished">言語選択タブのみを表示します。</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="60"/>
-        <source>Show only langauage selection tab.</source>
-        <translation type="unfinished"></translation>
+        <source>Show only language selection tab.</source>
+        <translation>言語選択タブのみを表示します。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>
