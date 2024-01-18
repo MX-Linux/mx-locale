@@ -77,6 +77,7 @@ private slots:
     void onGroupButton(int button_id);
     void resetSubvariables();
     void tabWidgetCurrentChanged();
+    void textSearch_textChanged();
 
 private:
     Ui::MainWindow *ui;

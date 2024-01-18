@@ -22,7 +22,7 @@ chooseDialog::~chooseDialog()
 // Setup versious items first time program runs
 void chooseDialog::setup()
 {
-    this->setWindowTitle(tr("MX Locale","name of application"));
+    this->setWindowTitle(tr("MX Locale", "name of application"));
     buildLocaleList();
     ui->textSearch->setFocus();
     connect(ui->textSearch, &QLineEdit::textChanged, this, &chooseDialog::textSearch_textChanged);
@@ -36,7 +36,9 @@ void chooseDialog::buildLocaleList()
     QStringList availableLocales = locales.split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts);
 
     if (!libFile.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1","message that a file could not be open, file takes place of %1").arg(libFile.fileName()));
+        QMessageBox::critical(nullptr, tr("Error"),
+                              tr("Could not open %1", "message that a file could not be open, file takes place of %1")
+                                  .arg(libFile.fileName()));
         return;
     }
 
@@ -57,7 +59,6 @@ void chooseDialog::buildLocaleList()
         if (localeLib.contains(item)) {
             line.append("                 \t" + localeLib.value(item));
         }
-        localeList << line;
         ui->listWidgetAvailableLocales->addItem(line);
     }
 }
@@ -71,11 +72,10 @@ QString chooseDialog::selection()
 
 void chooseDialog::textSearch_textChanged()
 {
-    ui->listWidgetAvailableLocales->clear();
-
-    for (const QString &itemText : localeList) {
-        if (itemText.contains(ui->textSearch->text(), Qt::CaseInsensitive)) {
-            ui->listWidgetAvailableLocales->addItem(itemText);
+    for (int i = 0; i < ui->listWidgetAvailableLocales->count(); ++i) {
+        auto *item = ui->listWidgetAvailableLocales->item(i);
+        if (item) {
+            item->setHidden(!item->text().contains(ui->textSearch->text(), Qt::CaseInsensitive));
         }
     }
 }

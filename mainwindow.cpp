@@ -229,6 +229,7 @@ void MainWindow::setConnections()
     connect(ui->pushDisableLocales, &QPushButton::clicked, this, &MainWindow::disableAllButCurrent);
     connect(ui->pushResetSubvar, &QPushButton::clicked, this, &MainWindow::resetSubvariables);
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::tabWidgetCurrentChanged);
+    connect(ui->textSearch, &QLineEdit::textChanged, this, &MainWindow::textSearch_textChanged);
 }
 
 void MainWindow::tabWidgetCurrentChanged()
@@ -243,27 +244,34 @@ void MainWindow::tabWidgetCurrentChanged()
     }
 }
 
+void MainWindow::textSearch_textChanged()
+{
+    onFilterChanged(ui->comboFilter->currentText());
+}
+
 void MainWindow::onFilterChanged(const QString &text)
 {
     displayLocalesGen();
-    if (text == tr("All", "all as in everything")) {
-        return;
-    }
     for (int i = 0; i < ui->listWidget->count(); ++i) {
         auto *item = ui->listWidget->item(i);
         if (item) {
-            item->setHidden((item->checkState() == Qt::Checked && text == tr("Disabled"))
-                            || (item->checkState() == Qt::Unchecked && text == tr("Enabled")));
+            if (text != tr("All", "all as in everything")) {
+                item->setHidden((item->checkState() == Qt::Checked && text == tr("Disabled"))
+                                || (item->checkState() == Qt::Unchecked && text == tr("Enabled")));
+            }
+            if (!item->isHidden()) {
+                item->setHidden(!item->text().contains(ui->textSearch->text(), Qt::CaseInsensitive));
+            }
         }
     }
 }
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    //check for disabling of running locale
-    if (item->checkState() == Qt::Unchecked){
+    // check for disabling of running locale
+    if (item->checkState() == Qt::Unchecked) {
         if (item->text().section(' ', 0, 0) == getCurrentLang()
-                || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
+            || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
             QMessageBox::warning(this, tr("Error"),
                                  tr("Can't disable locale in use",
                                     "message that the chosen locale cannot be disabled because it is in active usage"));
@@ -279,14 +287,16 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         if (check.isEmpty()) {
             Cmd().runAsRoot("echo " + uncommentedText + " >>/etc/locale.gen");
         } else {
-            Cmd().runAsRoot(QString("sed -i -e 's/^[[:space:]]*//; 0,/%1/{//s/.*/%1/};' -e '/#.*%1/d' /etc/locale.gen").arg(uncommentedText));
+            Cmd().runAsRoot(QString("sed -i -e 's/^[[:space:]]*//; 0,/%1/{//s/.*/%1/};' -e '/#.*%1/d' /etc/locale.gen")
+                                .arg(uncommentedText));
         }
         item->setText(uncommentedText);
         ++countEnabled;
     } else {
         QString commentedText = "# " + item->text();
-        Cmd().runAsRoot(QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' /etc/locale.gen").arg(item->text(), commentedText));
-        Cmd().runAsRoot("sed -i '/" + item->text().section(" ",0,0) + "/d' /etc/default/locale");
+        Cmd().runAsRoot(QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' /etc/locale.gen")
+                            .arg(item->text(), commentedText));
+        Cmd().runAsRoot("sed -i '/" + item->text().section(" ", 0, 0) + "/d' /etc/default/locale");
         setSubvariables();
         item->setText(commentedText);
         --countEnabled;
