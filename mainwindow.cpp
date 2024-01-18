@@ -227,6 +227,7 @@ void MainWindow::setConnections()
     connect(ui->comboFilter, &QComboBox::currentTextChanged, this, &MainWindow::onFilterChanged);
     connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
     connect(ui->pushDisableLocales, &QPushButton::clicked, this, &MainWindow::disableAllButCurrent);
+    connect(ui->pushResetLocales, &QPushButton::clicked, this, &MainWindow::resetLocaleGen);
     connect(ui->pushResetSubvar, &QPushButton::clicked, this, &MainWindow::resetSubvariables);
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::tabWidgetCurrentChanged);
     connect(ui->textSearch, &QLineEdit::textChanged, this, &MainWindow::textSearch_textChanged);
@@ -383,11 +384,19 @@ void MainWindow::displayLocalesGen()
 void MainWindow::localeGen()
 {
     ui->tabWidget->setDisabled(true);
-    QProgressDialog prog("Updating locales, please wait", nullptr, 0, countEnabled + 1);
+    // Total number of output lines = no_items * 2 (for locale + locale... done) + 2 for header and footer
+    QProgressDialog prog("Updating locales, please wait", nullptr, 0, countEnabled * 2 + 2);
     cmd = new Cmd(this);
     connect(cmd, &Cmd::outputAvailable, this, [&prog] { prog.setValue(prog.value() + 1); });
     prog.show();
     cmd->runAsRoot("locale-gen");
     localeGenChanged = false;
     ui->tabWidget->setDisabled(false);
+}
+
+void MainWindow::resetLocaleGen()
+{
+    Cmd().runAsRoot("cp /usr/lib/mx-locale/locale.gen /etc/");
+    displayLocalesGen();
+    localeGenChanged = true;
 }

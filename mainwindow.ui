@@ -177,7 +177,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -474,6 +474,13 @@
          </property>
          <property name="clearButtonEnabled">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QPushButton" name="pushResetLocales">
+         <property name="text">
+          <string>Reset locale list to default</string>
          </property>
         </widget>
        </item>

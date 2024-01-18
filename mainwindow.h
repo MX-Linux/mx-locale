@@ -91,6 +91,7 @@ private:
     void disableAllButCurrent();
     void displayLocalesGen();
     void localeGen();
+    void resetLocaleGen();
     void setButtons();
     void setConnections();
     void setSubvariables();
