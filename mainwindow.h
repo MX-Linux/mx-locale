@@ -83,6 +83,7 @@ private:
     Ui::MainWindow *ui;
     Cmd *cmd;
     QButtonGroup *buttonGroup;
+    QHash<QString, QString> hashLocale;
     bool localeGenChanged {false};
     int countEnabled {};
 

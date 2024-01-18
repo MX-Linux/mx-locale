@@ -297,7 +297,7 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
-    // check for disabling of running locale
+    // Check for disabling of running locale
     if (item->checkState() == Qt::Unchecked) {
         if (item->text().section(' ', 0, 0) == getCurrentLang()
             || item->text().section(' ', 0, 0) == getCurrentSessionLang()) {
@@ -310,24 +310,26 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
     }
     ui->listWidget->disconnect();
     localeGenChanged = true;
+    QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
     if (item->checkState() == Qt::Checked) {
-        QString uncommentedText = item->text().remove(QRegularExpression("^[^a-zA-Z0-9]*(?=[a-zA-Z0-9])"));
-        QString check = Cmd().getOut("grep \"" + uncommentedText + "\" /etc/locale.gen");
-        if (check.isEmpty()) {
-            Cmd().runAsRoot("echo " + uncommentedText + " >>/etc/locale.gen");
+        bool exists = Cmd().run("grep -q \"" + text + "\" /etc/locale.gen");
+        if (!exists) {
+            Cmd().runAsRoot("echo " + text + " >>/etc/locale.gen");
         } else {
-            Cmd().runAsRoot(QString("sed -i -e 's/^[[:space:]]*//; 0,/%1/{//s/.*/%1/};' -e '/#.*%1/d' /etc/locale.gen")
-                                .arg(uncommentedText));
+            Cmd().runAsRoot(
+                QString("sed -i -e 's/^[[:space:]]*//; 0,/%1/{//s/.*/%1/};' -e '/#.*%1/d' /etc/locale.gen").arg(text));
         }
-        item->setText(uncommentedText);
         ++countEnabled;
     } else {
-        QString commentedText = "# " + item->text();
-        Cmd().runAsRoot(QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' /etc/locale.gen")
-                            .arg(item->text(), commentedText));
-        Cmd().runAsRoot("sed -i '/" + item->text().section(" ", 0, 0) + "/d' /etc/default/locale");
+        Cmd().runAsRoot(
+            QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' /etc/locale.gen").arg(text, "# " + text));
+        QString delStr = text.section(' ', 0, 0);
+        Cmd().runAsRoot("sed -i '/" + delStr + "/d' /etc/default/locale");
+        if (delStr.contains("@")) {
+            Cmd().runAsRoot("sed -i '/" + delStr.section('@', 0, 0) + ".UTF-8@" + delStr.section('@', 1)
+                            + "/d' /etc/default/locale");
+        }
         setSubvariables();
-        item->setText(commentedText);
         --countEnabled;
     }
     ui->labelCountLocale->setText(
@@ -347,31 +349,42 @@ void MainWindow::displayLocalesGen()
         QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
         return;
     }
-
     QFile file2("/usr/local/share/i18n/SUPPORTED");
     if (file2.exists()) {
         if (!file2.open(QIODevice::ReadOnly)) {
-            QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
+            QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file2.fileName()));
             return;
         }
     }
-
-    QFile file3("/etc/locale.gen");
-    if (!file3.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
+    QFile localeGen("/etc/locale.gen");
+    if (!localeGen.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(localeGen.fileName()));
         return;
     }
-    QStringList enabledlocale;
-    QTextStream in3(&file3);
-    while (!in3.atEnd()) {
-        QString line = in3.readLine().trimmed();
+    QStringList enabledLocale;
+    QTextStream in(&localeGen);
+    while (!in.atEnd()) {
+        QString line = in.readLine().trimmed();
         if (line.contains(QRegularExpression("^[a-z]{2,3}([^_]|_[A-Z]{2})"))) {
-            enabledlocale.append(line);
+            enabledLocale.append(line);
         }
     }
+
+    QStringList listLocales
+        = Cmd()
+              .getOut(
+                  R"(shopt -s nullglob;grep -oP '^title[[:space:]]+["]\K[^"]+' /usr/{local,}/share/i18n/locales/* |\
+sed 's:^/.*/locales/::' | sed -r 's/(<U)([[:xdigit:]]{4})>/\\\\u\2/g' |\
+while read LINE; do printf "$LINE\n"; done)",
+                  true)
+              .split('\n');
+    for (auto const &item : listLocales) {
+        hashLocale.insert(item.section(':', 0, 0), item.section(':', 1));
+    }
+
     disableGUI(true);
-    readLocaleFile(file, enabledlocale);
-    readLocaleFile(file2, enabledlocale);
+    readLocaleFile(file, enabledLocale);
+    readLocaleFile(file2, enabledLocale);
     ui->listWidget->sortItems();
     ui->labelCountLocale->setText(tr("Locales enabled: %1").arg(countEnabled));
     disableGUI(false);
@@ -403,7 +416,8 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
             } else {
                 item->setCheckState(Qt::Unchecked);
             }
-            item->setText(line + "     \t" + getLocaleDescription(line));
+
+            item->setText(line + "     \t" + hashLocale.value(line.section(QRegularExpression(R"(\s|\.)"), 0, 0)));
             ui->listWidget->addItem(item);
         }
     }
