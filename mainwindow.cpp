@@ -341,42 +341,8 @@ void MainWindow::displayLocalesGen()
             enabledlocale.append(line);
         }
     }
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine().trimmed();
-        if (line.contains(QRegularExpression("^[a-z]{2,3}([^_]|_[A-Z]{2})"))) {
-            auto item = new QListWidgetItem;
-            if (enabledlocale.contains(line)) {
-                item->setCheckState(Qt::Checked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
-                ++countEnabled;
-            } else {
-                item->setCheckState(Qt::Unchecked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
-            }
-        }
-    }
-
-    QTextStream in2(&file2);
-    while (!in2.atEnd()) {
-        QString line = in2.readLine().trimmed();
-        if (line.contains(QRegularExpression("^[a-z]{2,3}([^_]|_[A-Z]{2})"))) {
-            auto item = new QListWidgetItem;
-            if (enabledlocale.contains(line)) {
-                item->setCheckState(Qt::Checked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
-                ++countEnabled;
-            } else {
-                item->setCheckState(Qt::Unchecked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
-            }
-        }
-    }
+    readLocaleFile(file, enabledlocale);
+    readLocaleFile(file2, enabledlocale);
     ui->listWidget->sortItems();
     ui->labelCountLocale->setText(tr("Locales enabled: %1").arg(countEnabled));
 }
@@ -392,6 +358,27 @@ void MainWindow::localeGen()
     cmd->runAsRoot("locale-gen");
     localeGenChanged = false;
     ui->tabWidget->setDisabled(false);
+}
+
+void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
+{
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine().trimmed();
+        if (line.contains(QRegularExpression("^[a-z]{2,3}([^_]|_[A-Z]{2})"))) {
+            auto item = new QListWidgetItem;
+            if (enabledLocale.contains(line)) {
+                item->setCheckState(Qt::Checked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+                ++countEnabled;
+            } else {
+                item->setCheckState(Qt::Unchecked);
+                item->setText(line);
+                ui->listWidget->addItem(item);
+            }
+        }
+    }
 }
 
 void MainWindow::resetLocaleGen()
