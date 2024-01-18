@@ -81,11 +81,21 @@ void MainWindow::setup()
 }
 
 // Check if there are subvariables different than LANG
-bool MainWindow::anyDifferentSubvars()
+bool MainWindow::anyDifferentSubvars() const
 {
     // Start for +1 to skip ButtonID::LANG
     return std::any_of(buttonGroup->buttons().constBegin() + 1, buttonGroup->buttons().constEnd(),
                        [&](const auto &button) { return button->text() != ui->buttonLang->text(); });
+}
+
+void MainWindow::disableGUI(bool disable)
+{
+    ui->tabWidget->setDisabled(disable);
+    ui->comboFilter->setDisabled(disable);
+    ui->textSearch->setDisabled(disable);
+    ui->pushDisableLocales->setDisabled(disable);
+    ui->pushResetLocales->setDisabled(disable);
+    ui->buttonCancel->setDisabled(disable);
 }
 
 void MainWindow::onGroupButton(int button_id)
@@ -159,12 +169,21 @@ QString MainWindow::getCurrentSessionLang() const
     return sessionlang.replace(".utf8", ".UTF-8");
 }
 
+QString MainWindow::getLocaleDescription(const QString &locale) const
+{
+    QString temp = locale.section(QRegularExpression(R"(\s|\.)"), 0, 0);
+    if (!temp.isEmpty()) {
+        return Cmd().getOut("sed -n 's/^title *\"\\(.*\\)\"/\\1/p' /usr/share/i18n/locales/" + temp, true);
+    }
+    return {};
+}
+
 void MainWindow::disableAllButCurrent()
 {
     Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|" + getCurrentSessionLang()
                     + "\\|^#/! s/#*/# /\" /etc/locale.gen");
+    displayLocalesGen();
     localeGenChanged = true;
-    onFilterChanged(ui->comboFilter->currentText());
 }
 
 void MainWindow::setSubvariables()
@@ -238,7 +257,11 @@ void MainWindow::tabWidgetCurrentChanged()
     if (ui->tabWidget->currentWidget() == ui->tabManagement) {
         ui->labelCurrentLocale->setText(
             tr("Locale in use: <b>%1</b>", "shows the current system locale, in bold").arg(getCurrentLang()));
-        displayLocalesGen();
+        if (ui->listWidget->count() == 0) {
+            displayLocalesGen();
+        } else {
+            onFilterChanged(ui->comboFilter->currentText());
+        }
     }
     if (localeGenChanged) {
         localeGen();
@@ -252,7 +275,12 @@ void MainWindow::textSearch_textChanged()
 
 void MainWindow::onFilterChanged(const QString &text)
 {
-    displayLocalesGen();
+    for (int i = 0; i < ui->listWidget->count(); ++i) {
+        ui->listWidget->item(i)->setHidden(false);
+    }
+    if (text == tr("All", "all as in everything") && ui->textSearch->text().isEmpty()) {
+        return;
+    }
     for (int i = 0; i < ui->listWidget->count(); ++i) {
         auto *item = ui->listWidget->item(i);
         if (item) {
@@ -341,10 +369,12 @@ void MainWindow::displayLocalesGen()
             enabledlocale.append(line);
         }
     }
+    disableGUI(true);
     readLocaleFile(file, enabledlocale);
     readLocaleFile(file2, enabledlocale);
     ui->listWidget->sortItems();
     ui->labelCountLocale->setText(tr("Locales enabled: %1").arg(countEnabled));
+    disableGUI(false);
 }
 
 void MainWindow::localeGen()
@@ -369,14 +399,12 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
             auto item = new QListWidgetItem;
             if (enabledLocale.contains(line)) {
                 item->setCheckState(Qt::Checked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
                 ++countEnabled;
             } else {
                 item->setCheckState(Qt::Unchecked);
-                item->setText(line);
-                ui->listWidget->addItem(item);
             }
+            item->setText(line + "     \t" + getLocaleDescription(line));
+            ui->listWidget->addItem(item);
         }
     }
 }

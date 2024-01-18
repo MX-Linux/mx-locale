@@ -88,6 +88,9 @@ private:
 
     [[nodiscard]] QString getCurrentLang() const;
     [[nodiscard]] QString getCurrentSessionLang() const;
+    [[nodiscard]] QString getLocaleDescription(const QString &locale) const;
+    [[nodiscard]] bool anyDifferentSubvars() const;
+    void disableGUI(bool disable);
     void disableAllButCurrent();
     void displayLocalesGen();
     void localeGen();
@@ -97,5 +100,4 @@ private:
     void setConnections();
     void setSubvariables();
     void setup();
-    bool anyDifferentSubvars();
 };
