@@ -356,13 +356,13 @@ void MainWindow::displayLocalesGen()
             return;
         }
     }
-    QFile localeGen("/etc/locale.gen");
-    if (!localeGen.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(localeGen.fileName()));
+    QFile localeFile("/etc/locale.gen");
+    if (!localeFile.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(localeFile.fileName()));
         return;
     }
     QStringList enabledLocale;
-    QTextStream in(&localeGen);
+    QTextStream in(&localeFile);
     while (!in.atEnd()) {
         QString line = in.readLine().trimmed();
         if (line.contains(QRegularExpression("^[a-z]{2,3}([^_]|_[A-Z]{2})"))) {
