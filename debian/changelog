@@ -1,3 +1,12 @@
+mx-locale (24.1.10) mx; urgency=medium
+
+  * Allow only UTF-8 locale to be sectabled as system locale
+  * Add locale titles/names in the list
+  * Add option to reset locale.gen
+  * Add search field in Manage Locales tab
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 18 Jan 2024 17:17:40 -0500
+
 mx-locale (24.1.09) mx; urgency=medium
 
   * adjust regexp patterns, two+three letter language and 2 letter regional code
