@@ -327,7 +327,7 @@
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
-        <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
+        <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
         <translation>Si l&apos;idioma que voleu no és a la llista, activeu-lo a la pestanya de &quot;Gestió de localitzacions&quot;</translation>
     </message>
     <message>

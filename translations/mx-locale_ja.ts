@@ -327,7 +327,7 @@
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
-        <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
+        <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
         <translation>希望する言語がここに表示されていない場合は、「ロケール管理」タブで有効にしてください</translation>
     </message>
     <message>

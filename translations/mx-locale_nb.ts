@@ -327,7 +327,7 @@
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
-        <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
+        <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
         <translation>Hvis gjeldende språk ikke vises her så kan du slå det på i fanen «Behandle lokaltilpassing»</translation>
     </message>
     <message>

@@ -55,7 +55,7 @@
    <item row="0" column="1" colspan="2">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</string>
+      <string>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</string>
      </property>
     </widget>
    </item>

@@ -327,7 +327,7 @@
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
-        <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
+        <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
         <translation>Ha nem látja itt a kívánt nyelvet, a &quot;Területi beállítások kezelése&quot; lapon engedélyezze.</translation>
     </message>
     <message>

@@ -327,7 +327,7 @@
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
-        <source>If your desired languge is not listed here, enable it in &quot;Locale management&quot; tab</source>
+        <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
         <translation>Wenn Ihre gewünschte Sprache hier nicht aufgeführt ist, aktivieren Sie sie auf der Registerkarte &quot;Gebietsschema-Verwaltung&quot;.</translation>
     </message>
     <message>
