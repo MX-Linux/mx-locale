@@ -416,8 +416,8 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
             } else {
                 item->setCheckState(Qt::Unchecked);
             }
-
-            item->setText(line + "     \t" + hashLocale.value(line.section(QRegularExpression(R"(\s|\.)"), 0, 0)));
+            line = line.leftJustified(20, ' ');
+            item->setText(line + "\t" + hashLocale.value(line.section(QRegularExpression(R"(\s|\.)"), 0, 0)));
             ui->listWidget->addItem(item);
         }
     }

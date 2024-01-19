@@ -57,7 +57,8 @@ void chooseDialog::buildLocaleList()
         item.remove(QRegularExpression("\\..*$"));
         QString line = locale;
         if (localeLib.contains(item)) {
-            line.append("                 \t" + localeLib.value(item));
+            line = line.leftJustified(20, ' ');
+            line.append("\t" + localeLib.value(item));
         }
         ui->listWidgetAvailableLocales->addItem(line);
     }
