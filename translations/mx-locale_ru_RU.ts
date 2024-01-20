@@ -165,12 +165,12 @@
     <message>
         <location filename="../mainwindow.ui" line="473"/>
         <source>search</source>
-        <translation type="unfinished">поиск</translation>
+        <translation>поиск</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить список локалей на значения по умолчанию</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>

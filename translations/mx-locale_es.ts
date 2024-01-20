@@ -165,7 +165,7 @@
     <message>
         <location filename="../mainwindow.ui" line="473"/>
         <source>search</source>
-        <translation type="unfinished">buscar</translation>
+        <translation>buscar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="483"/>

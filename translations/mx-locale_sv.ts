@@ -165,12 +165,12 @@
     <message>
         <location filename="../mainwindow.ui" line="473"/>
         <source>search</source>
-        <translation type="unfinished">sök</translation>
+        <translation>sök</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ språklistan till standard</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>

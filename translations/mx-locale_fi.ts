@@ -165,12 +165,12 @@
     <message>
         <location filename="../mainwindow.ui" line="473"/>
         <source>search</source>
-        <translation type="unfinished">etsi</translation>
+        <translation>etsi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Palauta kieliluettelo oletuksiin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>

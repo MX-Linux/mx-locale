@@ -1,3 +1,9 @@
+mx-locale (24.1.11) mx; urgency=medium
+
+  * Typo fix, new translations
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 19 Jan 2024 20:14:42 -0500
+
 mx-locale (24.1.10) mx; urgency=medium
 
   * Allow only UTF-8 locale to be sectabled as system locale

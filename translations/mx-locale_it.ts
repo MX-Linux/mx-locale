@@ -165,12 +165,12 @@
     <message>
         <location filename="../mainwindow.ui" line="473"/>
         <source>search</source>
-        <translation type="unfinished">cerca</translation>
+        <translation>cerca</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina l&apos;elenco delle impostazioni locali sui valori predefiniti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
