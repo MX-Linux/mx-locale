@@ -170,7 +170,7 @@
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar configurações padrão de região </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>

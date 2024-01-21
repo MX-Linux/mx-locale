@@ -170,7 +170,7 @@
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebietsschema-Liste auf Standard zurücksetzen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>

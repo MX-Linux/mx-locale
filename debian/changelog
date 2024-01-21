@@ -1,3 +1,9 @@
+mx-locale (24.1.12) mx; urgency=medium
+
+  * Bump version, needed for Bullseye update
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 21 Jan 2024 12:50:38 -0500
+
 mx-locale (24.1.11) mx; urgency=medium
 
   * Typo fix, new translations
