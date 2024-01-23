@@ -128,7 +128,7 @@
     <message>
         <location filename="../mainwindow.ui" line="377"/>
         <source>Measurement</source>
-        <translation>計量</translation>
+        <translation>計量単位</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="409"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
-        <translation>MX ロケール設定</translation>
+        <translation>MX ロケールマネージャ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="142"/>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Program for changing language and locale categories</source>
-        <translation>言語やロケールに関する項目の設定を変更するためのプログラム</translation>
+        <translation>言語やロケールに関する項目の設定を管理するプログラム</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="148"/>
@@ -284,7 +284,7 @@
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation>MX ロケールは、MX Linux 用のロケール設定の管理ツールです</translation>
+        <translation>MX ロケールマネージャは、MX Linux 用のロケール管理ツールです</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="60"/>
@@ -334,7 +334,7 @@
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
         <comment>name of application</comment>
-        <translation>MX ロケール設定</translation>
+        <translation>MX ロケールマネージャ</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="39"/>
