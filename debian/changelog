@@ -1,3 +1,10 @@
+mx-locale (24.1.13) mx; urgency=medium
+
+  * Adjust regexp of the C.UTF-8 or C.utf8 pattern
+  * Use LANG=C and LC_ALL=C for locale list
+
+ -- fehlix <fehlix@mxlinux.org>  Tue, 23 Jan 2024 11:43:26 -0500
+
 mx-locale (24.1.12) mx; urgency=medium
 
   * Bump version, needed for Bullseye update
