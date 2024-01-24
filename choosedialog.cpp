@@ -66,6 +66,9 @@ void chooseDialog::buildLocaleList()
 
 QString chooseDialog::selection()
 {
+    if (ui->listWidgetAvailableLocales->currentRow() == -1) {
+        return {};
+    }
     QString selection = ui->listWidgetAvailableLocales->currentItem()->text().section('\t', 0, 0).trimmed();
     selection = selection.replace(".utf8", ".UTF-8", Qt::CaseInsensitive);
     return selection;

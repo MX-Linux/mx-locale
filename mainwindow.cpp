@@ -102,7 +102,7 @@ void MainWindow::onGroupButton(int button_id)
 {
     chooseDialog dialog;
     dialog.setModal(true);
-    if (dialog.exec() != QDialog::Accepted) {
+    if (dialog.exec() != QDialog::Accepted || dialog.selection().isEmpty()) {
         return;
     }
     buttonGroup->button(button_id)->setText(dialog.selection());
