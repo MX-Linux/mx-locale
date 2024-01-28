@@ -1,3 +1,9 @@
+mx-locale (24.1.15) mx; urgency=medium
+
+  * Use "UTF-8" instead of "utf8" to avoid locale warnings
+
+ -- fehlix <fehlix@mxlinux.org>  Sun, 28 Jan 2024 14:03:08 -0500
+
 mx-locale (24.1.14) mx; urgency=medium
 
   * Fix crash when pressing OK without selecting any item
