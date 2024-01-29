@@ -160,7 +160,7 @@
         <location filename="../mainwindow.ui" line="454"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation>Désactiver tous les paramètres régionaux sauf celui qui est utilisé.</translation>
+        <translation>Désactiver tous les paramètres régionaux sauf celui qui est utilisé</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="473"/>
@@ -337,12 +337,12 @@
         <translation>Paramètres régionaux - MX Locale</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="39"/>
+        <location filename="../choosedialog.cpp" line="41"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="40"/>
+        <location filename="../choosedialog.cpp" line="42"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
         <translation>Impossible d’ouvrir %1</translation>

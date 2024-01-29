@@ -337,12 +337,12 @@
         <translation>MX Locales</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="39"/>
+        <location filename="../choosedialog.cpp" line="41"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="40"/>
+        <location filename="../choosedialog.cpp" line="42"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
         <translation>No se pudo abrir %1</translation>

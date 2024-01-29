@@ -142,19 +142,19 @@
         <location filename="../mainwindow.cpp" line="338"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
-        <translation>すべて</translation>
+        <translation>利用可能なロケールの全リスト</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <location filename="../mainwindow.cpp" line="289"/>
         <source>Enabled</source>
-        <translation>有効</translation>
+        <translation>有効なロケール（チェックで無効化）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="429"/>
         <location filename="../mainwindow.cpp" line="288"/>
         <source>Disabled</source>
-        <translation>無効化</translation>
+        <translation>無効なロケール（チェックで有効化）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation>ロケールリストのリセット</translation>
+        <translation>ロケールリストを既定にリセット</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
@@ -337,12 +337,12 @@
         <translation>MX ロケールマネージャ</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="39"/>
+        <location filename="../choosedialog.cpp" line="41"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="40"/>
+        <location filename="../choosedialog.cpp" line="42"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
         <translation>%1 を開くことができません</translation>
