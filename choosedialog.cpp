@@ -31,9 +31,11 @@ void chooseDialog::setup()
 void chooseDialog::buildLocaleList()
 {
     QFile libFile("/usr/lib/mx-locale/locale.lib");
-
-    QString locales = Cmd().getOut(R"(env LANG=C LC_ALL=C locale --all-locales | grep -E '[.](utf8|UTF-8)')");
-    QStringList availableLocales = locales.split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts);
+    QString locales = Cmd().getOut(R"(locale --all-locales)");
+    QStringList availableLocales = locales
+                                   .split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts)
+                                   .filter(QRegularExpression(R"([.](utf8|UTF-8))"))
+                                   .replaceInStrings(".utf8", ".UTF-8", Qt::CaseInsensitive);
 
     if (!libFile.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(nullptr, tr("Error"),
