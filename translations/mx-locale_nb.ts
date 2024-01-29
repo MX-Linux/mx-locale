@@ -170,7 +170,7 @@
     <message>
         <location filename="../mainwindow.ui" line="483"/>
         <source>Reset locale list to default</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjenopprett liste med lokaltilpasninger</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
@@ -337,12 +337,12 @@
         <translation>MX Lokaltilpassing</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="39"/>
+        <location filename="../choosedialog.cpp" line="41"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
-        <location filename="../choosedialog.cpp" line="40"/>
+        <location filename="../choosedialog.cpp" line="42"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
         <translation>Klarte ikke åpne %1</translation>
