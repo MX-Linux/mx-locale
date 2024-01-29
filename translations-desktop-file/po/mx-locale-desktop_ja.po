@@ -29,4 +29,4 @@ msgstr "MX ロケールマネージャ"
 #. Translator comment:  description comment of application in menu
 #: desktop-in/mx-locale.desktop.in:7
 msgid "Set language and locale categories"
-msgstr "言語と地域に係る各種設定を管理します"
+msgstr "言語と地域に関する設定を管理します"
