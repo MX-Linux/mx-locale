@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>725</width>
-    <height>748</height>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -174,28 +174,35 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
-       <string extracomment=" language selection, also default for locale subvariables if not otherwise defined">System Locale</string>
+       <string extracomment=" language selection, also default for locale subvariables if not otherwise defined">System Language</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="1" column="1">
-        <widget class="QPushButton" name="buttonLang">
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
+       <item row="0" column="0">
         <widget class="QLabel" name="labelLanguage">
          <property name="text">
           <string>Current System Language:</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="0" column="1">
+        <widget class="QPushButton" name="buttonLang">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushResetSubvar">
+         <property name="text">
+          <string>Set all locale categories to current language</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -208,10 +215,10 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pushResetSubvar">
+       <item row="3" column="0" colspan="2">
+        <widget class="QPushButton" name="pushRemoveManuals">
          <property name="text">
-          <string>Set all locale categories to current language</string>
+          <string>Remove MX manuals for languages other than system default</string>
          </property>
         </widget>
        </item>
@@ -406,10 +413,46 @@
        <string extracomment="Tab to manage generation of locale caches">Locale Management</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="4" column="0">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="textSearch">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="inputMask">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>search</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <widget class="QLabel" name="labelCountLocale">
          <property name="text">
           <string notr="true" extracomment="count of the number of loca">Locales enabled:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QPushButton" name="pushDisableLocales">
+         <property name="text">
+          <string extracomment="disables generation of any locale except on that is currently in use">Disable all locales except the one in use</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QPushButton" name="pushResetLocales">
+         <property name="text">
+          <string>Reset locale list to default</string>
          </property>
         </widget>
        </item>
@@ -438,53 +481,10 @@
          </item>
         </widget>
        </item>
-       <item row="4" column="1" colspan="2">
-        <widget class="QPushButton" name="pushResetLocales">
-         <property name="text">
-          <string>Reset locale list to default</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLineEdit" name="textSearch">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>search</string>
-         </property>
-         <property name="clearButtonEnabled">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="QPushButton" name="pushDisableLocales">
-         <property name="text">
-          <string extracomment="disables generation of any locale except on that is currently in use">Disable all locales except the one in use</string>
-         </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="0">
         <widget class="QLabel" name="labelCurrentLocale">
          <property name="text">
           <string notr="true">Current locale:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1" colspan="2">
-        <widget class="QPushButton" name="pushRemoveManuals">
-         <property name="text">
-          <string>Remove MX manuals for languages other than system default</string>
          </property>
         </widget>
        </item>
