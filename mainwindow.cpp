@@ -441,7 +441,12 @@ void MainWindow::removeManuals()
 
     Cmd cmd;
     auto count = cmd.getOut(countCmd, true).trimmed().toInt();
-    QString purgeCmd = QString("%1 | awk '{print $1}' | xargs apt-get purge -y").arg(listCmd);
+    if (count == 0) {
+        QMessageBox::information(this, tr("Remove Manuals"), tr("No manuals to remove."));
+        return;
+    }
+
+    QString purgeCmd = QString("%1 | awk '{print $1}' | xargs -r apt-get purge -y").arg(listCmd);
 
     ui->tabWidget->setDisabled(true);
     QProgressDialog prog(tr("Removing packages, please wait"), nullptr, 0, count);
