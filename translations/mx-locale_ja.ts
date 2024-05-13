@@ -59,12 +59,12 @@
         <translation type="vanished">システムロケール</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation>プッシュボタン</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="207"/>
         <source>Current System Language:</source>
         <translation>現在のシステム言語:</translation>
     </message>
@@ -75,7 +75,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="201"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Set all locale categories to current language</source>
         <translation>すべてのロケール関係の項目を現在の言語に合わせる</translation>
     </message>

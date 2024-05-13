@@ -59,12 +59,12 @@
         <translation type="vanished">Vendore Sistemi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="207"/>
         <source>Current System Language:</source>
         <translation>Gjuhë e Tanishme Sistemi:</translation>
     </message>
@@ -75,7 +75,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="201"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Set all locale categories to current language</source>
         <translation>Vëre gjuhën e tanishme për krejt kategoritë e vendores</translation>
     </message>

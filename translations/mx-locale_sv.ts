@@ -59,12 +59,12 @@
         <translation type="vanished">Systemspråk-inställningar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation>Knapp att trycka på</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="207"/>
         <source>Current System Language:</source>
         <translation>Nuvarande Systemspråk.</translation>
     </message>
@@ -75,7 +75,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="201"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Set all locale categories to current language</source>
         <translation>Ställ in alla språkkategorier på nuvarande språk</translation>
     </message>

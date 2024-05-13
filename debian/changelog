@@ -1,4 +1,4 @@
-mx-locale (24.5.01) mx; urgency=medium
+mx-locale (24.5.02) mx; urgency=medium
 
   * Add button to "Remove MX manuals for languages other than system default"
   * Rename "System Locale" to "System Language" and move the remove manuals button to that tab

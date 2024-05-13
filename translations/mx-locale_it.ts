@@ -59,12 +59,12 @@
         <translation type="vanished">Localizzazione del sistema</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation>PremiPulsante</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="207"/>
         <source>Current System Language:</source>
         <translation>Lingua di sistema corrente:</translation>
     </message>
@@ -75,7 +75,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="201"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Set all locale categories to current language</source>
         <translation>Imposta tutte le categorie locali sulla lingua corrente</translation>
     </message>

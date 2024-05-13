@@ -181,6 +181,26 @@
        <string extracomment=" language selection, also default for locale subvariables if not otherwise defined">System Language</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushResetSubvar">
+         <property name="text">
+          <string>Set all locale categories to current language</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>169</width>
+           <height>51</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="labelLanguage">
          <property name="text">
@@ -195,27 +215,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushResetSubvar">
-         <property name="text">
-          <string>Set all locale categories to current language</string>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="1">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>169</width>
-           <height>51</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="0" colspan="2">
         <widget class="QPushButton" name="pushRemoveManuals">
          <property name="text">
           <string>Remove MX manuals for languages other than system default</string>
