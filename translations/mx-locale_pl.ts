@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<TS version="2.1" language="pl">
 <context>
     <name>MainWindow</name>
     <message>
@@ -11,12 +11,12 @@
     <message>
         <location filename="../mainwindow.ui" line="46"/>
         <source>Quit application</source>
-        <translation>Kilépés az alkalmazásból</translation>
+        <translation>Zakończ aplikację</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Close</source>
-        <translation>Bezárás</translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="55"/>
@@ -26,12 +26,12 @@
     <message>
         <location filename="../mainwindow.ui" line="93"/>
         <source>About this application</source>
-        <translation>Az alkalmazásról</translation>
+        <translation>O programie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="96"/>
         <source>About...</source>
-        <translation>Névjegy...</translation>
+        <translation>O...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="102"/>
@@ -41,12 +41,12 @@
     <message>
         <location filename="../mainwindow.ui" line="118"/>
         <source>Display help </source>
-        <translation>Súgó megjelenítése</translation>
+        <translation>Wyświetl pomoc</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="121"/>
         <source>Help</source>
-        <translation>Súgó</translation>
+        <translation>Pomoc</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="127"/>
@@ -57,84 +57,84 @@
         <location filename="../mainwindow.ui" line="181"/>
         <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation>Területi beállítások</translation>
+        <translation>Ustawienia regionalne systemu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="187"/>
         <source>PushButton</source>
-        <translation>PushButton</translation>
+        <translation>Przycisk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="194"/>
         <source>Current System Language:</source>
-        <translation>A rendszer jelenlegi nyelve:</translation>
+        <translation>Aktualny język systemu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="214"/>
         <source>Set all locale categories to current language</source>
-        <translation>Minden területi beállítás igazítása a jelenlegi nyelvhez</translation>
+        <translation>Ustaw wszystkie kategorie ustawień regionalnych na aktualny język</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="222"/>
         <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
-        <translation>Területi beállítás kategóriák</translation>
+        <translation>Kategorie ustawień regionalnych</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="248"/>
         <source>Numeric</source>
-        <translation>Számformátum</translation>
+        <translation>Numeryczne</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="262"/>
         <source>Time</source>
-        <translation>Idő</translation>
+        <translation>Czas</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="276"/>
         <source>Collate</source>
-        <translation>Betűrendezés</translation>
+        <translation>Porównywanie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="290"/>
         <source>Currency</source>
-        <translation>Pénznem</translation>
+        <translation>Waluta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="304"/>
         <source>Messages</source>
-        <translation>Üzenetek</translation>
+        <translation>Komunikaty</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="318"/>
         <source>Paper Size</source>
-        <translation>Papírméretek</translation>
+        <translation>Rozmiar papieru</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="332"/>
         <source>Name Style</source>
-        <translation>Nevek stílusa</translation>
+        <translation>Styl nazewnictwa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="346"/>
         <source>Address</source>
-        <translation>Címek</translation>
+        <translation>Adres</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Telephone</source>
-        <translation>Telefonszámok</translation>
+        <translation>Telefon</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="374"/>
         <source>Measurement</source>
-        <translation>Mértékegységek</translation>
+        <translation>Jednostki miary</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="406"/>
         <source>Locale Management</source>
         <extracomment>Tab to manage generation of locale caches</extracomment>
-        <translation>Területi beállítások kezelése</translation>
+        <translation>Zarządzanie ustawieniami regionalnymi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="422"/>
@@ -142,35 +142,35 @@
         <location filename="../mainwindow.cpp" line="341"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
-        <translation>Összes</translation>
+        <translation>Wszystkie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="431"/>
         <location filename="../mainwindow.cpp" line="291"/>
         <source>Enabled</source>
-        <translation>Engedélyezve</translation>
+        <translation>Włączony</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
         <location filename="../mainwindow.cpp" line="290"/>
         <source>Disabled</source>
-        <translation>Letiltva</translation>
+        <translation>Wyłączone</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation>Minden területi beállítás letiltása az aktuálisat kivéve</translation>
+        <translation>Wyłącz wszystkie ustawienia regionalne oprócz używanego</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="460"/>
         <source>search</source>
-        <translation>keresés</translation>
+        <translation>szukaj</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="444"/>
         <source>Reset locale list to default</source>
-        <translation>Nyelvi lista visszaállítása az alapértelmezettre</translation>
+        <translation>Przywróć listę ustawień regionalnych do ustawień domyślnych</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
@@ -180,55 +180,55 @@
     <message>
         <location filename="../mainwindow.ui" line="498"/>
         <source>Changes go into effect on login</source>
-        <translation>A változtatások bejelentkezéskor lépnek életbe</translation>
+        <translation>Zmiany zostaną wprowadzone po zalogowaniu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="74"/>
         <source>MX Locale</source>
-        <translation>MX területi beállítások</translation>
+        <translation>MX Ustawienia regionalne</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="142"/>
         <source>About %1</source>
-        <translation>%1 névjegye</translation>
+        <translation>O %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="144"/>
         <source>Version: </source>
-        <translation>Verzió:</translation>
+        <translation>Wersja:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Program for changing language and locale categories</source>
-        <translation>Nyelvi és területi beállítások megadására szolgáló program</translation>
+        <translation>Program do zmiany języka i kategorii ustawień regionalnych</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="149"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation>Prawa autorskie © MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="150"/>
         <source>%1 License</source>
-        <translation>%1 licenc</translation>
+        <translation>%1 Licencja</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="157"/>
         <source>%1 Help</source>
-        <translation>%1 súgó</translation>
+        <translation>%1 Pomoc</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="261"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
-        <translation>Jelenlegi beállítás: &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Używane ustawienia regionalne: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="283"/>
         <location filename="../mainwindow.cpp" line="289"/>
         <source>All</source>
         <comment>all as in everything</comment>
-        <translation>Összes</translation>
+        <translation>Wszystkie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="306"/>
@@ -236,31 +236,31 @@
         <location filename="../mainwindow.cpp" line="358"/>
         <location filename="../mainwindow.cpp" line="364"/>
         <source>Error</source>
-        <translation>Hiba</translation>
+        <translation>Błąd</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="307"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation>A használatban lévő nyelv nem kapcsolható ki</translation>
+        <translation>Nie można wyłączyć używanych ustawień regionalnych</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="339"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
-        <translation>Engedélyezett nyelvek: %1</translation>
+        <translation>Włączone ustawienia regionalne: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="352"/>
         <location filename="../mainwindow.cpp" line="358"/>
         <location filename="../mainwindow.cpp" line="364"/>
         <source>Could not open %1</source>
-        <translation>Megnyitás nem sikerült: %1</translation>
+        <translation>Nie udało się otworzyć %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>Locales enabled: %1</source>
-        <translation>Engedélyezett nyelvek: %1</translation>
+        <translation>Włączone ustawienia regionalne: %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
@@ -278,54 +278,54 @@
     <message>
         <location filename="../about.cpp" line="35"/>
         <source>License</source>
-        <translation>Licenc</translation>
+        <translation>Licencja</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="36"/>
         <location filename="../about.cpp" line="46"/>
         <source>Changelog</source>
-        <translation>Változások listája</translation>
+        <translation>Dziennik zmian</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="37"/>
         <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="55"/>
         <source>&amp;Close</source>
-        <translation>&amp;Bezárás</translation>
+        <translation>&amp;Zamknij</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation>Az MX területi beállítások programmal a nyelvi beállítások szerkeszthetők</translation>
+        <translation>MX Ustawienia regionalne to narzędzie służące do zarządzania ustawieniami regionalnymi w MX Linux</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="60"/>
         <source>Show only language selection tab.</source>
-        <translation>Csak a nyelv választó lap jelenjen meg.</translation>
+        <translation>Pokaż tylko kartę wyboru języka.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="61"/>
         <source>Show all locale categories.</source>
-        <translation>Minden területi beállítás jelenjen meg.</translation>
+        <translation>Pokaż wszystkie kategorie ustawień regionalnych.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
         <location filename="../main.cpp" line="79"/>
         <source>Error</source>
-        <translation>Hiba</translation>
+        <translation>Błąd</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="72"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation>Úgy tűnik, hogy root felhasználóként van bejelentkezve. Jelentkezzen ki és jelentkezzen be egyszerű felhasználóként a program használatához.</translation>
+        <translation>Wygląda na to, że jesteś zalogowany jako root, wyloguj się i zaloguj jako zwykły użytkownik, aby korzystać z tego programu.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>You must run this program with admin access.</source>
-        <translation>Ezt a programot adminisztrátorként kell futtatnia.</translation>
+        <translation>Musisz uruchomić ten program z uprawnieniami administratora.</translation>
     </message>
 </context>
 <context>
@@ -333,34 +333,34 @@
     <message>
         <location filename="../choosedialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Ablak</translation>
+        <translation>Okno dialogowe</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="48"/>
         <source>search</source>
-        <translation>keresés</translation>
+        <translation>szukaj</translation>
     </message>
     <message>
         <location filename="../choosedialog.ui" line="58"/>
         <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
-        <translation>Ha nem látja itt a kívánt nyelvet, a &quot;Területi beállítások kezelése&quot; lapon engedélyezze.</translation>
+        <translation>Jeśli żądany język nie znajduje się na liście, włącz go na karcie &quot;Zarządzanie ustawieniami regionalnymi&quot;</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
         <source>MX Locale</source>
         <comment>name of application</comment>
-        <translation>MX területi beállítások</translation>
+        <translation>MX Ustawienia regionalne</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="40"/>
         <source>Error</source>
-        <translation>Hiba</translation>
+        <translation>Błąd</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation>Megnyitás nem sikerült: %1</translation>
+        <translation>Nie udało się otworzyć %1</translation>
     </message>
 </context>
 </TS>
