@@ -54,128 +54,133 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="181"/>
         <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation>システムロケール</translation>
+        <translation type="vanished">システムロケール</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="194"/>
         <source>PushButton</source>
         <translation>プッシュボタン</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Current System Language:</source>
         <translation>現在のシステム言語:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="214"/>
+        <location filename="../mainwindow.ui" line="181"/>
+        <source>System Language</source>
+        <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="201"/>
         <source>Set all locale categories to current language</source>
         <translation>すべてのロケール関係の項目を現在の言語に合わせる</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="222"/>
+        <location filename="../mainwindow.ui" line="229"/>
         <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
         <translation>ロケールのカテゴリ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="248"/>
+        <location filename="../mainwindow.ui" line="255"/>
         <source>Numeric</source>
         <translation>数値</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="262"/>
+        <location filename="../mainwindow.ui" line="269"/>
         <source>Time</source>
         <translation>時刻</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="276"/>
+        <location filename="../mainwindow.ui" line="283"/>
         <source>Collate</source>
         <translation>順序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="290"/>
+        <location filename="../mainwindow.ui" line="297"/>
         <source>Currency</source>
         <translation>通貨</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="304"/>
+        <location filename="../mainwindow.ui" line="311"/>
         <source>Messages</source>
         <translation>メッセージ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
+        <location filename="../mainwindow.ui" line="325"/>
         <source>Paper Size</source>
         <translation>用紙の規格</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
+        <location filename="../mainwindow.ui" line="339"/>
         <source>Name Style</source>
         <translation>氏名</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="353"/>
         <source>Address</source>
         <translation>アドレス</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="360"/>
+        <location filename="../mainwindow.ui" line="367"/>
         <source>Telephone</source>
         <translation>電話番号</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="374"/>
+        <location filename="../mainwindow.ui" line="381"/>
         <source>Measurement</source>
         <translation>計量単位</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="406"/>
+        <location filename="../mainwindow.ui" line="413"/>
         <source>Locale Management</source>
         <extracomment>Tab to manage generation of locale caches</extracomment>
         <translation>ロケール管理</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="422"/>
-        <location filename="../mainwindow.ui" line="426"/>
+        <location filename="../mainwindow.ui" line="465"/>
+        <location filename="../mainwindow.ui" line="469"/>
         <location filename="../mainwindow.cpp" line="341"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>利用可能なロケールの全リスト</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="431"/>
+        <location filename="../mainwindow.ui" line="474"/>
         <location filename="../mainwindow.cpp" line="291"/>
         <source>Enabled</source>
         <translation>有効なロケール（チェックで無効化）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../mainwindow.ui" line="479"/>
         <location filename="../mainwindow.cpp" line="290"/>
         <source>Disabled</source>
         <translation>無効なロケール（チェックで有効化）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="445"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
         <translation>使用中のロケール以外をすべて無効にする</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="428"/>
         <source>search</source>
         <translation>検索</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="444"/>
+        <location filename="../mainwindow.ui" line="455"/>
         <source>Reset locale list to default</source>
         <translation>ロケールリストを既定にリセット</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation type="unfinished"></translation>
+        <translation>システムの既定で使用する言語以外の MX マニュアルを削除する</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>
@@ -265,12 +270,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>Updating locales, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>ロケールを更新してるのでお待ちください</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="447"/>
         <source>Removing packages, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>パッケージの削除中なのでお待ちください</translation>
     </message>
 </context>
 <context>

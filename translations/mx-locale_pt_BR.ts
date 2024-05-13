@@ -54,128 +54,133 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="181"/>
         <source>System Locale</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation>Idioma do Sistema Operacional</translation>
+        <translation type="vanished">Idioma do Sistema Operacional</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="194"/>
         <source>PushButton</source>
         <translation>Pressionar o Botão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
+        <location filename="../mainwindow.ui" line="187"/>
         <source>Current System Language:</source>
         <translation>Idioma Atual do Sistema Operacional:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="214"/>
+        <location filename="../mainwindow.ui" line="181"/>
+        <source>System Language</source>
+        <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="201"/>
         <source>Set all locale categories to current language</source>
         <translation>Definir todas as categorias da localidade para o idioma atual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="222"/>
+        <location filename="../mainwindow.ui" line="229"/>
         <source>Locale Categories</source>
         <extracomment>defines individual subvariables for locale</extracomment>
         <translation>Categorias Locais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="248"/>
+        <location filename="../mainwindow.ui" line="255"/>
         <source>Numeric</source>
         <translation>Numérico</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="262"/>
+        <location filename="../mainwindow.ui" line="269"/>
         <source>Time</source>
         <translation>Horário</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="276"/>
+        <location filename="../mainwindow.ui" line="283"/>
         <source>Collate</source>
         <translation>Agrupar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="290"/>
+        <location filename="../mainwindow.ui" line="297"/>
         <source>Currency</source>
         <translation>Moeda</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="304"/>
+        <location filename="../mainwindow.ui" line="311"/>
         <source>Messages</source>
         <translation>Mensagens</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
+        <location filename="../mainwindow.ui" line="325"/>
         <source>Paper Size</source>
         <translation>Tamanho do Papel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
+        <location filename="../mainwindow.ui" line="339"/>
         <source>Name Style</source>
         <translation>Estilo de Nome</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="353"/>
         <source>Address</source>
         <translation>Endereço</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="360"/>
+        <location filename="../mainwindow.ui" line="367"/>
         <source>Telephone</source>
         <translation>Telefone</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="374"/>
+        <location filename="../mainwindow.ui" line="381"/>
         <source>Measurement</source>
         <translation>Unidade de Medida</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="406"/>
+        <location filename="../mainwindow.ui" line="413"/>
         <source>Locale Management</source>
         <extracomment>Tab to manage generation of locale caches</extracomment>
         <translation>Gerenciamento da Localidade</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="422"/>
-        <location filename="../mainwindow.ui" line="426"/>
+        <location filename="../mainwindow.ui" line="465"/>
+        <location filename="../mainwindow.ui" line="469"/>
         <location filename="../mainwindow.cpp" line="341"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Todos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="431"/>
+        <location filename="../mainwindow.ui" line="474"/>
         <location filename="../mainwindow.cpp" line="291"/>
         <source>Enabled</source>
         <translation>Ativado</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../mainwindow.ui" line="479"/>
         <location filename="../mainwindow.cpp" line="290"/>
         <source>Disabled</source>
         <translation>Desativado</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="445"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
         <translation>Desativar todas as localidades, exceto aquela que está sendo utilizada</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="428"/>
         <source>search</source>
         <translation>Pesquisar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="444"/>
+        <location filename="../mainwindow.ui" line="455"/>
         <source>Reset locale list to default</source>
         <translation>Redefinir a lista de localidades para o padrão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover os manuais do MX dos idiomas diferentes do padrão do sistema operacional</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>
@@ -265,12 +270,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>Updating locales, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizando as traduções. Por favor, aguarde a finalização</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="447"/>
         <source>Removing packages, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Removendo os pacotes. Por favor, aguarde a finalização</translation>
     </message>
 </context>
 <context>
