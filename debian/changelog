@@ -1,3 +1,9 @@
+mx-locale (24.5) mx; urgency=medium
+
+  * Add button to "Remove MX manuals for languages other than system default"
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 12 May 2024 23:22:19 -0400
+
 mx-locale (24.3) mx; urgency=medium
 
   * Update translations
