@@ -43,22 +43,26 @@ MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
     ui->setupUi(this);
     setWindowFlags(Qt::Window); // For the close, min and max buttons
     setup();
+    configureTabs(args);
+    configureCategories(args);
+    adjustSize();
+}
+
+void MainWindow::configureTabs(const QCommandLineParser &args)
+{
     if (args.isSet("only-lang")) {
         ui->tabWidget->setTabVisible(Tab::Subvariables, false);
         ui->tabWidget->setTabVisible(Tab::Management, false);
     }
-    if (args.isSet("full-categories")) {
-        ui->label_Ctype->setHidden(false);
-        ui->pushButtonCType->setHidden(false);
-        ui->label_Ident->setHidden(false);
-        ui->pushButtonIdentification->setHidden(false);
-    } else {
-        ui->label_Ident->setHidden(true);
-        ui->pushButtonIdentification->setHidden(true);
-        ui->label_Ctype->setHidden(true);
-        ui->pushButtonCType->setHidden(true);
-    }
-    this->adjustSize();
+}
+
+void MainWindow::configureCategories(const QCommandLineParser &args)
+{
+    bool fullCategories = args.isSet("full-categories");
+    ui->label_Ctype->setHidden(!fullCategories);
+    ui->pushButtonCType->setHidden(!fullCategories);
+    ui->label_Ident->setHidden(!fullCategories);
+    ui->pushButtonIdentification->setHidden(!fullCategories);
 }
 
 MainWindow::~MainWindow()
@@ -279,31 +283,29 @@ void MainWindow::onFilterChanged(const QString &text)
     bool filterAll = text == tr("All", "all as in everything");
     bool searchEmpty = searchText.isEmpty();
 
-    // If filter is set to "All" and search text is empty, no need to filter
-    if (filterAll && searchEmpty) {
-        for (int i = 0; i < ui->listWidget->count(); ++i) {
-            ui->listWidget->item(i)->setHidden(false);
-        }
-        return;
-    }
-
-    // Iterate through the list and update visibility based on the filter and search text
-    for (int i = 0; i < ui->listWidget->count(); ++i) {
-        auto *item = ui->listWidget->item(i);
+    auto shouldHideItem = [&](QListWidgetItem *item) {
         if (!item) {
-            continue;
+            return false;
         }
 
-        bool hideItem = false;
         if (!filterAll) {
             bool isDisabled = item->checkState() == Qt::Checked && text == tr("Disabled");
             bool isEnabled = item->checkState() == Qt::Unchecked && text == tr("Enabled");
-            hideItem = isDisabled || isEnabled;
+            if (isDisabled || isEnabled) {
+                return true;
+            }
         }
-        if (!hideItem && !searchEmpty) {
-            hideItem = !item->text().contains(searchText, Qt::CaseInsensitive);
+
+        if (!searchEmpty && !item->text().contains(searchText, Qt::CaseInsensitive)) {
+            return true;
         }
-        item->setHidden(hideItem);
+
+        return false;
+    };
+
+    for (int i = 0; i < ui->listWidget->count(); ++i) {
+        auto *item = ui->listWidget->item(i);
+        item->setHidden(shouldHideItem(item));
     }
 }
 
@@ -362,8 +364,7 @@ void MainWindow::displayLocalesGen()
         return;
     }
 
-    QStringList localeFiles = getLocaleFiles({"/usr/share/i18n/locales", "/usr/local/share/i18n/locales"});
-    processLocaleFiles(localeFiles);
+    processLocaleFiles(getLocaleFiles({"/usr/share/i18n/locales", "/usr/local/share/i18n/locales"}));
 
     for (const QString &filePath : supportedFiles) {
         if (!QFile::exists(filePath)) {
@@ -371,7 +372,7 @@ void MainWindow::displayLocalesGen()
         }
         QFile file(filePath);
         if (!file.open(QIODevice::ReadOnly)) {
-            QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(file.fileName()));
+            QMessageBox::critical(this, tr("Error"), tr("Could not open %1").arg(file.fileName()));
             return;
         }
         readLocaleFile(file, enabledLocales);
@@ -380,18 +381,19 @@ void MainWindow::displayLocalesGen()
     updateLocaleListUI();
 }
 
-QStringList MainWindow::readEnabledLocales(const QString &filePath) const
+QStringList MainWindow::readEnabledLocales(const QString &filePath)
 {
-    QFile localeFile(filePath);
     QStringList enabledLocales;
+    QFile localeFile(filePath);
 
     if (!localeFile.open(QIODevice::ReadOnly)) {
-        QMessageBox::critical(nullptr, tr("Error"), tr("Could not open %1").arg(localeFile.fileName()));
-        return {};
+        QMessageBox::critical(this, tr("Error"), tr("Could not open %1").arg(localeFile.fileName()));
+        return enabledLocales;
     }
 
     QTextStream in(&localeFile);
     QRegularExpression localeRegex("^[a-z]{2,3}([^_]|_[A-Z]{2})");
+
     while (!in.atEnd()) {
         QString line = in.readLine().trimmed();
         if (localeRegex.match(line).hasMatch()) {
@@ -406,8 +408,7 @@ QStringList MainWindow::getLocaleFiles(const QStringList &directories) const
 {
     QStringList localeFiles;
     for (const QString &dirPath : directories) {
-        QDirIterator it(dirPath, QStringList() << "*", QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot,
-                        QDirIterator::Subdirectories);
+        QDirIterator it(dirPath, QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
         while (it.hasNext()) {
             localeFiles.append(it.next());
         }
@@ -420,21 +421,21 @@ void MainWindow::processLocaleFiles(const QStringList &localeFiles)
     QRegularExpression titleRegex(R"(^title[[:space:]]+["](?<title>[^"]+))");
 
     for (const QString &fileName : localeFiles) {
-        QString filePath = QFileInfo(fileName).absoluteFilePath();
-        QFile file(filePath);
+        QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
             continue;
         }
 
         QTextStream in(&file);
-        QString line;
-        while (in.readLineInto(&line)) {
-            QRegularExpressionMatch titleMatch = titleRegex.match(line);
-            if (titleMatch.hasMatch()) {
-                QString title = titleMatch.captured("title");
-                title = replaceUnicodeSequences(title);
-                hashLocale.insert(QFileInfo(file).fileName(), title);
-            }
+        QString content = in.readAll();
+        file.close();
+
+        auto it = titleRegex.globalMatch(content);
+        while (it.hasNext()) {
+            auto titleMatch = it.next();
+            QString title = titleMatch.captured("title");
+            title = replaceUnicodeSequences(title);
+            hashLocale.insert(QFileInfo(fileName).fileName(), title);
         }
     }
 }
@@ -443,9 +444,9 @@ QString MainWindow::replaceUnicodeSequences(const QString &title) const
 {
     QRegularExpression unicodeRegex(R"(<U(?<code>[[:xdigit:]]{4})>)");
     QString processedTitle = title;
-    QRegularExpressionMatchIterator i = unicodeRegex.globalMatch(title);
+    auto i = unicodeRegex.globalMatch(title);
     while (i.hasNext()) {
-        QRegularExpressionMatch match = i.next();
+        auto match = i.next();
         processedTitle.replace(match.captured(0), QString(QChar(match.captured("code").toUShort(nullptr, 16))));
     }
     return processedTitle;
@@ -461,17 +462,19 @@ void MainWindow::updateLocaleListUI()
 
 void MainWindow::localeGen()
 {
-    ui->tabWidget->setEnabled(false);
-    // Total number of output lines = no_items * 2 (for locale + locale... done) +
-    // 2 for header and footer
-    QProgressDialog prog(tr("Updating locales, please wait"), nullptr, 0, countEnabled * 2 + 2);
-    prog.setWindowModality(Qt::WindowModal);
+    ui->tabWidget->setDisabled(true);
+
+    const int totalSteps = countEnabled * 2 + 2; // no_items * 2 (for locale + locale... done) + 2 for header and footer
+    QProgressDialog progressDialog(tr("Updating locales, please wait"), nullptr, 0, totalSteps);
+    progressDialog.setWindowModality(Qt::WindowModal);
+
     Cmd cmd;
-    connect(&cmd, &Cmd::outputAvailable, &prog, [&prog] {
-        prog.setValue(prog.value() + 1);
+    connect(&cmd, &Cmd::outputAvailable, &progressDialog, [&progressDialog] {
+        progressDialog.setValue(progressDialog.value() + 1);
         QCoreApplication::processEvents();
     });
-    prog.show();
+
+    progressDialog.show();
     cmd.runAsRoot("locale-gen");
     localeGenChanged = false;
     ui->tabWidget->setEnabled(true);
@@ -511,20 +514,20 @@ void MainWindow::removeManuals()
 
     Cmd cmd;
     QStringList packageList = cmd.getOut(listCmd, true).split('\n', Qt::SkipEmptyParts);
-    int count = packageList.count();
 
-    if (count == 0) {
+    if (packageList.isEmpty()) {
         QMessageBox::information(this, tr("Remove Manuals"), tr("No manuals to remove."));
         return;
     }
+
     QString purgeCmd = QString("apt-get purge -y %1").arg(packageList.join(' '));
 
     ui->tabWidget->setDisabled(true);
-    QProgressDialog prog(tr("Removing packages, please wait"), nullptr, 0, count);
+    QProgressDialog prog(tr("Removing packages, please wait"), nullptr, 0, packageList.count());
     connect(&cmd, &Cmd::outputAvailable, this, [&prog](const QString &) { prog.setValue(prog.value() + 1); });
     prog.show();
     cmd.runAsRoot(purgeCmd, true);
-    ui->tabWidget->setDisabled(false);
+    ui->tabWidget->setEnabled(true);
 }
 
 void MainWindow::resetLocaleGen()
