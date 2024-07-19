@@ -19,7 +19,7 @@ chooseDialog::~chooseDialog()
     delete ui;
 }
 
-// Setup versious items first time program runs
+// Setup various items first time program runs
 void chooseDialog::setup()
 {
     this->setWindowTitle(tr("MX Locale", "name of application"));
@@ -38,7 +38,7 @@ void chooseDialog::buildLocaleList()
 
     if (!libFile.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(this, tr("Error"),
-                              tr("Could not open %1", "message that a file could not be open, file takes place of %1")
+                              tr("Could not open %1", "message that a file could not be opened, file takes place of %1")
                                   .arg(libFile.fileName()));
         return;
     }
@@ -65,7 +65,7 @@ void chooseDialog::buildLocaleList()
     }
 }
 
-QString chooseDialog::selection()
+QString chooseDialog::selection() const
 {
     if (ui->listWidgetAvailableLocales->currentRow() == -1) {
         return {};
