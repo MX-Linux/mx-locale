@@ -1,0 +1,45 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 24 Nov 2024 09:36:23 -0500
+Source: mx-locale
+Architecture: source
+Version: 24.11.01
+Distribution: mx
+Urgency: medium
+Maintainer: Dolphin Oracle <dolphinoracle@gmail.com>
+Changed-By: Dolphin Oracle <dolphinoracle@gmail.com>
+Changes:
+ mx-locale (24.11.01) mx; urgency=medium
+ .
+   * adjust about.cpp to launch help when not running root
+Checksums-Sha1:
+ 37e2410a7e49513784ff851042ce489fed35fb1f 1455 mx-locale_24.11.01.dsc
+ 6abe0e760996b969184973c4a3e8e51909024cda 372540 mx-locale_24.11.01.tar.xz
+ 5c74259fa5db8bd0321b7c1da5654542a2396d22 11457 mx-locale_24.11.01_source.buildinfo
+Checksums-Sha256:
+ 433d73c00a7350484450c74f2fdf64351c426c2cc3e9cc7f5d5b3b34d6258b64 1455 mx-locale_24.11.01.dsc
+ e0906a42655428f1aebebfa3dd2a58234837336adbd8e9b7b249a34b30925349 372540 mx-locale_24.11.01.tar.xz
+ ba9ff6586e1238bfceffaae1536f9ae5b0bab01f5600c1c0264a045e969b88f0 11457 mx-locale_24.11.01_source.buildinfo
+Files:
+ 9c58fc5246e68d7d1eaecb8f0d60e42c 1455 admin optional mx-locale_24.11.01.dsc
+ 4a67c87097c486dbb9a29cce38a94319 372540 admin optional mx-locale_24.11.01.tar.xz
+ 1f90a07eedfc8376788657b4e8209889 11457 admin optional mx-locale_24.11.01_source.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmdDOkcACgkQm2ih6Lm2
+N1ytXhAAqYkDisSGhv/VvXyac/AAS5nC3WHlEj7szCSpR5hHQXREnbmmkbEZzsDl
+HSnA8qKnBEEUgqFFtChn2iohL0f26LFdu3qwIkyozlFOy+pmSto3M6vXpFccnJYr
+Bij+BPjYonLxqcuz7wxLD7qnTdAhVxEj052waIn95dsk4h3HhDpObUKA+wwMgj+0
+EuIJMMmjOHR2pKSKt5UylvD8TT2Ft0Gzfjv5GtXmr8+1LdvdX8hgVoHeCxBpCvVp
+WuI9CvuMZp8MZp2dpnIKh9T51w/luBJCOw5DbT+L+BhdkQn8O1tmtJB4l3gVq8VV
+KpSzQCLbpL5qV/4U+nmCBgaaEQlHliGCmEjN6P1AiGWMpypM/J+HHbpr6OsdzxLS
+1cyqtVDiLZK5xOTCa+u9zdZBwfJ/JqEAJYbYwVwcgQ8d7fSB802v82IWDiqRV+f6
+YJV+f3yGfnE8lDIrl2vnyuBDVHcsPOFIlWNBoi3QHvwQj4tPmF3paKRhi1+Vp8kF
+kUgE65gVfWRbAa2C+N6gYHr9o+7Sn5YYUCmCOvkHCl1qxbWwk3lOanW+4lg34XlI
+xwdZXdDaGJbkacJQxvJ7rpQa8MtjkZAms8//MGiO4eJOAZyON/G6Pu1oyRFP/i4s
+MhdudAoVvZ5JBftmE07D6eLAnxmzTTI9CTXhJHqp6+ZQiGgf1Qg=
+=lVSV
+-----END PGP SIGNATURE-----
