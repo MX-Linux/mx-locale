@@ -1,7 +1,7 @@
 /**********************************************************************
  *
  **********************************************************************
- * Copyright (C) 2024 MX Authors
+ * Copyright (C) 2023-2024 MX Authors
  *
  * Authors: Adrian <adrian@mxlinux.org>
  *          MX Linux <http://mxlinux.org>
@@ -21,8 +21,6 @@
  **********************************************************************/
 #pragma once
 
-class QString;
+#include <QString>
 
-void displayDoc(const QString &url, const QString &title);
-void displayAboutMsgBox(const QString &title, const QString &message, const QString &licence_url,
-                        const QString &license_title);
+inline const QString starting_home {qEnvironmentVariable("HOME")};

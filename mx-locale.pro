@@ -36,6 +36,7 @@ SOURCES += main.cpp\
 
 HEADERS  += \
     choosedialog.h \
+    common.h \
     mainwindow.h \
     about.h \
     cmd.h
