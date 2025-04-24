@@ -54,11 +54,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <source>System Locale</source>
-        <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="vanished">Ustawienia regionalne systemu</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation>Przycisk</translation>
@@ -72,7 +67,7 @@
         <location filename="../mainwindow.ui" line="181"/>
         <source>System Language</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Język systemu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="187"/>
@@ -144,20 +139,20 @@
     <message>
         <location filename="../mainwindow.ui" line="465"/>
         <location filename="../mainwindow.ui" line="469"/>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="352"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Wszystkie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="474"/>
-        <location filename="../mainwindow.cpp" line="291"/>
+        <location filename="../mainwindow.cpp" line="293"/>
         <source>Enabled</source>
         <translation>Włączony</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="479"/>
-        <location filename="../mainwindow.cpp" line="290"/>
+        <location filename="../mainwindow.cpp" line="292"/>
         <source>Disabled</source>
         <translation>Wyłączone</translation>
     </message>
@@ -188,92 +183,99 @@
         <translation>Zmiany zostaną wprowadzone po zalogowaniu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="74"/>
+        <location filename="../mainwindow.cpp" line="79"/>
         <source>MX Locale</source>
         <translation>MX Ustawienia regionalne</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="142"/>
+        <location filename="../mainwindow.cpp" line="153"/>
         <source>About %1</source>
         <translation>O %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="144"/>
+        <location filename="../mainwindow.cpp" line="155"/>
         <source>Version: </source>
         <translation>Wersja:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="145"/>
+        <location filename="../mainwindow.cpp" line="156"/>
         <source>Program for changing language and locale categories</source>
         <translation>Program do zmiany języka i kategorii ustawień regionalnych</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="149"/>
+        <location filename="../mainwindow.cpp" line="160"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Prawa autorskie © MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="150"/>
+        <location filename="../mainwindow.cpp" line="161"/>
         <source>%1 License</source>
         <translation>%1 Licencja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="157"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>%1 Help</source>
         <translation>%1 Pomoc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="261"/>
+        <location filename="../mainwindow.cpp" line="267"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
         <translation>Używane ustawienia regionalne: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="283"/>
-        <location filename="../mainwindow.cpp" line="289"/>
         <source>All</source>
         <comment>all as in everything</comment>
         <translation>Wszystkie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="364"/>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="390"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="319"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>Nie można wyłączyć używanych ustawień regionalnych</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="339"/>
+        <location filename="../mainwindow.cpp" line="350"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Włączone ustawienia regionalne: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="364"/>
+        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="390"/>
         <source>Could not open %1</source>
         <translation>Nie udało się otworzyć %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Locales enabled: %1</source>
         <translation>Włączone ustawienia regionalne: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>Updating locales, please wait</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="447"/>
+        <location filename="../mainwindow.cpp" line="519"/>
+        <source>Remove Manuals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="519"/>
+        <source>No manuals to remove.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="526"/>
         <source>Removing packages, please wait</source>
         <translation type="unfinished"></translation>
     </message>
@@ -281,23 +283,23 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="35"/>
+        <location filename="../about.cpp" line="37"/>
         <source>License</source>
         <translation>Licencja</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="36"/>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="38"/>
+        <location filename="../about.cpp" line="48"/>
         <source>Changelog</source>
         <translation>Dziennik zmian</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="37"/>
+        <location filename="../about.cpp" line="39"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="57"/>
         <source>&amp;Close</source>
         <translation>&amp;Zamknij</translation>
     </message>
@@ -364,8 +366,13 @@
     <message>
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
+        <comment>message that a file could not be opened, file takes place of %1</comment>
+        <translation type="unfinished">Nie udało się otworzyć %1</translation>
+    </message>
+    <message>
+        <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation>Nie udało się otworzyć %1</translation>
+        <translation type="vanished">Nie udało się otworzyć %1</translation>
     </message>
 </context>
 </TS>

@@ -54,11 +54,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <source>System Locale</source>
-        <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="vanished">Γλώσσα συστήματος</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
         <translation>Κουμπί</translation>
@@ -72,7 +67,7 @@
         <location filename="../mainwindow.ui" line="181"/>
         <source>System Language</source>
         <extracomment> language selection, also default for locale subvariables if not otherwise defined</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Γλώσσα συστήματος</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="187"/>
@@ -144,20 +139,20 @@
     <message>
         <location filename="../mainwindow.ui" line="465"/>
         <location filename="../mainwindow.ui" line="469"/>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="352"/>
         <source>All</source>
         <extracomment>elements of filter box</extracomment>
         <translation>Όλες</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="474"/>
-        <location filename="../mainwindow.cpp" line="291"/>
+        <location filename="../mainwindow.cpp" line="293"/>
         <source>Enabled</source>
         <translation>Ενεργοποιημένες</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="479"/>
-        <location filename="../mainwindow.cpp" line="290"/>
+        <location filename="../mainwindow.cpp" line="292"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένες</translation>
     </message>
@@ -180,7 +175,7 @@
     <message>
         <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση εγχειριδίων χρήσης του MX για διαφορετικές γλώσσες από τη προεπιλεγμένη</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>
@@ -188,116 +183,123 @@
         <translation>Οι αλλαγές θα τεθούν σε ισχύ με τη σύνδεση</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="74"/>
+        <location filename="../mainwindow.cpp" line="79"/>
         <source>MX Locale</source>
         <translation>MX Γλώσσα συστήματος</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="142"/>
+        <location filename="../mainwindow.cpp" line="153"/>
         <source>About %1</source>
         <translation>Περί του %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="144"/>
+        <location filename="../mainwindow.cpp" line="155"/>
         <source>Version: </source>
         <translation>Έκδοση: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="145"/>
+        <location filename="../mainwindow.cpp" line="156"/>
         <source>Program for changing language and locale categories</source>
         <translation>Πρόγραμμα αλλαγής γλώσσας και τοπικών ρυθμίσεων</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="149"/>
+        <location filename="../mainwindow.cpp" line="160"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Πνευματικά δικαιώματα (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="150"/>
+        <location filename="../mainwindow.cpp" line="161"/>
         <source>%1 License</source>
         <translation>Άδεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="157"/>
+        <location filename="../mainwindow.cpp" line="168"/>
         <source>%1 Help</source>
         <translation>Βοήθεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="261"/>
+        <location filename="../mainwindow.cpp" line="267"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
         <translation>Γλώσσα συστήματος: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="283"/>
-        <location filename="../mainwindow.cpp" line="289"/>
         <source>All</source>
         <comment>all as in everything</comment>
         <translation>Όλες</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="364"/>
+        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="390"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="319"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
         <translation>Δεν μπορεί να απενεργοποιηθεί η γλώσσα που χρησιμοποιείται</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="339"/>
+        <location filename="../mainwindow.cpp" line="350"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
         <translation>Ενεργοποιημένες γλώσσες: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="364"/>
+        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="390"/>
         <source>Could not open %1</source>
         <translation>Δεν κατέστη δυνατό το άνοιγμα του %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Locales enabled: %1</source>
         <translation>Ενεργοποιημένες γλώσσες: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>Updating locales, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενημέρωση γλωσσών, παρακαλώ περιμένετε</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="447"/>
+        <location filename="../mainwindow.cpp" line="519"/>
+        <source>Remove Manuals</source>
+        <translation>Αφαίρεση εγχειριδίων χρήσης</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="519"/>
+        <source>No manuals to remove.</source>
+        <translation>Δεν υπάρχουν εγχειρίδια χρήσης για αφαίρεση.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="526"/>
         <source>Removing packages, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση πακέτων, παρακαλώ περιμένετε</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="35"/>
+        <location filename="../about.cpp" line="37"/>
         <source>License</source>
         <translation>Άδεια</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="36"/>
-        <location filename="../about.cpp" line="46"/>
+        <location filename="../about.cpp" line="38"/>
+        <location filename="../about.cpp" line="48"/>
         <source>Changelog</source>
         <translation>Αρχείο αλλαγών</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="37"/>
+        <location filename="../about.cpp" line="39"/>
         <source>Cancel</source>
         <translation>Άκυρο</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="55"/>
+        <location filename="../about.cpp" line="57"/>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
@@ -364,8 +366,13 @@
     <message>
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
+        <comment>message that a file could not be opened, file takes place of %1</comment>
+        <translation type="unfinished">Δεν κατέστη δυνατό το άνοιγμα του %1</translation>
+    </message>
+    <message>
+        <source>Could not open %1</source>
         <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation>Δεν κατέστη δυνατό το άνοιγμα του %1</translation>
+        <translation type="vanished">Δεν κατέστη δυνατό το άνοιγμα του %1</translation>
     </message>
 </context>
 </TS>
