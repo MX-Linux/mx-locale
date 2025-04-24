@@ -283,54 +283,54 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="37"/>
+        <location filename="../about.cpp" line="70"/>
         <source>License</source>
         <translation>Άδεια</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="38"/>
-        <location filename="../about.cpp" line="48"/>
+        <location filename="../about.cpp" line="71"/>
+        <location filename="../about.cpp" line="81"/>
         <source>Changelog</source>
         <translation>Αρχείο αλλαγών</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="39"/>
+        <location filename="../about.cpp" line="72"/>
         <source>Cancel</source>
         <translation>Άκυρο</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="94"/>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="57"/>
+        <location filename="../main.cpp" line="68"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
         <translation>Το MX Γλώσσα συστήματος είναι εργαλείο που χρησιμοποιείται για τη διαχείριση των ρυθμίσεων γλώσσας στο MX Linux</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="60"/>
+        <location filename="../main.cpp" line="71"/>
         <source>Show only language selection tab.</source>
         <translation>Εμφάνιση μόνο της καρτέλας επιλογής γλώσσας.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="61"/>
+        <location filename="../main.cpp" line="72"/>
         <source>Show all locale categories.</source>
         <translation>Εμφάνιση όλων των τοπικών ρυθμίσεων.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="71"/>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="90"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="72"/>
+        <location filename="../main.cpp" line="83"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Φαίνεται ότι έχετε συνδεθεί ως διαχειριστής, για να χρησιμοποιήσετε αυτό το πρόγραμμα αποσυνδεθείτε και συνδεθείτε ως απλός χρήστης.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="91"/>
         <source>You must run this program with admin access.</source>
         <translation>Πρέπει να εκτελέσετε αυτό το πρόγραμμα με δικαιώματα διαχειριστή.</translation>
     </message>

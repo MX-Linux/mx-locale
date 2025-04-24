@@ -283,54 +283,54 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="37"/>
+        <location filename="../about.cpp" line="70"/>
         <source>License</source>
         <translation>Licença</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="38"/>
-        <location filename="../about.cpp" line="48"/>
+        <location filename="../about.cpp" line="71"/>
+        <location filename="../about.cpp" line="81"/>
         <source>Changelog</source>
         <translation>Relatório de Alterações</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="39"/>
+        <location filename="../about.cpp" line="72"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="57"/>
+        <location filename="../about.cpp" line="94"/>
         <source>&amp;Close</source>
         <translation>&amp;Fechar</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="57"/>
+        <location filename="../main.cpp" line="68"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
         <translation>O ‘MX Locale’ permite definir o idioma e os padrões das categorias referentes ao local ou região, como por exemplo, horário, moeda, numérico, tamanho do papel, etc.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="60"/>
+        <location filename="../main.cpp" line="71"/>
         <source>Show only language selection tab.</source>
         <translation>Exibir apenas a aba ou guia de seleção do idioma.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="61"/>
+        <location filename="../main.cpp" line="72"/>
         <source>Show all locale categories.</source>
         <translation>Exibir todas as categorias locais.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="71"/>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="90"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="72"/>
+        <location filename="../main.cpp" line="83"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Ao que parece, você está acessando a sessão atual com o usuário ‘root’ (administrador). Por favor, saia da sessão atual e entre novamente com o usuário normal para utilizar este programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="91"/>
         <source>You must run this program with admin access.</source>
         <translation>Você tem que executar este programa com o usuário administrador.</translation>
     </message>
