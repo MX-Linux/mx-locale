@@ -19,7 +19,7 @@
 # **********************************************************************/
 
 QT       += core gui widgets
-CONFIG   += warn_on strict_c++ c++17
+CONFIG   += warn_on strict_c++ c++20
 
 QMAKE_CXXFLAGS += -Wpedantic -pedantic -Werror=return-type -Werror=switch
 QMAKE_CXXFLAGS += -Werror=uninitialized -Werror=return-local-addr -Werror
