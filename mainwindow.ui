@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>725</width>
-    <height>562</height>
+    <height>556</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -174,7 +174,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tabLanguage">
       <attribute name="title">
@@ -185,6 +185,9 @@
         <widget class="QPushButton" name="pushResetSubvar">
          <property name="text">
           <string>Set all locale categories to current language</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -247,10 +250,13 @@
             <property name="text">
              <string notr="true">CType</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="label_Numeric">
             <property name="text">
              <string>Numeric</string>
             </property>
@@ -261,10 +267,13 @@
             <property name="text">
              <string notr="true">Numeric</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="label_Time">
             <property name="text">
              <string>Time</string>
             </property>
@@ -275,10 +284,13 @@
             <property name="text">
              <string notr="true">Time</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="label_Collate">
             <property name="text">
              <string>Collate</string>
             </property>
@@ -289,10 +301,13 @@
             <property name="text">
              <string notr="true">Collate</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="label_Currency">
             <property name="text">
              <string>Currency</string>
             </property>
@@ -303,10 +318,13 @@
             <property name="text">
              <string notr="true">Monetary</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="QLabel" name="label_7">
+           <widget class="QLabel" name="label_Messages">
             <property name="text">
              <string>Messages</string>
             </property>
@@ -317,10 +335,13 @@
             <property name="text">
              <string notr="true">Messages</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="label_Paper">
             <property name="text">
              <string>Paper Size</string>
             </property>
@@ -331,10 +352,13 @@
             <property name="text">
              <string notr="true">Paper</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="7" column="0">
-           <widget class="QLabel" name="label_9">
+           <widget class="QLabel" name="label_NameStyle">
             <property name="text">
              <string>Name Style</string>
             </property>
@@ -345,10 +369,13 @@
             <property name="text">
              <string notr="true">Name</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="8" column="0">
-           <widget class="QLabel" name="label_10">
+           <widget class="QLabel" name="label_Address">
             <property name="text">
              <string>Address</string>
             </property>
@@ -359,10 +386,13 @@
             <property name="text">
              <string notr="true">Address</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="9" column="0">
-           <widget class="QLabel" name="label_11">
+           <widget class="QLabel" name="label_Telephone">
             <property name="text">
              <string>Telephone</string>
             </property>
@@ -373,10 +403,13 @@
             <property name="text">
              <string notr="true">Telephone</string>
             </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item row="10" column="0">
-           <widget class="QLabel" name="label_12">
+           <widget class="QLabel" name="label_Measurement">
             <property name="text">
              <string>Measurement</string>
             </property>
@@ -386,6 +419,9 @@
            <widget class="QPushButton" name="pushButtonMeasurement">
             <property name="text">
              <string notr="true">Measurement</string>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -400,6 +436,19 @@
            <widget class="QPushButton" name="pushButtonIdentification">
             <property name="text">
              <string notr="true">Identification</string>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="1">
+           <widget class="QPushButton" name="pushButtonAll">
+            <property name="text">
+             <string>Select same locale for all categories</string>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -504,11 +553,29 @@
  <tabstops>
   <tabstop>tabWidget</tabstop>
   <tabstop>buttonLang</tabstop>
+  <tabstop>pushResetSubvar</tabstop>
+  <tabstop>pushRemoveManuals</tabstop>
   <tabstop>buttonAbout</tabstop>
   <tabstop>buttonHelp</tabstop>
   <tabstop>buttonCancel</tabstop>
+  <tabstop>pushButtonCType</tabstop>
+  <tabstop>pushButtonNumeric</tabstop>
+  <tabstop>pushButtonTime</tabstop>
+  <tabstop>pushButtonCollate</tabstop>
+  <tabstop>pushButtonMonetary</tabstop>
+  <tabstop>pushButtonMessages</tabstop>
+  <tabstop>pushButtonPaper</tabstop>
+  <tabstop>pushButtonName</tabstop>
+  <tabstop>pushButtonAddress</tabstop>
+  <tabstop>pushButtonTelephone</tabstop>
+  <tabstop>pushButtonMeasurement</tabstop>
+  <tabstop>pushButtonIdentification</tabstop>
+  <tabstop>pushButtonAll</tabstop>
+  <tabstop>textSearch</tabstop>
   <tabstop>comboFilter</tabstop>
   <tabstop>listWidget</tabstop>
+  <tabstop>pushDisableLocales</tabstop>
+  <tabstop>pushResetLocales</tabstop>
  </tabstops>
  <resources>
   <include location="images.qrc"/>
