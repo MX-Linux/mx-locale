@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>MainWindow</name>
     <message>
@@ -11,7 +9,7 @@
     <message>
         <location filename="../mainwindow.ui" line="46"/>
         <source>Quit application</source>
-        <translation>Sair do aplicativo</translation>
+        <translation>Sair do programa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -26,7 +24,7 @@
     <message>
         <location filename="../mainwindow.ui" line="93"/>
         <source>About this application</source>
-        <translation>Sobre este aplicativo</translation>
+        <translation>Sobre este programa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="96"/>
@@ -113,7 +111,7 @@
     <message>
         <location filename="../mainwindow.ui" line="339"/>
         <source>Name Style</source>
-        <translation>Estilo de Nome</translation>
+        <translation>Estilo do Nome</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="353"/>
@@ -160,7 +158,7 @@
         <location filename="../mainwindow.ui" line="445"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation>Desativar todas as localidades, exceto aquela que está sendo utilizada</translation>
+        <translation>Desativar todas as localidades, exceto aquela que está sendo utilizada neste exato momento</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="428"/>
@@ -200,7 +198,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="156"/>
         <source>Program for changing language and locale categories</source>
-        <translation>O ‘MX Locale’ permite definir o idioma e os padrões das categorias referentes ao local ou região, como por exemplo, horário, moeda, numérico, tamanho do papel, etc.</translation>
+        <translation>O ‘MX Locale’ permite definir o idioma e os padrões das categorias referentes ao local ou região, por exemplo, horário, moeda, numérico, tamanho do papel, etc.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="160"/>
@@ -240,7 +238,7 @@
         <location filename="../mainwindow.cpp" line="319"/>
         <source>Can&apos;t disable locale in use</source>
         <comment>message that the chosen locale cannot be disabled because it is in active usage</comment>
-        <translation>Não é possível desativar as configurações locais que estão sendo utilizadas neste momento</translation>
+        <translation>Não é possível desativar as configurações locais que estão sendo utilizadas neste exato momento</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="350"/>
@@ -267,12 +265,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="519"/>
         <source>Remove Manuals</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover os Manuais</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="519"/>
         <source>No manuals to remove.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não existem manuais para serem removidos.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="526"/>
@@ -306,12 +304,12 @@
     <message>
         <location filename="../main.cpp" line="68"/>
         <source>MX Locale is a tool used for managing locale settings in MX Linux</source>
-        <translation>O ‘MX Locale’ permite definir o idioma e os padrões das categorias referentes ao local ou região, como por exemplo, horário, moeda, numérico, tamanho do papel, etc.</translation>
+        <translation>O ‘MX Locale’ permite definir o idioma e os padrões das categorias referentes ao local ou região, por exemplo, horário, moeda, numérico, tamanho do papel, etc.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>
         <source>Show only language selection tab.</source>
-        <translation>Exibir apenas a aba ou guia de seleção do idioma.</translation>
+        <translation>Exibir apenas a aba ou guia da seleção do idioma.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="72"/>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">Não foi possível abrir %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">Não foi possível abrir %1</translation>
+        <translation>Não foi possível abrir %1</translation>
     </message>
 </context>
 </TS>

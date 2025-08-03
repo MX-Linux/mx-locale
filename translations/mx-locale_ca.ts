@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
     <name>MainWindow</name>
     <message>
@@ -175,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation>Elimina els manuals de MX per idiomes diferents de la del sistema</translation>
+        <translation>Elimina els manuals de MX per idiomes diferents al del sistema</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">No puc obrir %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">No puc obrir %1</translation>
+        <translation>No puc obrir %1</translation>
     </message>
 </context>
 </TS>

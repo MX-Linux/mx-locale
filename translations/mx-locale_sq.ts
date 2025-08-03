@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sq">
 <context>
     <name>MainWindow</name>
     <message>
@@ -56,7 +54,7 @@
     <message>
         <location filename="../mainwindow.ui" line="214"/>
         <source>PushButton</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="207"/>
@@ -93,7 +91,7 @@
     <message>
         <location filename="../mainwindow.ui" line="283"/>
         <source>Collate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="297"/>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">S’u hap dot %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">S’u hap dot %1</translation>
+        <translation>S’u hap dot %1</translation>
     </message>
 </context>
 </TS>

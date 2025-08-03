@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
 <context>
     <name>MainWindow</name>
     <message>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">Ei voi avata %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">Ei voi avata %1</translation>
+        <translation>Ei voi avata %1</translation>
     </message>
 </context>
 </TS>

@@ -1,3 +1,9 @@
+mx-locale (25.08) mx; urgency=medium
+
+  * Add 'Select sale locale for all categories' button
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 03 Aug 2025 11:10:11 -0400
+
 mx-locale (25.4) mx; urgency=medium
 
   * Update to Qt6

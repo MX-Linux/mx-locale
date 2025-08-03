@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
 <context>
     <name>MainWindow</name>
     <message>
@@ -31,7 +29,7 @@
     <message>
         <location filename="../mainwindow.ui" line="96"/>
         <source>About...</source>
-        <translation>À propos...</translation>
+        <translation>À propos…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="102"/>
@@ -61,7 +59,7 @@
     <message>
         <location filename="../mainwindow.ui" line="207"/>
         <source>Current System Language:</source>
-        <translation>Langue actuelle du système&#xa0;:</translation>
+        <translation>Langue actuelle du système :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="181"/>
@@ -180,7 +178,7 @@
     <message>
         <location filename="../mainwindow.ui" line="498"/>
         <source>Changes go into effect on login</source>
-        <translation>Les changements seront effectifs dès la connexion «&#xa0;login&#xa0;».</translation>
+        <translation>Les changements seront effectifs dès la connexion « login ».</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="79"/>
@@ -195,7 +193,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="155"/>
         <source>Version: </source>
-        <translation>Version&#xa0;: </translation>
+        <translation>Version : </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="156"/>
@@ -221,7 +219,7 @@
         <location filename="../mainwindow.cpp" line="267"/>
         <source>Locale in use: &lt;b&gt;%1&lt;/b&gt;</source>
         <comment>shows the current system locale, in bold</comment>
-        <translation>Paramètres régionaux en cours&#xa0;: &lt;b&gt;%1&lt;/b&gt;</translation>
+        <translation>Paramètres régionaux en cours : &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="283"/>
@@ -246,7 +244,7 @@
         <location filename="../mainwindow.cpp" line="350"/>
         <source>Locales enabled: %1</source>
         <comment>label for a numerical count of enabled and available locales</comment>
-        <translation>Paramètres régionaux activés&#xa0;: %1</translation>
+        <translation>Paramètres régionaux activés : %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="375"/>
@@ -257,7 +255,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="459"/>
         <source>Locales enabled: %1</source>
-        <translation>Paramètres régionaux activés&#xa0;: %1</translation>
+        <translation>Paramètres régionaux activés : %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="468"/>
@@ -350,7 +348,7 @@
     <message>
         <location filename="../choosedialog.ui" line="58"/>
         <source>If your desired language is not listed here, enable it in &quot;Locale management&quot; tab</source>
-        <translation>Si la langue souhaitée n’est pas répertoriée ici, activez-la dans l’onglet «&#xa0;Gestion des paramètres régionaux&#xa0;».</translation>
+        <translation>Si la langue souhaitée n’est pas répertoriée ici, activez-la dans l’onglet « Gestion des paramètres régionaux ».</translation>
     </message>
     <message>
         <location filename="../choosedialog.cpp" line="25"/>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">Impossible d’ouvrir %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">Impossible d’ouvrir %1</translation>
+        <translation>Impossible d’ouvrir %1</translation>
     </message>
 </context>
 </TS>

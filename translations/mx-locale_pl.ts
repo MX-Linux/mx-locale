@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
     <name>MainWindow</name>
     <message>
@@ -175,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń podręczniki MX dla języków innych niż domyślne języki systemowe</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>
@@ -262,22 +260,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="468"/>
         <source>Updating locales, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja ustawień regionalnych, proszę czekać</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="519"/>
         <source>Remove Manuals</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń podręczniki</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="519"/>
         <source>No manuals to remove.</source>
-        <translation type="unfinished"></translation>
+        <translation>Brak podręczników do usunięcia.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="526"/>
         <source>Removing packages, please wait</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuwanie pakietów, proszę czekać</translation>
     </message>
 </context>
 <context>
@@ -367,12 +365,7 @@
         <location filename="../choosedialog.cpp" line="41"/>
         <source>Could not open %1</source>
         <comment>message that a file could not be opened, file takes place of %1</comment>
-        <translation type="unfinished">Nie udało się otworzyć %1</translation>
-    </message>
-    <message>
-        <source>Could not open %1</source>
-        <comment>message that a file could not be open, file takes place of %1</comment>
-        <translation type="vanished">Nie udało się otworzyć %1</translation>
+        <translation>Nie udało się otworzyć %1</translation>
     </message>
 </context>
 </TS>
