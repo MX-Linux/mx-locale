@@ -126,7 +126,7 @@
     <message>
         <location filename="../mainwindow.ui" line="381"/>
         <source>Measurement</source>
-        <translation>Μέτρηση</translation>
+        <translation>Μετρήσεις</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="413"/>
@@ -158,7 +158,7 @@
         <location filename="../mainwindow.ui" line="445"/>
         <source>Disable all locales except the one in use</source>
         <extracomment>disables generation of any locale except on that is currently in use</extracomment>
-        <translation>Απενεργοποίηση όλων των γλωσσών εκτός από αυτή που χρησιμοποιείται</translation>
+        <translation>Απενεργοποίηση όλων εκτός από αυτή που χρησιμοποιείται</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="428"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="221"/>
         <source>Remove MX manuals for languages other than system default</source>
-        <translation>Αφαίρεση εγχειριδίων χρήσης του MX για διαφορετικές γλώσσες από τη προεπιλεγμένη</translation>
+        <translation>Αφαίρεση εγχειριδίων χρήσης του MX για γλώσσες διαφορετικές από τη προεπιλεγμένη</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="498"/>

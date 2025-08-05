@@ -1,3 +1,9 @@
+mx-locale (25.08.1) mx; urgency=medium
+
+  * Remove 'Set same locale for all categories' button
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 05 Aug 2025 18:55:45 -0400
+
 mx-locale (25.08) mx; urgency=medium
 
   * Add 'Select sale locale for all categories' button
