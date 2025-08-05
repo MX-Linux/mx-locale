@@ -111,9 +111,8 @@ void MainWindow::onGroupButton(int button_id)
     if (dialog.exec() != QDialog::Accepted || dialog.selection().isEmpty()) {
         return;
     }
-
-    QString selectedLocale = dialog.selection();
-
+    auto selectedButton = buttonGroup->button(button_id);
+    selectedButton->setText(dialog.selection());
     static const QHash<int, QString> hashVarName {
         {ButtonID::Lang, "LANG"},
         {ButtonID::Address, "LC_ADDRESS"},
@@ -129,35 +128,12 @@ void MainWindow::onGroupButton(int button_id)
         {ButtonID::Telephone, "LC_TELEPHONE"},
         {ButtonID::Time, "LC_TIME"},
     };
-
-    if (button_id == ButtonID::All) {
-        // Set all categories except Lang to the selected locale
-        Cmd cmd;
-        for (auto it = hashVarName.constBegin(); it != hashVarName.constEnd(); ++it) {
-            int categoryId = it.key();
-            if (categoryId == ButtonID::Lang) {
-                continue;
-            }
-
-            auto button = buttonGroup->button(categoryId);
-            if (button) {
-                button->setText(selectedLocale);
-                const QString updateLocaleCommand = QString("update-locale %1='%2'").arg(it.value(), selectedLocale);
-                cmd.runAsRoot(updateLocaleCommand);
-            }
-        }
-    } else {
-        // Handle individual button case
-        auto selectedButton = buttonGroup->button(button_id);
-        selectedButton->setText(selectedLocale);
-        if (button_id == ButtonID::Lang) {
-            setSubvariables();
-        }
-        const QString updateLocaleCommand
-            = QString("update-locale %1='%2'").arg(hashVarName.value(button_id), selectedLocale);
-        Cmd().runAsRoot(updateLocaleCommand);
+    if (button_id == ButtonID::Lang) {
+        setSubvariables();
     }
-
+    const QString updateLocaleCommand
+        = QString("update-locale %1='%2'").arg(hashVarName.value(button_id), selectedButton->text());
+    Cmd().runAsRoot(updateLocaleCommand);
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
@@ -263,7 +239,6 @@ void MainWindow::setButtons()
     buttonGroup->addButton(ui->pushButtonTelephone, ButtonID::Telephone);
     buttonGroup->addButton(ui->pushButtonTime, ButtonID::Time);
     buttonGroup->addButton(ui->buttonLang, ButtonID::Lang);
-    buttonGroup->addButton(ui->pushButtonAll, ButtonID::All);
 }
 
 void MainWindow::setConnections()

@@ -52,8 +52,7 @@ enum {
     Numeric,
     Paper,
     Telephone,
-    Time,
-    All
+    Time
 };
 }
 
