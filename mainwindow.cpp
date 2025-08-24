@@ -23,7 +23,6 @@
 #include "mainwindow.h"
 #include "about.h"
 #include "ui_mainwindow.h"
-#include "version.h"
 
 #include <QDebug>
 #include <QDirIterator>

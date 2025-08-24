@@ -33,7 +33,10 @@
 #include "mainwindow.h"
 
 #include <unistd.h>
-#include <version.h>
+
+#ifndef VERSION
+    #define VERSION "?.?.?.?"
+#endif
 
 int main(int argc, char *argv[])
 {
