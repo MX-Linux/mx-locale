@@ -500,7 +500,15 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
 
 void MainWindow::removeManuals()
 {
-    QString lang = ui->buttonLang->text().section('.', 0, 0).section('_', 0, 0);
+    QString lang = ui->buttonLang->text().section('.', 0, 0);
+
+    // Normalize Portuguese locale codes to match package naming conventions
+    if (lang.startsWith("pt_")) {
+        lang = lang.toLower().replace('_', '-');
+    } else {
+        lang = lang.section("_", 0, 0);
+    }
+
     if (lang.isEmpty()) {
         return;
     }
