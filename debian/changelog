@@ -1,4 +1,4 @@
-mx-locale (25.10) mx; urgency=medium
+mx-locale (25.10.1) mx; urgency=medium
 
   * Fix: special case removal function for pt-br locale
 
