@@ -8,29 +8,29 @@
 #include "common.h"
 #include "ui_choosedialog.h"
 
-chooseDialog::chooseDialog(QWidget *parent)
+ChooseDialog::ChooseDialog(QWidget *parent)
     : QDialog(parent),
-      ui(new Ui::chooseDialog)
+      ui(new Ui::ChooseDialog)
 {
     ui->setupUi(this);
     setup();
 }
 
-chooseDialog::~chooseDialog()
+ChooseDialog::~ChooseDialog()
 {
     delete ui;
 }
 
 // Setup various items first time program runs
-void chooseDialog::setup()
+void ChooseDialog::setup()
 {
     this->setWindowTitle(tr("MX Locale", "name of application"));
     buildLocaleList();
     ui->textSearch->setFocus();
-    connect(ui->textSearch, &QLineEdit::textChanged, this, &chooseDialog::textSearch_textChanged);
+    connect(ui->textSearch, &QLineEdit::textChanged, this, &ChooseDialog::textSearch_textChanged);
 }
 
-void chooseDialog::buildLocaleList()
+void ChooseDialog::buildLocaleList()
 {
     QFile libFile(QDir(Paths::mxLocaleLib).filePath("locale.lib"));
     QString locales = Cmd().getOut(R"(locale --all-locales)");
@@ -66,7 +66,7 @@ void chooseDialog::buildLocaleList()
     }
 }
 
-QString chooseDialog::selection() const
+QString ChooseDialog::selection() const
 {
     if (ui->listWidgetAvailableLocales->currentRow() == -1) {
         return {};
@@ -76,7 +76,7 @@ QString chooseDialog::selection() const
     return selection;
 }
 
-void chooseDialog::textSearch_textChanged()
+void ChooseDialog::textSearch_textChanged()
 {
     QString searchText = ui->textSearch->text();
     for (int i = 0; i < ui->listWidgetAvailableLocales->count(); ++i) {

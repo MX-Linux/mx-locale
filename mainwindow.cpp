@@ -107,7 +107,7 @@ void MainWindow::disableGUI(bool disable)
 
 void MainWindow::onGroupButton(int buttonId)
 {
-    chooseDialog dialog;
+    ChooseDialog dialog;
     dialog.setModal(true);
     if (dialog.exec() != QDialog::Accepted) {
         return;
