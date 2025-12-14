@@ -57,7 +57,7 @@ void MainWindow::configureTabs(const QCommandLineParser &args)
 
 void MainWindow::configureCategories(const QCommandLineParser &args)
 {
-    bool fullCategories = args.isSet("full-categories");
+    const bool fullCategories = args.isSet("full-categories");
     ui->label_Ctype->setHidden(!fullCategories);
     ui->pushButtonCType->setHidden(!fullCategories);
     ui->label_Ident->setHidden(!fullCategories);
@@ -72,7 +72,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// Setup versious items first time program runs
+// Setup various items first time program runs
 void MainWindow::setup()
 {
     this->setWindowTitle(tr("MX Locale"));
@@ -88,7 +88,7 @@ void MainWindow::setup()
 bool MainWindow::anyDifferentSubvars() const
 {
     // Skip the first button: ButtonID::LANG
-    auto buttons = buttonGroup->buttons();
+    const auto buttons = buttonGroup->buttons();
     return std::any_of(std::next(buttons.begin()), buttons.end(),
                        [this](const auto *button) { return button->text() != ui->buttonLang->text(); });
 }
@@ -103,15 +103,19 @@ void MainWindow::disableGUI(bool disable)
     ui->buttonCancel->setDisabled(disable);
 }
 
-void MainWindow::onGroupButton(int button_id)
+void MainWindow::onGroupButton(int buttonId)
 {
     chooseDialog dialog;
     dialog.setModal(true);
-    if (dialog.exec() != QDialog::Accepted || dialog.selection().isEmpty()) {
+    if (dialog.exec() != QDialog::Accepted) {
         return;
     }
-    auto selectedButton = buttonGroup->button(button_id);
-    selectedButton->setText(dialog.selection());
+    const QString selection = dialog.selection();
+    if (selection.isEmpty()) {
+        return;
+    }
+    auto *selectedButton = buttonGroup->button(buttonId);
+    selectedButton->setText(selection);
     static const QHash<int, QString> hashVarName {
         {ButtonID::Lang, "LANG"},
         {ButtonID::Address, "LC_ADDRESS"},
@@ -127,18 +131,18 @@ void MainWindow::onGroupButton(int button_id)
         {ButtonID::Telephone, "LC_TELEPHONE"},
         {ButtonID::Time, "LC_TIME"},
     };
-    if (button_id == ButtonID::Lang) {
+    if (buttonId == ButtonID::Lang) {
         setSubvariables();
     }
     const QString updateLocaleCommand
-        = QString("update-locale %1='%2'").arg(hashVarName.value(button_id), selectedButton->text());
+        = QString("update-locale %1='%2'").arg(hashVarName.value(buttonId), selectedButton->text());
     Cmd().runAsRoot(updateLocaleCommand);
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
 void MainWindow::resetSubvariables()
 {
-    QString langValue = buttonGroup->button(ButtonID::Lang)->text();
+    const QString langValue = buttonGroup->button(ButtonID::Lang)->text();
     Cmd cmd;
     cmd.runAsRoot("rm /etc/default/locale");
     cmd.runAsRoot("update-locale LANG=" + langValue);
@@ -163,7 +167,7 @@ void MainWindow::aboutClicked()
 
 void MainWindow::helpClicked()
 {
-    QString url = "file:///usr/share/doc/mx-locale/help/mx-locale.html";
+    const QString url = "file:///usr/share/doc/mx-locale/help/mx-locale.html";
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
 }
 
