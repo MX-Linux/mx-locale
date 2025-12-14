@@ -22,6 +22,7 @@
 #include "about.h"
 
 #include <QApplication>
+#include <QDir>
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QProcess>
@@ -84,10 +85,9 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         auto *text = new QTextEdit(changelog);
         text->setReadOnly(true);
         QProcess proc;
-        proc.start(
-            "zless",
-            {"/usr/share/doc/" + QFileInfo(QCoreApplication::applicationFilePath()).fileName() + "/changelog.gz"},
-            QIODevice::ReadOnly);
+        const QString appName = QFileInfo(QCoreApplication::applicationFilePath()).fileName();
+        const QString changelogPath = QDir("/usr/share/doc").filePath(appName + "/changelog.gz");
+        proc.start("zless", {changelogPath}, QIODevice::ReadOnly);
         proc.waitForFinished();
         text->setText(proc.readAllStandardOutput());
 
