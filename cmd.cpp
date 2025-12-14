@@ -6,12 +6,13 @@
 #include <QEventLoop>
 #include <QFileInfo>
 
+#include "common.h"
 #include <unistd.h>
 
 Cmd::Cmd(QObject *parent)
     : QProcess(parent),
       elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"},
-      helper {QDir("/usr/lib").filePath(QCoreApplication::applicationName() + "/helper")}
+      helper {QDir(Paths::usrLib).filePath(QCoreApplication::applicationName() + "/helper")}
 {
     connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
     connect(this, &Cmd::readyReadStandardError, [this] { emit errorAvailable(readAllStandardError()); });

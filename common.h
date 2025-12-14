@@ -24,3 +24,26 @@
 #include <QString>
 
 inline const QString startingHome {qEnvironmentVariable("HOME")};
+
+// System paths
+namespace Paths
+{
+// Locale configuration files
+inline const QString localeGen {"/etc/locale.gen"};
+inline const QString defaultLocale {"/etc/default/locale"};
+
+// Application data directories
+inline const QString mxLocaleLib {"/usr/lib/mx-locale"};
+inline const QString mxLocaleDoc {"/usr/share/doc/mx-locale"};
+
+// System locale directories
+inline const QString i18nSupported {"/usr/share/i18n/SUPPORTED"};
+inline const QString i18nSupportedLocal {"/usr/local/share/i18n/SUPPORTED"};
+inline const QString i18nLocales {"/usr/share/i18n/locales"};
+inline const QString i18nLocalesLocal {"/usr/local/share/i18n/locales"};
+
+// Standard system directories
+inline const QString usrLib {"/usr/lib"};
+inline const QString usrShare {"/usr/share"};
+inline const QString usrShareDoc {"/usr/share/doc"};
+} // namespace Paths

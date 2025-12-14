@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     }
 
     QTranslator appTran;
-    const QString localePath = QDir("/usr/share").filePath(QApplication::applicationName() + "/locale");
+    const QString localePath = QDir(Paths::usrShare).filePath(QApplication::applicationName() + "/locale");
     if (appTran.load(QApplication::applicationName() + "_" + QLocale().name(), localePath)) {
         QApplication::installTranslator(&appTran);
     }

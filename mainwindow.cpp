@@ -30,8 +30,10 @@
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QTextStream>
+#include <QUrl>
 
 #include "choosedialog.h"
+#include "common.h"
 #include "cmd.h"
 #include <unistd.h>
 
@@ -144,7 +146,7 @@ void MainWindow::resetSubvariables()
 {
     const QString langValue = buttonGroup->button(ButtonID::Lang)->text();
     Cmd cmd;
-    cmd.runAsRoot("rm /etc/default/locale");
+    cmd.runAsRoot("rm " + Paths::defaultLocale);
     cmd.runAsRoot("update-locale LANG=" + langValue);
     setSubvariables();
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
@@ -161,19 +163,20 @@ void MainWindow::aboutClicked()
                              "href=\"http://mxlinux.org\">http://mxlinux.org</a><br "
                              "/></p><p align=\"center\">"
                            + tr("Copyright (c) MX Linux") + "<br /><br /></p>",
-                       "/usr/share/doc/mx-locale/license.html", tr("%1 License").arg(this->windowTitle()));
+                       QDir(Paths::mxLocaleDoc).filePath("license.html"), tr("%1 License").arg(this->windowTitle()));
     this->show();
 }
 
 void MainWindow::helpClicked()
 {
-    const QString url = "file:///usr/share/doc/mx-locale/help/mx-locale.html";
+    const QString helpPath = QDir(Paths::mxLocaleDoc).filePath("help/mx-locale.html");
+    const QString url = QUrl::fromLocalFile(helpPath).toString();
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
 }
 
 QString MainWindow::getCurrentLang() const
 {
-    QSettings defaultlocale("/etc/default/locale", QSettings::NativeFormat);
+    QSettings defaultlocale(Paths::defaultLocale, QSettings::NativeFormat);
     return defaultlocale.value("LANG", "C").toString().replace(".utf8", ".UTF-8");
 }
 
@@ -187,7 +190,7 @@ QString MainWindow::getCurrentSessionLang() const
 void MainWindow::disableAllButCurrent()
 {
     Cmd().runAsRoot("sed -i \"/^" + ui->buttonLang->text() + "\\|" + getCurrentSessionLang()
-                    + "\\|^#/! s/#*/# /\" /etc/locale.gen");
+                    + "\\|^#/! s/#*/# /\" " + Paths::localeGen);
     displayLocalesGen();
     localeGenChanged = true;
 }
@@ -195,7 +198,7 @@ void MainWindow::disableAllButCurrent()
 void MainWindow::setSubvariables()
 {
 
-    QSettings defaultlocale("/etc/default/locale", QSettings::NativeFormat);
+    QSettings defaultlocale(Paths::defaultLocale, QSettings::NativeFormat);
 
     QString lang = ui->buttonLang->text();
 
@@ -328,23 +331,23 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
     localeGenChanged = true;
     QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
     if (item->checkState() == Qt::Checked) {
-        bool exists = Cmd().run("grep -qF '" + text + "' /etc/locale.gen");
+        bool exists = Cmd().run("grep -qF '" + text + "' " + Paths::localeGen);
         if (!exists) {
-            Cmd().runAsRoot("echo " + text + " >>/etc/locale.gen");
+            Cmd().runAsRoot("echo " + text + " >>" + Paths::localeGen);
         } else {
             Cmd().runAsRoot(QString("sed -i -e 's/^[[:space:]]*//; 0,/%1/{//s/.*/%1/};' -e "
-                                    "'/#.*%1/d' /etc/locale.gen")
+                                    "'/#.*%1/d' " + Paths::localeGen)
                                 .arg(text));
         }
         ++countEnabled;
     } else {
         Cmd().runAsRoot(
-            QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' /etc/locale.gen").arg(text, "# " + text));
+            QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' " + Paths::localeGen).arg(text, "# " + text));
         QString delStr = text.section(' ', 0, 0);
-        Cmd().runAsRoot("sed -i '/" + delStr + "/d' /etc/default/locale");
+        Cmd().runAsRoot("sed -i '/" + delStr + "/d' " + Paths::defaultLocale);
         if (delStr.contains("@")) {
             Cmd().runAsRoot("sed -i '/" + delStr.section('@', 0, 0) + ".UTF-8@" + delStr.section('@', 1)
-                            + "/d' /etc/default/locale");
+                            + "/d' " + Paths::defaultLocale);
         }
         setSubvariables();
         --countEnabled;
@@ -361,13 +364,13 @@ void MainWindow::displayLocalesGen()
 {
     countEnabled = 0;
     ui->listWidget->clear();
-    QStringList supportedFiles = {"/usr/share/i18n/SUPPORTED", "/usr/local/share/i18n/SUPPORTED"};
-    QStringList enabledLocales = readEnabledLocales("/etc/locale.gen");
+    QStringList supportedFiles = {Paths::i18nSupported, Paths::i18nSupportedLocal};
+    QStringList enabledLocales = readEnabledLocales(Paths::localeGen);
     if (enabledLocales.isEmpty()) {
         return;
     }
 
-    processLocaleFiles(getLocaleFiles({"/usr/share/i18n/locales", "/usr/local/share/i18n/locales"}));
+    processLocaleFiles(getLocaleFiles({Paths::i18nLocales, Paths::i18nLocalesLocal}));
 
     for (const QString &filePath : supportedFiles) {
         if (!QFile::exists(filePath)) {
@@ -543,7 +546,7 @@ void MainWindow::removeManuals()
 
 void MainWindow::resetLocaleGen()
 {
-    Cmd().runAsRoot("cp /usr/lib/mx-locale/locale.gen /etc/");
+    Cmd().runAsRoot("cp " + QDir(Paths::mxLocaleLib).filePath("locale.gen") + " /etc/");
     displayLocalesGen();
     localeGenChanged = true;
 }

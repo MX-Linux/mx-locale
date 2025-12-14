@@ -1,9 +1,11 @@
+#include <QDir>
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
 
 #include "choosedialog.h"
 #include "cmd.h"
+#include "common.h"
 #include "ui_choosedialog.h"
 
 chooseDialog::chooseDialog(QWidget *parent)
@@ -30,7 +32,7 @@ void chooseDialog::setup()
 
 void chooseDialog::buildLocaleList()
 {
-    QFile libFile("/usr/lib/mx-locale/locale.lib");
+    QFile libFile(QDir(Paths::mxLocaleLib).filePath("locale.lib"));
     QString locales = Cmd().getOut(R"(locale --all-locales)");
     QStringList availableLocales = locales.split(QRegularExpression(R"((\r\n)|(\n\r)|\r|\n)"), Qt::SkipEmptyParts)
                                        .filter(QRegularExpression(R"(\.(utf8|UTF-8)$)"))
