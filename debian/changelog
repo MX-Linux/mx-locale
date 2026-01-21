@@ -1,3 +1,10 @@
+mx-locale (26.01.3) mx; urgency=medium
+
+  * use relative symlink
+  * fix etc/default/locale symlink if its missing
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Tue, 20 Jan 2026 22:04:43 -0500
+
 mx-locale (26.01.1) mx; urgency=medium
 
   * handle debian 13 style locale.conf file
