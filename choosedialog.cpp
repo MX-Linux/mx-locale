@@ -6,7 +6,6 @@
 #include "choosedialog.h"
 #include "cmd.h"
 #include "common.h"
-#include "ui_choosedialog.h"
 
 ChooseDialog::ChooseDialog(QWidget *parent)
     : QDialog(parent),
