@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 20 Jan 2026 19:53:41 -0500
+Source: mx-locale
+Architecture: source
+Version: 25.10.2
+Distribution: mx
+Urgency: medium
+Maintainer: Dolphin Oracle <dolphinoracle@gmail.com>
+Changed-By: Dolphin Oracle <dolphinoracle@gmail.com>
+Changes:
+ mx-locale (25.10.2) mx; urgency=medium
+ .
+   * handle debian 13 style locale.conf file
+   * don't break symlink during locale managmenet
+Checksums-Sha1:
+ 98e59bab125f37f00cc67ad4f1f59161494c1550 1666 mx-locale_25.10.2.dsc
+ cf2669a045fdecf7c7f90f88f49217d8a1f80aa4 385580 mx-locale_25.10.2.tar.xz
+ 95dc4f86f36a476829e2b6a0cbe99eae6daf9815 11705 mx-locale_25.10.2_source.buildinfo
+Checksums-Sha256:
+ 2a4d6ae65d00c9ce4b881c6b151d35e157c5ad5367a104cc4d0e9d2a9c5ea3c2 1666 mx-locale_25.10.2.dsc
+ 8f6e916231b63d2fa7e77d5f1d75f0263ecb7341f09aff19135ed4549b2e830b 385580 mx-locale_25.10.2.tar.xz
+ 954f72312aa1280ee8946e300287b2247b0b7dab4811031a73a48d3c827ddf00 11705 mx-locale_25.10.2_source.buildinfo
+Files:
+ 1d6b3b5d73f4efd6ca3d086b23d3a8e5 1666 admin optional mx-locale_25.10.2.dsc
+ b1bb112d3a6796715faf8a31fa47d0fc 385580 admin optional mx-locale_25.10.2.tar.xz
+ ede2c6f981c0ca48f250437e377525bc 11705 admin optional mx-locale_25.10.2_source.buildinfo
+Original-Maintainer: Adrian <adrian@mxlinux.org>
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmlwI/sACgkQm2ih6Lm2
+N1ycFhAA3y1vXlvqyUOfN0gyms/fWRQmFNuypX6XFABZ0xhd4Zw5CVuXNHgHB8AV
+flL7NGZMcRhQxKQsops75U1LUkVRWOU+YUtXR/fGTW5Sc4j2qpz1Zv6ogGxZbA0A
+fuStjiWUZ0gcgxpnbH8LN4nLEj81jdvHwI3sq5d1cKsb9UDBlOir6ZuxLsa/1Q1d
+oVtesX+DMU42bhkblzifK027yT+JVT2GtpVkRovFlyPStl33+H4TIpQtEDYtRKW9
+KO634yyu6eVip1YVkNPh188mhlE/pDGbh+T/CtXrAQeI1dkJmr5Wp/L8IFtmEgzN
+T9qrjZ8yBmokSywcyNP2tGS0qzUepOj4oFjf96aK11xXlHiHSPNbQvgx9aLKSU38
+BCnvNS9x4Dj0gfDW0QZd29zQyoJkNG3uKGIW9ulg1Jx8nyqkvX3V/WzJtsKbk03X
+IHaOPvehGyMRzeU3M71FE3xL45LtiHBt9sbAYjqFrn9nT/JRdjfHwVl14PSRV732
+v7BjXRiEdGSgWRpIc1JY6XngDj612Z10F9jYu6t2F8sbo3TCqKV6P+Y5dzAfIT0F
+ISAhJusHz5kmAU5eKrSRd2Ku7017v6jODrQya8pxiSl4vis7wP4Oh/3zfrzo0FWF
+IM+m9u81GuJLpZbjtzA4/E5fNz/Ge+nRpkmzNeCYHw1VfXznyCY=
+=8UtH
+-----END PGP SIGNATURE-----
