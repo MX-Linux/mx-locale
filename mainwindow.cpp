@@ -147,6 +147,14 @@ void MainWindow::resetSubvariables()
     const QString langValue = buttonGroup->button(ButtonID::Lang)->text();
     Cmd cmd;
     cmd.runAsRoot("rm " + Paths::defaultLocale);
+    //debian moved locale configuration in trixie, not etc/default/locale is a symlink
+    //to /etc/locale.conf :rollseyes:
+    if (QFile("/etc/locale.conf").exists()){
+        //also remove this file
+        cmd.runAsRoot("rm " + Paths::defaultLocale);
+        cmd.runAsRoot("touch /etc/locale.conf");
+        cmd.runAsRoot("ln -sf /etc/locale.conf " + Paths::defaultLocale);
+    }
     cmd.runAsRoot("update-locale LANG=" + langValue);
     setSubvariables();
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
@@ -344,9 +352,10 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         Cmd().runAsRoot(
             QString("sed -i 's/^[[:space:]]*//; /^#.*%1/d; s/^%1/%2/;' " + Paths::localeGen).arg(text, "# " + text));
         QString delStr = text.section(' ', 0, 0);
-        Cmd().runAsRoot("sed -i '/" + delStr + "/d' " + Paths::defaultLocale);
+        //sed will delete break a symlink when editing a file.
+        Cmd().runAsRoot("sed -i --follow-symlinks '/" + delStr + "/d' " + Paths::defaultLocale);
         if (delStr.contains("@")) {
-            Cmd().runAsRoot("sed -i '/" + delStr.section('@', 0, 0) + ".UTF-8@" + delStr.section('@', 1)
+            Cmd().runAsRoot("sed -i --follow-symlinks '/" + delStr.section('@', 0, 0) + ".UTF-8@" + delStr.section('@', 1)
                             + "/d' " + Paths::defaultLocale);
         }
         setSubvariables();
