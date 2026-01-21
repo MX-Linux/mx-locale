@@ -1,4 +1,4 @@
-mx-locale (25.10.2) mx; urgency=medium
+mx-locale (26.01.1) mx; urgency=medium
 
   * handle debian 13 style locale.conf file
   * don't break symlink during locale managmenet
