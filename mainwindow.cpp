@@ -37,6 +37,17 @@
 #include "cmd.h"
 #include <unistd.h>
 
+namespace {
+QString buildLocaleUpdateCommand(const QString &key, const QString &value)
+{
+#ifdef MX_LOCALE_ARCH
+    return QString("localectl set-locale %1=%2").arg(key, value);
+#else
+    return QString("update-locale %1='%2'").arg(key, value);
+#endif
+}
+} // namespace
+
 MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
     : QDialog(parent),
       ui(new Ui::MainWindow)
@@ -83,6 +94,9 @@ void MainWindow::setup()
     setSubvariables();
     setButtons();
     setConnections();
+#ifdef MX_LOCALE_ARCH
+    ui->pushRemoveManuals->setVisible(false);
+#endif
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
@@ -136,8 +150,7 @@ void MainWindow::onGroupButton(int buttonId)
     if (buttonId == ButtonID::Lang) {
         setSubvariables();
     }
-    const QString updateLocaleCommand
-        = QString("update-locale %1='%2'").arg(hashVarName.value(buttonId), selectedButton->text());
+    const QString updateLocaleCommand = buildLocaleUpdateCommand(hashVarName.value(buttonId), selectedButton->text());
     Cmd().runAsRoot(updateLocaleCommand);
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
@@ -146,6 +159,9 @@ void MainWindow::resetSubvariables()
 {
     const QString langValue = buttonGroup->button(ButtonID::Lang)->text();
     Cmd cmd;
+#ifdef MX_LOCALE_ARCH
+    cmd.runAsRoot("localectl set-locale LANG=" + langValue);
+#else
     cmd.runAsRoot("rm " + Paths::defaultLocale);
     //debian moved locale configuration in trixie, not etc/default/locale is a symlink
     //to /etc/locale.conf :rollseyes:
@@ -156,6 +172,7 @@ void MainWindow::resetSubvariables()
         cmd.runAsRoot("ln -sf /etc/locale.conf " + Paths::defaultLocale);
     }
     cmd.runAsRoot("update-locale LANG=" + langValue);
+#endif
     setSubvariables();
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }

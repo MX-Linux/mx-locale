@@ -1,6 +1,8 @@
 #include <QDir>
 #include <QFile>
+#include <QLineEdit>
 #include <QMessageBox>
+#include <QRegularExpression>
 #include <QTextStream>
 
 #include "choosedialog.h"

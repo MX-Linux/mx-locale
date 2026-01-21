@@ -30,7 +30,11 @@ namespace Paths
 {
 // Locale configuration files
 inline const QString localeGen {"/etc/locale.gen"};
+#ifdef MX_LOCALE_ARCH
+inline const QString defaultLocale {"/etc/locale.conf"};
+#else
 inline const QString defaultLocale {"/etc/default/locale"};
+#endif
 
 // Application data directories
 inline const QString mxLocaleLib {"/usr/lib/mx-locale"};
