@@ -169,7 +169,7 @@ void MainWindow::resetSubvariables()
         //also remove this file
         cmd.runAsRoot("rm " + Paths::defaultLocale);
         cmd.runAsRoot("touch /etc/locale.conf");
-        cmd.runAsRoot("ln -sf /etc/locale.conf " + Paths::defaultLocale);
+        cmd.runAsRoot("ln -srf /etc/locale.conf " + Paths::defaultLocale);
     }
     cmd.runAsRoot("update-locale LANG=" + langValue);
 #endif
