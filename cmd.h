@@ -27,6 +27,8 @@ signals:
     void outputAvailable(const QString &out);
 
 private:
+    bool execProcess(const QString &label, const QByteArray &stdinData);
+
     QString elevate;
     QString helper;
     QString outBuffer;
