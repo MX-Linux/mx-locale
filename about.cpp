@@ -23,6 +23,7 @@
 
 #include <QApplication>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QProcess>
@@ -38,6 +39,30 @@
 
 namespace
 {
+class ScopedHomeOverride
+{
+public:
+    explicit ScopedHomeOverride(const QString &home)
+        : originalHome(qgetenv("HOME"))
+    {
+        if (!home.isEmpty()) {
+            qputenv("HOME", home.toUtf8());
+            active = true;
+        }
+    }
+
+    ~ScopedHomeOverride()
+    {
+        if (active) {
+            qputenv("HOME", originalHome);
+        }
+    }
+
+private:
+    QByteArray originalHome;
+    bool active {false};
+};
+
 QString homeForUid(uid_t uid)
 {
     if (const passwd *pwd = getpwuid(uid); pwd != nullptr && pwd->pw_dir != nullptr) {
@@ -69,37 +94,43 @@ QString lognameUser()
     return QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
 }
 
-QString invokingUserHome()
+QString userForUid(uid_t uid)
+{
+    if (const passwd *pwd = getpwuid(uid); pwd != nullptr && pwd->pw_name != nullptr) {
+        return QString::fromLocal8Bit(pwd->pw_name);
+    }
+    return {};
+}
+
+QString invokingUser()
 {
     bool ok = false;
     const uint pkexecUid = qEnvironmentVariableIntValue("PKEXEC_UID", &ok);
     if (ok) {
-        return homeForUid(pkexecUid);
-    }
-
-    const uint sudoUid = qEnvironmentVariableIntValue("SUDO_UID", &ok);
-    if (ok) {
-        return homeForUid(sudoUid);
+        return userForUid(pkexecUid);
     }
 
     const QString sudoUser = qEnvironmentVariable("SUDO_USER");
     if (!sudoUser.isEmpty()) {
-        return homeForUser(sudoUser);
+        return sudoUser;
     }
 
-    return homeForUser(lognameUser());
+    const uint sudoUid = qEnvironmentVariableIntValue("SUDO_UID", &ok);
+    if (ok) {
+        return userForUid(sudoUid);
+    }
+
+    return lognameUser();
 }
 } // namespace
 
 // Display doc as nomal user when run as root
 void displayDoc(const QString &url, const QString &title)
 {
-    const QByteArray originalHome = qgetenv("HOME");
     const QByteArray rootHome("/root");
-    const QString userHome = originalHome == rootHome && getuid() == 0 ? invokingUserHome() : QString();
-    if (!userHome.isEmpty()) {
-        qputenv("HOME", userHome.toUtf8()); // Use invoking user's home for theming purposes
-    }
+    const QString user = getuid() == 0 ? invokingUser() : QString();
+    const QString userHome = qgetenv("HOME") == rootHome ? homeForUser(user) : QString();
+    const ScopedHomeOverride homeOverride(userHome); // Use invoking user's home for theming purposes
     // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
     const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
     if (!executablePath.isEmpty()) {
@@ -108,16 +139,12 @@ void displayDoc(const QString &url, const QString &title)
         if (getuid() != 0) {
             QProcess::startDetached("xdg-open", {url});
         } else {
-            const QString user = lognameUser();
             if (user.isEmpty()) {
                 QProcess::startDetached("xdg-open", {url});
                 return;
             }
             QProcess::startDetached("runuser", {"-u", user, "--", "xdg-open", url});
         }
-    }
-    if (!userHome.isEmpty()) {
-        qputenv("HOME", originalHome);
     }
 }
 

@@ -42,20 +42,21 @@ Cmd::Cmd(QObject *parent)
 QString Cmd::getOut(const QString &program, const QStringList &arguments, bool quiet)
 {
     outBuffer.clear();
-    run(program, arguments, quiet);
+    lastRunSucceeded = run(program, arguments, quiet);
     return outBuffer.trimmed();
 }
 
 QString Cmd::getOutAsRoot(const QString &command, const QStringList &arguments, bool quiet)
 {
     outBuffer.clear();
-    runAsRoot(command, arguments, quiet);
+    lastRunSucceeded = runAsRoot(command, arguments, quiet);
     return outBuffer.trimmed();
 }
 
 bool Cmd::run(const QString &program, const QStringList &arguments, bool quiet, const QByteArray &stdinData)
 {
     outBuffer.clear();
+    lastRunSucceeded = false;
     if (state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
@@ -81,12 +82,14 @@ bool Cmd::run(const QString &program, const QStringList &arguments, bool quiet, 
     }
     loop.exec();
     emit done();
-    return (exitStatus() == QProcess::NormalExit && exitCode() == 0);
+    lastRunSucceeded = (exitStatus() == QProcess::NormalExit && exitCode() == 0);
+    return lastRunSucceeded;
 }
 
 bool Cmd::runAsRoot(const QString &command, const QStringList &arguments, bool quiet, const QByteArray &stdinData)
 {
     outBuffer.clear();
+    lastRunSucceeded = false;
     if (state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
@@ -122,10 +125,16 @@ bool Cmd::runAsRoot(const QString &command, const QStringList &arguments, bool q
     }
     loop.exec();
     emit done();
-    return (exitStatus() == QProcess::NormalExit && exitCode() == 0);
+    lastRunSucceeded = (exitStatus() == QProcess::NormalExit && exitCode() == 0);
+    return lastRunSucceeded;
 }
 
 QString Cmd::readAllOutput()
 {
     return outBuffer.trimmed();
+}
+
+bool Cmd::succeeded() const
+{
+    return lastRunSucceeded;
 }

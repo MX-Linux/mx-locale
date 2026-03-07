@@ -203,8 +203,11 @@ bool filterLocaleGen(const QStringList &arguments)
 
     for (const QString &line : std::as_const(lines)) {
         const QString trimmed = line.trimmed();
-        if (trimmed.isEmpty() || trimmed.startsWith('#') || trimmed.startsWith(currentLang)
-            || (!sessionLang.isEmpty() && trimmed.startsWith(sessionLang))) {
+        const bool commented = trimmed.startsWith('#');
+        const QString body = commented ? trimmed.mid(1).trimmed() : trimmed;
+        const QString localeCode = body.section(' ', 0, 0);
+        if (trimmed.isEmpty() || commented || localeCode == currentLang
+            || (!sessionLang.isEmpty() && localeCode == sessionLang)) {
             updatedLines.append(line);
             continue;
         }

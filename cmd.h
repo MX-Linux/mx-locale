@@ -15,6 +15,7 @@ public:
     [[nodiscard]] QString getOut(const QString &program, const QStringList &arguments = {}, bool quiet = false);
     [[nodiscard]] QString getOutAsRoot(const QString &command, const QStringList &arguments = {}, bool quiet = false);
     [[nodiscard]] QString readAllOutput();
+    [[nodiscard]] bool succeeded() const;
     bool run(const QString &program, const QStringList &arguments = {}, bool quiet = false,
              const QByteArray &stdinData = {});
     bool runAsRoot(const QString &command, const QStringList &arguments = {}, bool quiet = false,
@@ -29,4 +30,5 @@ private:
     QString elevate;
     QString helper;
     QString outBuffer;
+    bool lastRunSucceeded {false};
 };

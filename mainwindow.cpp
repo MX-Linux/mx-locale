@@ -592,6 +592,10 @@ void MainWindow::removeManuals()
     QStringList packageList
         = cmd.getOut("dpkg-query", {"-W", "--showformat=${Package}\n", "--", "mx-docs-*", "mx-faq-*"}, true)
               .split('\n', Qt::SkipEmptyParts);
+    if (!cmd.succeeded()) {
+        showCommandError(this, cmd, tr("Could not query installed manuals."));
+        return;
+    }
     for (qsizetype index = packageList.size() - 1; index >= 0; --index) {
         if (exclusionRegex.match(packageList.at(index)).hasMatch()) {
             packageList.removeAt(index);
