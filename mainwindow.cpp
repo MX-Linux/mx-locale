@@ -49,6 +49,12 @@ bool isSafeLocaleGenLine(const QString &value)
     static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+(?:\s+[A-Za-z0-9_.@-]+)?$)");
     return regex.match(value).hasMatch();
 }
+
+void showCommandError(QWidget *parent, Cmd &cmd, const QString &fallback = QObject::tr("Operation failed."))
+{
+    const QString details = cmd.readAllOutput();
+    QMessageBox::critical(parent, QObject::tr("Error"), details.isEmpty() ? fallback : details);
+}
 } // namespace
 
 MainWindow::MainWindow(const QCommandLineParser &args, QWidget *parent)
@@ -138,7 +144,6 @@ void MainWindow::onGroupButton(int buttonId)
         return;
     }
     auto *selectedButton = buttonGroup->button(buttonId);
-    selectedButton->setText(selection);
     static const QHash<int, QString> hashVarName {
         {ButtonID::Lang, "LANG"},
         {ButtonID::Address, "LC_ADDRESS"},
@@ -154,10 +159,15 @@ void MainWindow::onGroupButton(int buttonId)
         {ButtonID::Telephone, "LC_TELEPHONE"},
         {ButtonID::Time, "LC_TIME"},
     };
+    Cmd cmd;
+    if (!cmd.runAsRoot("set-locale", {hashVarName.value(buttonId), selection})) {
+        showCommandError(this, cmd);
+        return;
+    }
+    selectedButton->setText(selection);
     if (buttonId == ButtonID::Lang) {
         setSubvariables();
     }
-    Cmd().runAsRoot("set-locale", {hashVarName.value(buttonId), selectedButton->text()});
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
 
@@ -169,7 +179,10 @@ void MainWindow::resetSubvariables()
         return;
     }
     Cmd cmd;
-    cmd.runAsRoot("reset-subvariables", {langValue});
+    if (!cmd.runAsRoot("reset-subvariables", {langValue})) {
+        showCommandError(this, cmd);
+        return;
+    }
     setSubvariables();
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
 }
@@ -227,7 +240,11 @@ void MainWindow::disableAllButCurrent()
         helperArguments.append(sessionLang);
     }
 
-    Cmd().runAsRoot("filter-locale-gen", helperArguments);
+    Cmd cmd;
+    if (!cmd.runAsRoot("filter-locale-gen", helperArguments)) {
+        showCommandError(this, cmd);
+        return;
+    }
     displayLocalesGen();
     localeGenChanged = true;
 }
@@ -372,14 +389,31 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         onFilterChanged(ui->comboFilter->currentText());
         return;
     }
-    localeGenChanged = true;
+    Cmd cmd;
+    bool success = false;
     if (item->checkState() == Qt::Checked) {
-        Cmd().runAsRoot("enable-locale", {text});
-        ++countEnabled;
+        success = cmd.runAsRoot("enable-locale", {text});
+        if (success) {
+            localeGenChanged = true;
+            ++countEnabled;
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
     } else {
-        Cmd().runAsRoot("disable-locale", {text});
-        setSubvariables();
-        --countEnabled;
+        success = cmd.runAsRoot("disable-locale", {text});
+        if (success) {
+            localeGenChanged = true;
+            setSubvariables();
+            --countEnabled;
+        } else {
+            item->setCheckState(Qt::Checked);
+        }
+    }
+    if (!success) {
+        showCommandError(this, cmd);
+        connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
+        onFilterChanged(ui->comboFilter->currentText());
+        return;
     }
     ui->labelCountLocale->setText(
         tr("Locales enabled: %1", "label for a numerical count of enabled and available locales").arg(countEnabled));
@@ -508,8 +542,11 @@ void MainWindow::localeGen()
     });
 
     progressDialog.show();
-    cmd.runAsRoot("run-locale-gen");
-    localeGenChanged = false;
+    if (cmd.runAsRoot("run-locale-gen")) {
+        localeGenChanged = false;
+    } else {
+        showCommandError(this, cmd, tr("Could not update locales."));
+    }
     ui->tabWidget->setEnabled(true);
 }
 
@@ -570,13 +607,19 @@ void MainWindow::removeManuals()
     QProgressDialog prog(tr("Removing packages, please wait"), nullptr, 0, packageList.count());
     connect(&cmd, &Cmd::outputAvailable, this, [&prog](const QString &) { prog.setValue(prog.value() + 1); });
     prog.show();
-    cmd.runAsRoot("purge-packages", packageList, true);
+    if (!cmd.runAsRoot("purge-packages", packageList, true)) {
+        showCommandError(this, cmd, tr("Could not remove packages."));
+    }
     ui->tabWidget->setEnabled(true);
 }
 
 void MainWindow::resetLocaleGen()
 {
-    Cmd().runAsRoot("reset-locale-gen");
+    Cmd cmd;
+    if (!cmd.runAsRoot("reset-locale-gen")) {
+        showCommandError(this, cmd);
+        return;
+    }
     displayLocalesGen();
     localeGenChanged = true;
 }
