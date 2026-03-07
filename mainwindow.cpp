@@ -430,7 +430,10 @@ void MainWindow::displayLocalesGen()
     countEnabled = 0;
     ui->listWidget->clear();
     QStringList supportedFiles = {Paths::i18nSupported, Paths::i18nSupportedLocal};
-    QStringList enabledLocales = readEnabledLocales(Paths::localeGen);
+    QStringList enabledLocales;
+    if (!readEnabledLocales(Paths::localeGen, enabledLocales)) {
+        return;
+    }
 
     hashLocale.clear();
     processLocaleFiles(getLocaleFiles({Paths::i18nLocales, Paths::i18nLocalesLocal}));
@@ -450,14 +453,14 @@ void MainWindow::displayLocalesGen()
     updateLocaleListUI();
 }
 
-QStringList MainWindow::readEnabledLocales(const QString &filePath)
+bool MainWindow::readEnabledLocales(const QString &filePath, QStringList &enabledLocales)
 {
-    QStringList enabledLocales;
+    enabledLocales.clear();
     QFile localeFile(filePath);
 
     if (!localeFile.open(QIODevice::ReadOnly)) {
         QMessageBox::critical(this, tr("Error"), tr("Could not open %1").arg(localeFile.fileName()));
-        return enabledLocales;
+        return false;
     }
 
     QTextStream in(&localeFile);
@@ -470,7 +473,7 @@ QStringList MainWindow::readEnabledLocales(const QString &filePath)
         }
     }
     localeFile.close();
-    return enabledLocales;
+    return true;
 }
 
 QStringList MainWindow::getLocaleFiles(const QStringList &directories) const
