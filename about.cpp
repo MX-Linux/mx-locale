@@ -22,6 +22,7 @@
 #include "about.h"
 
 #include <QApplication>
+#include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -144,10 +145,14 @@ void displayDoc(const QString &url, const QString &title)
     const ScopedHomeOverride homeOverride(userHome); // Use invoking user's home for theming purposes
     // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
     const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
+    bool started = false;
     if (!executablePath.isEmpty()) {
-        startDetachedForUser("mx-viewer", {url, title}, user);
+        started = startDetachedForUser("mx-viewer", {url, title}, user);
     } else {
-        startDetachedForUser("xdg-open", {url}, user);
+        started = startDetachedForUser("xdg-open", {url}, user);
+    }
+    if (!started) {
+        qDebug() << "Could not start document viewer for" << url;
     }
 }
 
