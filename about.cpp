@@ -122,6 +122,17 @@ QString invokingUser()
 
     return lognameUser();
 }
+
+bool startDetachedForUser(const QString &program, const QStringList &arguments, const QString &user)
+{
+    if (getuid() != 0 || user.isEmpty()) {
+        return QProcess::startDetached(program, arguments);
+    }
+
+    QStringList runUserArguments {"-u", user, "--", program};
+    runUserArguments += arguments;
+    return QProcess::startDetached("runuser", runUserArguments);
+}
 } // namespace
 
 // Display doc as nomal user when run as root
@@ -134,17 +145,9 @@ void displayDoc(const QString &url, const QString &title)
     // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
     const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
     if (!executablePath.isEmpty()) {
-        QProcess::startDetached("mx-viewer", {url, title});
+        startDetachedForUser("mx-viewer", {url, title}, user);
     } else {
-        if (getuid() != 0) {
-            QProcess::startDetached("xdg-open", {url});
-        } else {
-            if (user.isEmpty()) {
-                QProcess::startDetached("xdg-open", {url});
-                return;
-            }
-            QProcess::startDetached("runuser", {"-u", user, "--", "xdg-open", url});
-        }
+        startDetachedForUser("xdg-open", {url}, user);
     }
 }
 

@@ -29,6 +29,7 @@
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QScrollBar>
+#include <QSignalBlocker>
 #include <QTextStream>
 #include <QUrl>
 
@@ -375,6 +376,8 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
     QString localeCode = item->text().section(' ', 0, 0);
     if (item->checkState() == Qt::Unchecked
         && (localeCode == getCurrentLang() || localeCode == getCurrentSessionLang())) {
+        const QSignalBlocker blocker(ui->listWidget);
+        item->setCheckState(Qt::Checked);
         QMessageBox::warning(this, tr("Error"),
                              tr("Can't disable locale in use", "message that the chosen locale cannot be "
                                                                "disabled because it is in active usage"));

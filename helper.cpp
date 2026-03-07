@@ -15,6 +15,9 @@
 #include <unistd.h>
 
 namespace {
+constexpr int processTimeoutMs = 30000;
+constexpr int processTerminateWaitMs = 3000;
+
 QString resolveExecutable(const QString &program)
 {
     if (QFileInfo(program).isAbsolute()) {
@@ -59,6 +62,11 @@ bool isSafePackageName(const QString &value)
 {
     static const QRegularExpression regex(R"(^[a-z0-9][a-z0-9+.-]*$)");
     return regex.match(value).hasMatch();
+}
+
+QString normalizeLocaleValue(QString value)
+{
+    return value.trimmed().replace(".utf8", ".UTF-8", Qt::CaseInsensitive);
 }
 
 QString resolveWritablePath(const QString &path)
@@ -129,8 +137,13 @@ bool runExternal(const QString &program, const QStringList &arguments)
         return fail(QObject::tr("Could not start %1").arg(program));
     }
     process.closeWriteChannel();
-    if (!process.waitForFinished(-1)) {
-        return fail(QObject::tr("Could not finish %1").arg(program));
+    if (!process.waitForFinished(processTimeoutMs)) {
+        process.terminate();
+        if (!process.waitForFinished(processTerminateWaitMs)) {
+            process.kill();
+            process.waitForFinished(processTerminateWaitMs);
+        }
+        return fail(QObject::tr("Command timed out: %1").arg(program));
     }
     return process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0;
 }
@@ -268,10 +281,14 @@ bool disableLocale(const QStringList &arguments)
     }
 
     const QString entry = arguments.at(0);
-    const QString localeCode = entry.section(' ', 0, 0);
-    const QString localeCodeVariant = localeCode.contains('@')
-                                          ? localeCode.section('@', 0, 0) + ".UTF-8@" + localeCode.section('@', 1)
-                                          : QString {};
+    QStringList localeValues {normalizeLocaleValue(entry.section(' ', 0, 0))};
+    if (localeValues.constFirst().contains('@')) {
+        QString utf8Variant = localeValues.constFirst();
+        utf8Variant.replace('@', ".UTF-8@");
+        if (!localeValues.contains(utf8Variant)) {
+            localeValues.append(utf8Variant);
+        }
+    }
 
     QStringList localeGenLines;
     if (!readLines(Paths::localeGen, localeGenLines)) {
@@ -311,7 +328,13 @@ bool disableLocale(const QStringList &arguments)
     QStringList updatedSettings;
     bool settingsChanged = false;
     for (const QString &line : std::as_const(localeSettings)) {
-        if (line.contains(localeCode) || (!localeCodeVariant.isEmpty() && line.contains(localeCodeVariant))) {
+        const QString trimmed = line.trimmed();
+        if (trimmed.startsWith('#') || !trimmed.contains('=')) {
+            updatedSettings.append(line);
+            continue;
+        }
+        const QString settingValue = normalizeLocaleValue(trimmed.section('=', 1).trimmed());
+        if (localeValues.contains(settingValue)) {
             settingsChanged = true;
             continue;
         }

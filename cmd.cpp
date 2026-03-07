@@ -7,11 +7,15 @@
 #include <QFileInfo>
 #include <QProcessEnvironment>
 #include <QStandardPaths>
+#include <QTimer>
 
 #include "common.h"
 #include <unistd.h>
 
 namespace {
+constexpr int processTimeoutMs = 30000;
+constexpr int processTerminateWaitMs = 3000;
+
 QString resolveExecutable(const QString &program)
 {
     if (QFileInfo(program).isAbsolute()) {
@@ -73,15 +77,35 @@ bool Cmd::run(const QString &program, const QStringList &arguments, bool quiet, 
     setProcessEnvironment(env);
 
     QEventLoop loop;
+    QTimer timer;
+    bool timedOut = false;
+    timer.setSingleShot(true);
     connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
     connect(this, &QProcess::errorOccurred, &loop, &QEventLoop::quit);
+    connect(&timer, &QTimer::timeout, this, [this, &loop, &timedOut] {
+        timedOut = true;
+        terminate();
+        if (!waitForFinished(processTerminateWaitMs)) {
+            kill();
+            waitForFinished(processTerminateWaitMs);
+        }
+        loop.quit();
+    });
     start();
+    timer.start(processTimeoutMs);
     if (!stdinData.isEmpty()) {
         write(stdinData);
         closeWriteChannel();
     }
     loop.exec();
+    timer.stop();
     emit done();
+    if (timedOut) {
+        const QString message = tr("Command timed out: %1").arg(this->program());
+        outBuffer = outBuffer.isEmpty() ? message : outBuffer + '\n' + message;
+        lastRunSucceeded = false;
+        return false;
+    }
     lastRunSucceeded = (exitStatus() == QProcess::NormalExit && exitCode() == 0);
     return lastRunSucceeded;
 }
@@ -116,15 +140,35 @@ bool Cmd::runAsRoot(const QString &command, const QStringList &arguments, bool q
     setProcessEnvironment(env);
 
     QEventLoop loop;
+    QTimer timer;
+    bool timedOut = false;
+    timer.setSingleShot(true);
     connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
     connect(this, &QProcess::errorOccurred, &loop, &QEventLoop::quit);
+    connect(&timer, &QTimer::timeout, this, [this, &loop, &timedOut] {
+        timedOut = true;
+        terminate();
+        if (!waitForFinished(processTerminateWaitMs)) {
+            kill();
+            waitForFinished(processTerminateWaitMs);
+        }
+        loop.quit();
+    });
     start();
+    timer.start(processTimeoutMs);
     if (!stdinData.isEmpty()) {
         write(stdinData);
         closeWriteChannel();
     }
     loop.exec();
+    timer.stop();
     emit done();
+    if (timedOut) {
+        const QString message = tr("Command timed out: %1").arg(command);
+        outBuffer = outBuffer.isEmpty() ? message : outBuffer + '\n' + message;
+        lastRunSucceeded = false;
+        return false;
+    }
     lastRunSucceeded = (exitStatus() == QProcess::NormalExit && exitCode() == 0);
     return lastRunSucceeded;
 }
