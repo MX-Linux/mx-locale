@@ -151,13 +151,15 @@ bool runExternal(const QString &program, const QStringList &arguments, int timeo
 
 bool ensureDefaultLocaleSymlink()
 {
+    const QString localeConf = QStringLiteral("/etc/locale.conf");
+    const QString relativeTarget = QDir(QFileInfo(Paths::defaultLocale).path()).relativeFilePath(localeConf);
     QFileInfo info(Paths::defaultLocale);
-    if (info.isSymLink() && info.symLinkTarget() == QStringLiteral("/etc/locale.conf")) {
+    if (info.isSymLink() && info.symLinkTarget() == localeConf) {
         return true;
     }
 
     QFile::remove(Paths::defaultLocale);
-    if (::symlink("/etc/locale.conf", Paths::defaultLocale.toLocal8Bit().constData()) != 0) {
+    if (::symlink(relativeTarget.toLocal8Bit().constData(), Paths::defaultLocale.toLocal8Bit().constData()) != 0) {
         return fail(QObject::tr("Could not recreate %1").arg(Paths::defaultLocale));
     }
     return true;
