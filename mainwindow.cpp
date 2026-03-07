@@ -206,8 +206,7 @@ void MainWindow::aboutClicked()
 void MainWindow::helpClicked()
 {
     const QString helpPath = QDir(Paths::mxLocaleDoc).filePath("help/mx-locale.html");
-    const QString url = QUrl::fromLocalFile(helpPath).toString();
-    displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
+    displayHelpDoc(helpPath, tr("%1 Help").arg(this->windowTitle()));
 }
 
 QString MainWindow::getCurrentLang() const

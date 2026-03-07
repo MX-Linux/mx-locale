@@ -26,134 +26,145 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QLabel>
 #include <QMessageBox>
 #include <QProcess>
 #include <QPushButton>
-#include <QStandardPaths>
+#include <QRegularExpression>
+#include <QScrollArea>
+#include <QTextBrowser>
 #include <QTextEdit>
+#include <QUrl>
 #include <QVBoxLayout>
 
 #include "common.h"
-#include <pwd.h>
-#include <sys/types.h>
-#include <unistd.h>
 
 namespace
 {
-class ScopedHomeOverride
+void showHtmlDoc(const QString &url, const QString &title, bool largeWindow)
 {
-public:
-    explicit ScopedHomeOverride(const QString &home)
-        : originalHome(qgetenv("HOME"))
-    {
-        if (!home.isEmpty()) {
-            qputenv("HOME", home.toUtf8());
-            active = true;
-        }
+    QDialog dialog;
+    dialog.setWindowTitle(title);
+    if (largeWindow) {
+        dialog.setWindowFlags(Qt::Window);
+        dialog.resize(1000, 800);
+    } else {
+        dialog.resize(700, 600);
     }
 
-    ~ScopedHomeOverride()
-    {
-        if (active) {
-            qputenv("HOME", originalHome);
-        }
+    auto *browser = new QTextBrowser(&dialog);
+    browser->setOpenExternalLinks(true);
+
+    const QUrl sourceUrl = QUrl::fromUserInput(url);
+    const QString localPath = sourceUrl.isLocalFile() ? sourceUrl.toLocalFile() : url;
+    if (sourceUrl.isLocalFile() ? QFileInfo::exists(localPath) : QFileInfo::exists(url)) {
+        browser->setSource(sourceUrl.isLocalFile() ? sourceUrl : QUrl::fromLocalFile(url));
+    } else {
+        browser->setText(QObject::tr("Could not load %1").arg(url));
+        qDebug() << "Could not load HTML document" << url;
     }
 
-private:
-    QByteArray originalHome;
-    bool active {false};
-};
+    auto *btnClose = new QPushButton(QObject::tr("&Close"), &dialog);
+    btnClose->setIcon(QIcon::fromTheme("window-close"));
+    QObject::connect(btnClose, &QPushButton::clicked, &dialog, &QDialog::close);
 
-QString homeForUid(uid_t uid)
-{
-    if (const passwd *pwd = getpwuid(uid); pwd != nullptr && pwd->pw_dir != nullptr) {
-        return QFile::decodeName(pwd->pw_dir);
-    }
-    return {};
+    auto *layout = new QVBoxLayout(&dialog);
+    layout->addWidget(browser);
+    layout->addWidget(btnClose);
+    dialog.exec();
 }
 
-QString homeForUser(const QString &user)
+void addHelpHtmlBlock(QVBoxLayout *layout, const QString &html)
 {
-    if (user.isEmpty()) {
-        return {};
-    }
-
-    const QByteArray userName = user.toLocal8Bit();
-    if (const passwd *pwd = getpwnam(userName.constData()); pwd != nullptr && pwd->pw_dir != nullptr) {
-        return QFile::decodeName(pwd->pw_dir);
-    }
-    return {};
+    auto *label = new QLabel;
+    QFont font = label->font();
+    font.setPointSize(font.pointSize() + 3);
+    label->setFont(font);
+    label->setTextFormat(Qt::RichText);
+    label->setText(html);
+    label->setWordWrap(true);
+    label->setOpenExternalLinks(true);
+    label->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    layout->addWidget(label);
 }
 
-QString lognameUser()
+void addHelpImageBlock(QVBoxLayout *layout, const QString &imagePath)
 {
-    QProcess proc;
-    proc.start("logname", {}, QIODevice::ReadOnly);
-    if (!proc.waitForStarted(3000) || !proc.waitForFinished(3000)) {
-        return {};
-    }
-    return QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
-}
-
-QString userForUid(uid_t uid)
-{
-    if (const passwd *pwd = getpwuid(uid); pwd != nullptr && pwd->pw_name != nullptr) {
-        return QString::fromLocal8Bit(pwd->pw_name);
-    }
-    return {};
-}
-
-QString invokingUser()
-{
-    bool ok = false;
-    const uint pkexecUid = qEnvironmentVariableIntValue("PKEXEC_UID", &ok);
-    if (ok) {
-        return userForUid(pkexecUid);
+    QPixmap pixmap(imagePath);
+    if (pixmap.isNull()) {
+        auto *label = new QLabel(QObject::tr("Could not load %1").arg(imagePath));
+        layout->addWidget(label);
+        qDebug() << "Could not load help image" << imagePath;
+        return;
     }
 
-    const QString sudoUser = qEnvironmentVariable("SUDO_USER");
-    if (!sudoUser.isEmpty()) {
-        return sudoUser;
-    }
-
-    const uint sudoUid = qEnvironmentVariableIntValue("SUDO_UID", &ok);
-    if (ok) {
-        return userForUid(sudoUid);
-    }
-
-    return lognameUser();
-}
-
-bool startDetachedForUser(const QString &program, const QStringList &arguments, const QString &user)
-{
-    if (getuid() != 0 || user.isEmpty()) {
-        return QProcess::startDetached(program, arguments);
-    }
-
-    QStringList runUserArguments {"-u", user, "--", program};
-    runUserArguments += arguments;
-    return QProcess::startDetached("runuser", runUserArguments);
+    auto *label = new QLabel;
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    label->setPixmap(pixmap);
+    layout->addWidget(label);
 }
 } // namespace
 
-// Display doc as nomal user when run as root
-void displayDoc(const QString &url, const QString &title)
+void displayDoc(const QString &url, const QString &title, bool largeWindow)
 {
-    const QByteArray rootHome("/root");
-    const QString user = getuid() == 0 ? invokingUser() : QString();
-    const QString userHome = qgetenv("HOME") == rootHome ? homeForUser(user) : QString();
-    const ScopedHomeOverride homeOverride(userHome); // Use invoking user's home for theming purposes
-    // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
-    const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
-    bool started = false;
-    if (!executablePath.isEmpty()) {
-        started = startDetachedForUser("mx-viewer", {url, title}, user);
-    } else {
-        started = startDetachedForUser("xdg-open", {url}, user);
+    showHtmlDoc(url, title, largeWindow);
+}
+
+void displayHelpDoc(const QString &path, const QString &title)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Could not open help document" << path;
+        showHtmlDoc(path, title, true);
+        return;
     }
-    if (!started) {
-        qDebug() << "Could not start document viewer for" << url;
+
+    const QString html = QString::fromUtf8(file.readAll());
+    const QString baseDir = QFileInfo(path).absolutePath();
+
+    QDialog dialog;
+    dialog.setWindowTitle(title);
+    dialog.setWindowFlags(Qt::Window);
+    dialog.resize(1000, 800);
+
+    auto *scrollArea = new QScrollArea(&dialog);
+    scrollArea->setWidgetResizable(true);
+
+    auto *content = new QWidget(scrollArea);
+    auto *contentLayout = new QVBoxLayout(content);
+    contentLayout->setContentsMargins(16, 16, 16, 16);
+    contentLayout->setSpacing(10);
+
+    const QRegularExpression blockRegex(R"(<(h1|p)\b[^>]*>.*?<\/\1>|<img\b[^>]*>)",
+                                        QRegularExpression::CaseInsensitiveOption
+                                            | QRegularExpression::DotMatchesEverythingOption);
+    auto matchIterator = blockRegex.globalMatch(html);
+    while (matchIterator.hasNext()) {
+        const QString block = matchIterator.next().captured(0).trimmed();
+        if (block.startsWith("<img", Qt::CaseInsensitive)) {
+            const QRegularExpression srcRegex(R"re(src\s*=\s*"([^"]+)")re",
+                                              QRegularExpression::CaseInsensitiveOption);
+            const auto srcMatch = srcRegex.match(block);
+            if (srcMatch.hasMatch()) {
+                addHelpImageBlock(contentLayout, QDir(baseDir).filePath(srcMatch.captured(1)));
+            }
+            continue;
+        }
+        addHelpHtmlBlock(contentLayout, block);
     }
+    contentLayout->addStretch();
+
+    scrollArea->setWidget(content);
+
+    auto *btnClose = new QPushButton(QObject::tr("&Close"), &dialog);
+    btnClose->setIcon(QIcon::fromTheme("window-close"));
+    QObject::connect(btnClose, &QPushButton::clicked, &dialog, &QDialog::close);
+
+    auto *layout = new QVBoxLayout(&dialog);
+    layout->addWidget(scrollArea);
+    layout->addWidget(btnClose);
+    dialog.exec();
 }
 
 void displayAboutMsgBox(const QString &title, const QString &message, const QString &licenceUrl,

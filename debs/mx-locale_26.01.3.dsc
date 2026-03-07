@@ -14,26 +14,21 @@ Build-Depends: debhelper-compat (= 12), cmake (>= 3.16), ninja-build, qt6-base-d
 Package-List:
  mx-locale deb admin optional arch=any
 Checksums-Sha1:
- 2f3ee771440a908b6b4d4eb05d6ceb1cbe349330 193268 mx-locale_26.01.3.tar.xz
+ 8a8816696817b629de2949c302e91519799e800a 2473368 mx-locale_26.01.3.tar.xz
 Checksums-Sha256:
- c74ce6b698c2a68210bf7f4d25782414d1d7547ae22100cb30322bbcdbb4a4b9 193268 mx-locale_26.01.3.tar.xz
+ ec92858687b6f21ffffa8638ea108a3604f8c48105f21b82ce3665d58f2f66f7 2473368 mx-locale_26.01.3.tar.xz
 Files:
- f4da710c1622ccde23bc7f603dcedbd5 193268 mx-locale_26.01.3.tar.xz
+ 46450fa5706d89f398abae0d739259f1 2473368 mx-locale_26.01.3.tar.xz
 Original-Maintainer: Adrian <adrian@mxlinux.org>
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmlwQoYACgkQm2ih6Lm2
-N1zwnxAAkkjb1bdDWHghPAi+WxsP1iZGDHoSc54SsfBg5rnj/nklNVukiJRapFqy
-CIiHm3VrsM+ZjD0ZkLb7aOUh3OCn6NCcKRhJT87cqre/pf1ix9qvv7DK3wwIuOyB
-OMsk+8T7L18L6jEY0FQ0LmJDwHRlvUiO5bVONRAcFT8Y0Ji5XWrheOWTZqAVzlwn
-ezMMLWXWV2eRN289Hvva/ah6c9HnWqUm7EbDj/LKjSGGb+7Fz3z6X/25Um8WaSx4
-PGnxcS2GsMRqCsVvruTTalgCS/nvWfCOdA7frRlUL5u95PoffNfvjzivOqdQnONZ
-N7JzNyKG7hu7TOXMSqUGNUWscL95Gf4Vnb+HuJteI2rhFjNZFZ8iiKGcrWmuucw9
-IgWvOyaiuznZ3Ni4E3NK89v6GOjjyiDP/33/mkdOcHqteSRZiU1nb6QFNT/E6p93
-uQOybW/urAn0vX/nIX5xgGhpW8lxzMiLa12+BsGfCTWkeGCp5KoJLYRPfqpyQw2E
-IElKa2oj/JlJvtQzk8Wnmxuj5Du5QQdlCJFxLOFq6DUql6A709Vx95tiaXH223qF
-OyjiYX6cvIb2JQJHr852EUfU1ZcVhSg7UiaGSNSbOx3O01lyGCxj6KXVuSJQ9WdB
-54JgRyvOcpFmV2w3898bAAAGZO7iS3eFMfFedgWAXFkAsUdhPQU=
-=ir1J
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmmsu18THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPuTB/wORTNvIMtFuHWjaDzl7yFzmBALsFg1
+FkyaxjQq0oS+roPhYkvDBH/2y3M+Qllbv3Agm0I39UFe8PB4pm6iHoGkalBMQL9B
+Dc2YS56MEY/69CeHYBz9XOB+Z9BKG2N+kwnf16M5Brxc4W6jdAQxA5ta+LXT5+yJ
+gpAlISbFIwA8csta5MVR/34JbNaQO4xCWZadj3CSE/yNRA/1xvM3gKlkaKVjGmf0
+MX5810Hh/LCwafil1Xo8UQC4e7OAP0Aw1nYfExcwSCsZP1nFWd4g1qs2zwZrHopB
+0FIZAF9d3TrirjINGdqd1z3yGYU7vyl98CCPBjfBSmR8qejLlV8TFJ91
+=SSVJ
 -----END PGP SIGNATURE-----
