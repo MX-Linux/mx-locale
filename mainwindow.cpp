@@ -183,16 +183,30 @@ void MainWindow::resetSubvariables()
 #ifdef MX_LOCALE_ARCH
     cmd.runAsRoot("localectl", {"set-locale", "LANG=" + langValue});
 #else
-    cmd.runAsRoot("rm", {Paths::defaultLocale});
-    //debian moved locale configuration in trixie, now /etc/default/locale is a symlink
-    //to /etc/locale.conf :rollseyes:
-    if (QFile("/etc/locale.conf").exists()) {
-        //also remove this file so it is recreated empty
-        cmd.runAsRoot("rm", {"/etc/locale.conf"});
-        cmd.runAsRoot("touch", {"/etc/locale.conf"});
-        cmd.runAsRoot("ln", {"-sf", "/etc/locale.conf", Paths::defaultLocale});
-    }
-    cmd.runAsRoot("update-locale", {"LANG=" + langValue});
+    // Debian moved locale configuration in trixie, so /etc/default/locale may point to /etc/locale.conf.
+    // Rewrite the target file atomically in a single privileged step to avoid leaving the system half-updated.
+    static const QString resetLocaleScript = QStringLiteral(R"script(
+default_locale="$1"
+lang_value="$2"
+locale_conf="/etc/locale.conf"
+
+if [ -e "$locale_conf" ]; then
+    target_file="$locale_conf"
+else
+    target_file="$default_locale"
+fi
+
+tmp_file="$(mktemp "${target_file}.XXXXXX")"
+trap 'rm -f "$tmp_file"' EXIT
+printf 'LANG=%s\n' "$lang_value" > "$tmp_file"
+chmod 644 "$tmp_file"
+mv -f "$tmp_file" "$target_file"
+
+if [ "$target_file" = "$locale_conf" ]; then
+    ln -sfn "$locale_conf" "$default_locale"
+fi
+)script");
+    cmd.runAsRoot("sh", {"-eu", "-c", resetLocaleScript, "sh", Paths::defaultLocale, langValue});
 #endif
     setSubvariables();
     ui->pushResetSubvar->setVisible(anyDifferentSubvars());
