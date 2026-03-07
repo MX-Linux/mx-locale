@@ -252,7 +252,6 @@ void MainWindow::disableAllButCurrent()
 
 void MainWindow::setSubvariables()
 {
-
     QSettings defaultlocale(Paths::defaultLocale, QSettings::NativeFormat);
 
     QString lang = ui->buttonLang->text();

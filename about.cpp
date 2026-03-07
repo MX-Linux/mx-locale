@@ -167,11 +167,11 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
     if (msgBox.clickedButton() == btnLicense) {
         displayDoc(licenceUrl, licenseTitle);
     } else if (msgBox.clickedButton() == btnChangelog) {
-        auto *changelog = new QDialog;
-        changelog->setWindowTitle(QObject::tr("Changelog"));
-        changelog->resize(width, height);
+        QDialog changelog;
+        changelog.setWindowTitle(QObject::tr("Changelog"));
+        changelog.resize(width, height);
 
-        auto *text = new QTextEdit(changelog);
+        auto *text = new QTextEdit(&changelog);
         text->setReadOnly(true);
         QProcess proc;
         const QString appName = QFileInfo(QCoreApplication::applicationFilePath()).fileName();
@@ -183,14 +183,13 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
             text->setText(QObject::tr("Could not load changelog."));
         }
 
-        auto *btnClose = new QPushButton(QObject::tr("&Close"), changelog);
+        auto *btnClose = new QPushButton(QObject::tr("&Close"), &changelog);
         btnClose->setIcon(QIcon::fromTheme("window-close"));
-        QObject::connect(btnClose, &QPushButton::clicked, changelog, &QDialog::close);
+        QObject::connect(btnClose, &QPushButton::clicked, &changelog, &QDialog::close);
 
-        auto *layout = new QVBoxLayout(changelog);
+        auto *layout = new QVBoxLayout(&changelog);
         layout->addWidget(text);
         layout->addWidget(btnClose);
-        changelog->setLayout(layout);
-        changelog->exec();
+        changelog.exec();
     }
 }
