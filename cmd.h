@@ -12,13 +12,12 @@ class Cmd : public QProcess
 public:
     explicit Cmd(QObject *parent = nullptr);
 
-    [[nodiscard]] QString getOut(const QString &program, const QStringList &arguments = {}, bool quiet = false,
-                                 bool asRoot = false);
-    [[nodiscard]] QString getOutAsRoot(const QString &program, const QStringList &arguments = {}, bool quiet = false);
+    [[nodiscard]] QString getOut(const QString &program, const QStringList &arguments = {}, bool quiet = false);
+    [[nodiscard]] QString getOutAsRoot(const QString &command, const QStringList &arguments = {}, bool quiet = false);
     [[nodiscard]] QString readAllOutput();
-    bool run(const QString &program, const QStringList &arguments = {}, bool quiet = false, bool asRoot = false,
+    bool run(const QString &program, const QStringList &arguments = {}, bool quiet = false,
              const QByteArray &stdinData = {});
-    bool runAsRoot(const QString &program, const QStringList &arguments = {}, bool quiet = false,
+    bool runAsRoot(const QString &command, const QStringList &arguments = {}, bool quiet = false,
                    const QByteArray &stdinData = {});
 
 signals:

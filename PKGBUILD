@@ -43,7 +43,7 @@ package() {
     gzip -c debian/changelog > "${pkgdir}/usr/share/doc/mx-locale/changelog.gz"
 
     install -dm755 "${pkgdir}/usr/lib/mx-locale"
-    install -Dm755 lib/helper "${pkgdir}/usr/lib/mx-locale/helper"
+    install -Dm755 build/helper "${pkgdir}/usr/lib/mx-locale/helper"
     install -Dm644 lib/locale.gen "${pkgdir}/usr/lib/mx-locale/locale.gen"
     install -Dm644 lib/locale.lib "${pkgdir}/usr/lib/mx-locale/locale.lib"
 
