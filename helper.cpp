@@ -15,10 +15,6 @@
 #include <unistd.h>
 
 namespace {
-constexpr int defaultTimeoutMs = 30000;
-constexpr int longTimeoutMs = 300000;
-constexpr int processTerminateWaitMs = 3000;
-
 QString resolveExecutable(const QString &program)
 {
     if (QFileInfo(program).isAbsolute()) {
@@ -126,7 +122,7 @@ bool writeLinesAtomic(const QString &path, const QStringList &lines)
     return writeFileAtomic(path, data);
 }
 
-bool runExternal(const QString &program, const QStringList &arguments, int timeoutMs = defaultTimeoutMs)
+bool runExternal(const QString &program, const QStringList &arguments)
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -138,13 +134,8 @@ bool runExternal(const QString &program, const QStringList &arguments, int timeo
         return fail(QObject::tr("Could not start %1").arg(program));
     }
     process.closeWriteChannel();
-    if (!process.waitForFinished(timeoutMs)) {
-        process.terminate();
-        if (!process.waitForFinished(processTerminateWaitMs)) {
-            process.kill();
-            process.waitForFinished(processTerminateWaitMs);
-        }
-        return fail(QObject::tr("Command timed out: %1").arg(program));
+    if (!process.waitForFinished(-1)) {
+        return fail(QObject::tr("Could not finish %1").arg(program));
     }
     return process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0;
 }
@@ -350,7 +341,7 @@ bool runLocaleGen(const QStringList &arguments)
     if (!arguments.isEmpty()) {
         return fail(QObject::tr("run-locale-gen does not accept arguments"));
     }
-    return runExternal("locale-gen", {}, longTimeoutMs);
+    return runExternal("locale-gen", {});
 }
 
 bool purgePackages(const QStringList &arguments)
@@ -366,7 +357,7 @@ bool purgePackages(const QStringList &arguments)
 
     QStringList purgeArguments {"purge", "-y"};
     purgeArguments += arguments;
-    return runExternal("apt-get", purgeArguments, longTimeoutMs);
+    return runExternal("apt-get", purgeArguments);
 }
 
 bool resetLocaleGen(const QStringList &arguments)
