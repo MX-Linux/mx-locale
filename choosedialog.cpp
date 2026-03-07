@@ -50,9 +50,9 @@ void ChooseDialog::buildLocaleList()
     QTextStream in(&libFile);
     while (!in.atEnd()) {
         QString line = in.readLine().trimmed();
-        QStringList list = line.split('-', Qt::SkipEmptyParts);
-        if (list.size() == 2) {
-            localeLib.insert(list.at(0).trimmed(), list.at(1).trimmed());
+        const qsizetype separatorIndex = line.indexOf(" - ");
+        if (separatorIndex > 0) {
+            localeLib.insert(line.first(separatorIndex).trimmed(), line.sliced(separatorIndex + 3).trimmed());
         }
     }
     libFile.close();

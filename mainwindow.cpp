@@ -184,11 +184,11 @@ void MainWindow::resetSubvariables()
     cmd.runAsRoot("localectl", {"set-locale", "LANG=" + langValue});
 #else
     cmd.runAsRoot("rm", {Paths::defaultLocale});
-    //debian moved locale configuration in trixie, not etc/default/locale is a symlink
+    //debian moved locale configuration in trixie, now /etc/default/locale is a symlink
     //to /etc/locale.conf :rollseyes:
     if (QFile("/etc/locale.conf").exists()) {
-        //also remove this file
-        cmd.runAsRoot("rm", {Paths::defaultLocale});
+        //also remove this file so it is recreated empty
+        cmd.runAsRoot("rm", {"/etc/locale.conf"});
         cmd.runAsRoot("touch", {"/etc/locale.conf"});
         cmd.runAsRoot("ln", {"-sf", "/etc/locale.conf", Paths::defaultLocale});
     }
@@ -442,10 +442,8 @@ void MainWindow::displayLocalesGen()
     ui->listWidget->clear();
     QStringList supportedFiles = {Paths::i18nSupported, Paths::i18nSupportedLocal};
     QStringList enabledLocales = readEnabledLocales(Paths::localeGen);
-    if (enabledLocales.isEmpty()) {
-        return;
-    }
 
+    hashLocale.clear();
     processLocaleFiles(getLocaleFiles({Paths::i18nLocales, Paths::i18nLocalesLocal}));
 
     for (const QString &filePath : supportedFiles) {
@@ -500,7 +498,7 @@ QStringList MainWindow::getLocaleFiles(const QStringList &directories) const
 
 void MainWindow::processLocaleFiles(const QStringList &localeFiles)
 {
-    QRegularExpression titleRegex(R"(^title[[:space:]]+["](?<title>[^"]+))");
+    QRegularExpression titleRegex(R"(^title[[:space:]]+["](?<title>[^"]+))", QRegularExpression::MultilineOption);
 
     for (const QString &fileName : localeFiles) {
         QFile file(fileName);

@@ -52,8 +52,15 @@ void displayDoc(const QString &url, const QString &title)
         } else {
             QProcess proc;
             proc.start("logname", {}, QIODevice::ReadOnly);
-            proc.waitForFinished();
+            if (!proc.waitForStarted(3000) || !proc.waitForFinished(3000)) {
+                QProcess::startDetached("xdg-open", {url});
+                return;
+            }
             const QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+            if (user.isEmpty()) {
+                QProcess::startDetached("xdg-open", {url});
+                return;
+            }
             QProcess::startDetached("runuser", {"-u", user, "--", "xdg-open", url});
         }
     }
@@ -87,9 +94,12 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         QProcess proc;
         const QString appName = QFileInfo(QCoreApplication::applicationFilePath()).fileName();
         const QString changelogPath = QDir(Paths::usrShareDoc).filePath(appName + "/changelog.gz");
-        proc.start("zless", {changelogPath}, QIODevice::ReadOnly);
-        proc.waitForFinished();
-        text->setText(proc.readAllStandardOutput());
+        proc.start("zcat", {changelogPath}, QIODevice::ReadOnly);
+        if (proc.waitForStarted(3000) && proc.waitForFinished(3000)) {
+            text->setText(proc.readAllStandardOutput());
+        } else {
+            text->setText(QObject::tr("Could not load changelog."));
+        }
 
         auto *btnClose = new QPushButton(QObject::tr("&Close"), changelog);
         btnClose->setIcon(QIcon::fromTheme("window-close"));
