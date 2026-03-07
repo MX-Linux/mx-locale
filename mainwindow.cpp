@@ -390,7 +390,6 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         return;
     }
     ui->listWidget->disconnect();
-    localeGenChanged = true;
     QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
     if (!isSafeLocaleGenLine(text) || !isSafeLocaleToken(localeCode)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid locale value."));
@@ -398,6 +397,7 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         onFilterChanged(ui->comboFilter->currentText());
         return;
     }
+    localeGenChanged = true;
     if (item->checkState() == Qt::Checked) {
         bool exists = Cmd().run("grep", {"-qF", "--", text, Paths::localeGen});
         if (!exists) {

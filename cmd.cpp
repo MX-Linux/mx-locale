@@ -54,15 +54,14 @@ bool Cmd::run(const QString &program, const QStringList &arguments, bool quiet, 
         return false;
     }
     const QString resolvedProgram = resolveExecutable(program);
-    QStringList resolvedArguments = arguments;
     if (asRoot && getuid() != 0) {
         setProgram(elevate);
         QStringList helperArguments {helper, resolvedProgram};
-        helperArguments += resolvedArguments;
+        helperArguments += arguments;
         setArguments(helperArguments);
     } else {
         setProgram(resolvedProgram);
-        setArguments(resolvedArguments);
+        setArguments(arguments);
     }
     if (!quiet) {
         qDebug().noquote() << this->program() << this->arguments();
