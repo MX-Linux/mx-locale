@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QProcess>
+#include <QStringList>
 
 class QTextStream;
 
@@ -11,11 +12,14 @@ class Cmd : public QProcess
 public:
     explicit Cmd(QObject *parent = nullptr);
 
-    [[nodiscard]] QString getOut(const QString &cmd, bool quiet = false, bool asRoot = false);
-    [[nodiscard]] QString getOutAsRoot(const QString &cmd, bool quiet = false);
+    [[nodiscard]] QString getOut(const QString &program, const QStringList &arguments = {}, bool quiet = false,
+                                 bool asRoot = false);
+    [[nodiscard]] QString getOutAsRoot(const QString &program, const QStringList &arguments = {}, bool quiet = false);
     [[nodiscard]] QString readAllOutput();
-    bool run(const QString &cmd, bool quiet = false, bool asRoot = false);
-    bool runAsRoot(const QString &cmd, bool quiet = false);
+    bool run(const QString &program, const QStringList &arguments = {}, bool quiet = false, bool asRoot = false,
+             const QByteArray &stdinData = {});
+    bool runAsRoot(const QString &program, const QStringList &arguments = {}, bool quiet = false,
+                   const QByteArray &stdinData = {});
 
 signals:
     void done();
