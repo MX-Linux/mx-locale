@@ -592,13 +592,13 @@ void MainWindow::removeManuals()
     QString exclusionPattern
         = QString("mx-(docs|faq)-(en|common%1)").arg(lang == "en" || lang == "C" ? "" : QString("|%1").arg(lang));
 
-    Cmd cmd;
+    Cmd queryCmd;
     const QRegularExpression exclusionRegex(exclusionPattern);
     QStringList packageList
-        = cmd.getOut("dpkg-query", {"-W", "--showformat=${Package}\n", "--", "mx-docs-*", "mx-faq-*"}, true)
+        = queryCmd.getOut("dpkg-query", {"-W", "--showformat=${Package}\n", "--", "mx-docs-*", "mx-faq-*"}, true)
               .split('\n', Qt::SkipEmptyParts);
-    if (!cmd.succeeded()) {
-        showCommandError(this, cmd, tr("Could not query installed manuals."));
+    if (!queryCmd.succeeded()) {
+        showCommandError(this, queryCmd, tr("Could not query installed manuals."));
         return;
     }
     for (qsizetype index = packageList.size() - 1; index >= 0; --index) {
@@ -613,8 +613,18 @@ void MainWindow::removeManuals()
     }
 
     ui->tabWidget->setDisabled(true);
+    Cmd authCmd;
+    if (!authCmd.runAsRoot("noop", {}, true)) {
+        ui->tabWidget->setEnabled(true);
+        showCommandError(this, authCmd, tr("Authentication failed."));
+        return;
+    }
+
+    Cmd cmd;
     QProgressDialog prog(tr("Removing packages, please wait"), nullptr, 0, packageList.count());
-    connect(&cmd, &Cmd::outputAvailable, this, [&prog](const QString &) { prog.setValue(prog.value() + 1); });
+    connect(&cmd, &Cmd::outputAvailable, this, [&prog](const QString &) {
+        prog.setValue(prog.value() + 1);
+    });
     prog.show();
     if (!cmd.runAsRoot("purge-packages", packageList, true)) {
         showCommandError(this, cmd, tr("Could not remove packages."));

@@ -372,6 +372,14 @@ bool resetLocaleGen(const QStringList &arguments)
     }
     return writeFileAtomic(Paths::localeGen, sourceFile.readAll());
 }
+
+bool noop(const QStringList &arguments)
+{
+    if (!arguments.isEmpty()) {
+        return fail(QObject::tr("noop does not accept arguments"));
+    }
+    return true;
+}
 } // namespace
 
 int main(int argc, char *argv[])
@@ -415,6 +423,9 @@ int main(int argc, char *argv[])
         }
         if (command == "reset-locale-gen") {
             return resetLocaleGen(commandArguments);
+        }
+        if (command == "noop") {
+            return noop(commandArguments);
         }
         return fail(QObject::tr("Unknown command: %1").arg(command));
     }();
