@@ -32,15 +32,73 @@
 #include <QVBoxLayout>
 
 #include "common.h"
+#include <pwd.h>
+#include <sys/types.h>
 #include <unistd.h>
+
+namespace
+{
+QString homeForUid(uid_t uid)
+{
+    if (const passwd *pwd = getpwuid(uid); pwd != nullptr && pwd->pw_dir != nullptr) {
+        return QFile::decodeName(pwd->pw_dir);
+    }
+    return {};
+}
+
+QString homeForUser(const QString &user)
+{
+    if (user.isEmpty()) {
+        return {};
+    }
+
+    const QByteArray userName = user.toLocal8Bit();
+    if (const passwd *pwd = getpwnam(userName.constData()); pwd != nullptr && pwd->pw_dir != nullptr) {
+        return QFile::decodeName(pwd->pw_dir);
+    }
+    return {};
+}
+
+QString lognameUser()
+{
+    QProcess proc;
+    proc.start("logname", {}, QIODevice::ReadOnly);
+    if (!proc.waitForStarted(3000) || !proc.waitForFinished(3000)) {
+        return {};
+    }
+    return QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+}
+
+QString invokingUserHome()
+{
+    bool ok = false;
+    const uint pkexecUid = qEnvironmentVariableIntValue("PKEXEC_UID", &ok);
+    if (ok) {
+        return homeForUid(pkexecUid);
+    }
+
+    const uint sudoUid = qEnvironmentVariableIntValue("SUDO_UID", &ok);
+    if (ok) {
+        return homeForUid(sudoUid);
+    }
+
+    const QString sudoUser = qEnvironmentVariable("SUDO_USER");
+    if (!sudoUser.isEmpty()) {
+        return homeForUser(sudoUser);
+    }
+
+    return homeForUser(lognameUser());
+}
+} // namespace
 
 // Display doc as nomal user when run as root
 void displayDoc(const QString &url, const QString &title)
 {
-    bool startedAsRoot = false;
-    if (qEnvironmentVariable("HOME") == "root") {
-        startedAsRoot = true;
-        qputenv("HOME", startingHome.toUtf8()); // Use original home for theming purposes
+    const QByteArray originalHome = qgetenv("HOME");
+    const QByteArray rootHome("/root");
+    const QString userHome = originalHome == rootHome && getuid() == 0 ? invokingUserHome() : QString();
+    if (!userHome.isEmpty()) {
+        qputenv("HOME", userHome.toUtf8()); // Use invoking user's home for theming purposes
     }
     // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
     const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
@@ -50,13 +108,7 @@ void displayDoc(const QString &url, const QString &title)
         if (getuid() != 0) {
             QProcess::startDetached("xdg-open", {url});
         } else {
-            QProcess proc;
-            proc.start("logname", {}, QIODevice::ReadOnly);
-            if (!proc.waitForStarted(3000) || !proc.waitForFinished(3000)) {
-                QProcess::startDetached("xdg-open", {url});
-                return;
-            }
-            const QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+            const QString user = lognameUser();
             if (user.isEmpty()) {
                 QProcess::startDetached("xdg-open", {url});
                 return;
@@ -64,8 +116,8 @@ void displayDoc(const QString &url, const QString &title)
             QProcess::startDetached("runuser", {"-u", user, "--", "xdg-open", url});
         }
     }
-    if (startedAsRoot) {
-        qputenv("HOME", "/root");
+    if (!userHome.isEmpty()) {
+        qputenv("HOME", originalHome);
     }
 }
 
