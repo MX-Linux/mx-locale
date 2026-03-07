@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 namespace {
-constexpr int processTimeoutMs = 30000;
+constexpr int processTimeoutMs = 600000;
 constexpr int processTerminateWaitMs = 3000;
 
 QString resolveExecutable(const QString &program)

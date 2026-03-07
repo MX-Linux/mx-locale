@@ -15,7 +15,8 @@
 #include <unistd.h>
 
 namespace {
-constexpr int processTimeoutMs = 30000;
+constexpr int defaultTimeoutMs = 30000;
+constexpr int longTimeoutMs = 300000;
 constexpr int processTerminateWaitMs = 3000;
 
 QString resolveExecutable(const QString &program)
@@ -125,7 +126,7 @@ bool writeLinesAtomic(const QString &path, const QStringList &lines)
     return writeFileAtomic(path, data);
 }
 
-bool runExternal(const QString &program, const QStringList &arguments)
+bool runExternal(const QString &program, const QStringList &arguments, int timeoutMs = defaultTimeoutMs)
 {
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
@@ -137,7 +138,7 @@ bool runExternal(const QString &program, const QStringList &arguments)
         return fail(QObject::tr("Could not start %1").arg(program));
     }
     process.closeWriteChannel();
-    if (!process.waitForFinished(processTimeoutMs)) {
+    if (!process.waitForFinished(timeoutMs)) {
         process.terminate();
         if (!process.waitForFinished(processTerminateWaitMs)) {
             process.kill();
@@ -281,13 +282,11 @@ bool disableLocale(const QStringList &arguments)
     }
 
     const QString entry = arguments.at(0);
-    QStringList localeValues {normalizeLocaleValue(entry.section(' ', 0, 0))};
-    if (localeValues.constFirst().contains('@')) {
-        QString utf8Variant = localeValues.constFirst();
-        utf8Variant.replace('@', ".UTF-8@");
-        if (!localeValues.contains(utf8Variant)) {
-            localeValues.append(utf8Variant);
-        }
+    const QString localeCode = normalizeLocaleValue(entry.section(' ', 0, 0));
+    QStringList localeValues {localeCode};
+    if (localeCode.contains('@') && !localeCode.contains(".UTF-8@")) {
+        const QString utf8Variant = QString(localeCode).replace('@', ".UTF-8@");
+        localeValues.append(utf8Variant);
     }
 
     QStringList localeGenLines;
@@ -333,7 +332,7 @@ bool disableLocale(const QStringList &arguments)
             updatedSettings.append(line);
             continue;
         }
-        const QString settingValue = normalizeLocaleValue(trimmed.section('=', 1).trimmed());
+        const QString settingValue = normalizeLocaleValue(trimmed.mid(trimmed.indexOf('=') + 1).trimmed());
         if (localeValues.contains(settingValue)) {
             settingsChanged = true;
             continue;
@@ -349,7 +348,7 @@ bool runLocaleGen(const QStringList &arguments)
     if (!arguments.isEmpty()) {
         return fail(QObject::tr("run-locale-gen does not accept arguments"));
     }
-    return runExternal("locale-gen", {});
+    return runExternal("locale-gen", {}, longTimeoutMs);
 }
 
 bool purgePackages(const QStringList &arguments)
@@ -365,7 +364,7 @@ bool purgePackages(const QStringList &arguments)
 
     QStringList purgeArguments {"purge", "-y"};
     purgeArguments += arguments;
-    return runExternal("apt-get", purgeArguments);
+    return runExternal("apt-get", purgeArguments, longTimeoutMs);
 }
 
 bool resetLocaleGen(const QStringList &arguments)
