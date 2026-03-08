@@ -2,7 +2,7 @@
 pkgname=mx-locale
 pkgver=${PKGVER:-25.10.1}
 pkgrel=1
-pkgdesc="Locale configuration tool for MX Linux"
+pkgdesc="GUI configuration tool for locales"
 arch=('x86_64' 'i686')
 url="https://github.com/MX-Linux/mx-locale"
 license=('LGPL3')
