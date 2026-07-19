@@ -19,6 +19,7 @@ build() {
     cmake -G Ninja \
         -B build \
         -DCMAKE_BUILD_TYPE=Release \
+        -DHELPER_INSTALL_DIR=/usr/lib/mx-locale \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
         -DPROJECT_VERSION_OVERRIDE="${pkgver}" \
@@ -47,7 +48,7 @@ package() {
     install -Dm644 lib/locale.gen "${pkgdir}/usr/lib/mx-locale/locale.gen"
     install -Dm644 lib/locale.lib "${pkgdir}/usr/lib/mx-locale/locale.lib"
 
-    install -Dm644 polkit-actions/org.mxlinux.pkexec.mx-locale.policy \
+    install -Dm644 build/org.mxlinux.pkexec.mx-locale.policy \
         "${pkgdir}/usr/share/polkit-1/actions/org.mxlinux.pkexec.mx-locale.policy"
 
     install -dm755 "${pkgdir}/usr/share/mx-locale/locale"
