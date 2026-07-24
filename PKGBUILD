@@ -36,8 +36,12 @@ package() {
     install -Dm644 mx-locale.desktop "${pkgdir}/usr/share/applications/mx-locale.desktop"
 
     install -dm755 "${pkgdir}/usr/share/doc/mx-locale/help"
+
+    install -Dm644 help/*.1 "${pkgdir}/usr/share/man/man1/" 2>/dev/null || true
     if [ -d help ]; then
-        cp -r help/* "${pkgdir}/usr/share/doc/mx-locale/help/" 2>/dev/null || true
+        for help_file in help/*.html help/*.jpg help/*.png help/*.css; do
+            [ -f "$help_file" ] && install -Dm644 "$help_file" "${pkgdir}/usr/share/doc/mx-locale/help/$(basename "$help_file")"
+        done
     fi
     install -Dm644 license.html "${pkgdir}/usr/share/doc/mx-locale/license.html"
 

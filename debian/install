@@ -1,6 +1,10 @@
 obj-*/mx-locale 	usr/bin
 *.desktop	        usr/share/applications
-help/*			usr/share/doc/mx-locale/help
+help/*.html			usr/share/doc/mx-locale/help
+help/*.jpg			usr/share/doc/mx-locale/help
+
+
+help/*.1			usr/share/man/man1
 license.html		usr/share/doc/mx-locale
 lib/*			usr/lib/mx-locale
 obj-*/helper		usr/libexec/mx-locale
