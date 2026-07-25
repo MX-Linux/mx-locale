@@ -50,11 +50,6 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    if (a.arguments().contains("--version") || a.arguments().contains("-v")) {
-        qDebug() << "Version:" << VERSION;
-        return EXIT_SUCCESS;
-    }
-
     QApplication::setWindowIcon(QIcon::fromTheme("preferences-desktop-locale"));
     QApplication::setOrganizationName("MX-Linux");
     QApplication::setApplicationVersion(VERSION);

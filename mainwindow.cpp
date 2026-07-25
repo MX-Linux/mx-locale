@@ -566,7 +566,13 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
 
 void MainWindow::removeManuals()
 {
-    QString lang = ui->buttonLang->text().section('.', 0, 0);
+    const QString locale = ui->buttonLang->text();
+    if (!isSafeLocaleToken(locale)) {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid locale value."));
+        return;
+    }
+
+    QString lang = locale.section('.', 0, 0);
 
     // Fix for pt_BR, others use base language
     if (lang == "pt_BR") {
@@ -579,11 +585,17 @@ void MainWindow::removeManuals()
         return;
     }
 
-    QString exclusionPattern
-        = QString("mx-(docs|faq)-(en|common%1)").arg(lang == "en" || lang == "C" ? "" : QString("|%1").arg(lang));
+    const QString exclusionPattern = QString("mx-(docs|faq)-(en|common%1)")
+                                         .arg(lang == "en" || lang == "C"
+                                                  ? ""
+                                                  : QString("|%1").arg(QRegularExpression::escape(lang)));
 
     Cmd queryCmd;
     const QRegularExpression exclusionRegex(exclusionPattern);
+    if (!exclusionRegex.isValid()) {
+        QMessageBox::critical(this, tr("Error"), tr("Invalid locale value."));
+        return;
+    }
     QStringList packageList
         = queryCmd.getOut("dpkg-query", {"-W", "--showformat=${Package}\n", "--", "mx-docs-*", "mx-faq-*"}, true)
               .split('\n', Qt::SkipEmptyParts);
