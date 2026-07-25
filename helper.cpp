@@ -15,6 +15,9 @@
 #include <unistd.h>
 
 namespace {
+using LocaleValidation::isSafeLocaleGenLine;
+using LocaleValidation::isSafeLocaleToken;
+
 QString resolveExecutable(const QString &program)
 {
     if (QFileInfo(program).isAbsolute()) {
@@ -35,18 +38,6 @@ bool fail(const QString &message)
 {
     QTextStream(stderr) << message << Qt::endl;
     return false;
-}
-
-bool isSafeLocaleToken(const QString &value)
-{
-    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+$)");
-    return regex.match(value).hasMatch();
-}
-
-bool isSafeLocaleGenLine(const QString &value)
-{
-    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+(?:\s+[A-Za-z0-9_.@-]+)?$)");
-    return regex.match(value).hasMatch();
 }
 
 bool isSafeLocaleKey(const QString &value)

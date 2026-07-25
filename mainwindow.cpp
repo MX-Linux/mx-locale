@@ -39,17 +39,8 @@
 #include <unistd.h>
 
 namespace {
-bool isSafeLocaleToken(const QString &value)
-{
-    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+$)");
-    return regex.match(value).hasMatch();
-}
-
-bool isSafeLocaleGenLine(const QString &value)
-{
-    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+(?:\s+[A-Za-z0-9_.@-]+)?$)");
-    return regex.match(value).hasMatch();
-}
+using LocaleValidation::isSafeLocaleGenLine;
+using LocaleValidation::isSafeLocaleToken;
 
 void showCommandError(QWidget *parent, Cmd &cmd, const QString &fallback = QObject::tr("Operation failed."))
 {

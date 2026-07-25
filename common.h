@@ -21,7 +21,23 @@
  **********************************************************************/
 #pragma once
 
+#include <QRegularExpression>
 #include <QString>
+
+namespace LocaleValidation
+{
+inline bool isSafeLocaleToken(const QString &value)
+{
+    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+$)");
+    return regex.match(value).hasMatch();
+}
+
+inline bool isSafeLocaleGenLine(const QString &value)
+{
+    static const QRegularExpression regex(R"(^[A-Za-z0-9_.@-]+(?:\s+[A-Za-z0-9_.@-]+)?$)");
+    return regex.match(value).hasMatch();
+}
+} // namespace LocaleValidation
 
 // System paths
 namespace Paths
