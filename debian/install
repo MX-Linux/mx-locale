@@ -8,5 +8,5 @@ help/*.1			usr/share/man/man1
 license.html		usr/share/doc/mx-locale
 lib/*			usr/lib/mx-locale
 obj-*/helper		usr/libexec/mx-locale
-polkit-actions/*	usr/share/polkit-1/actions
+obj-*/org.mxlinux.pkexec.mx-locale.policy	usr/share/polkit-1/actions
 obj-*/*.qm	usr/share/mx-locale/locale

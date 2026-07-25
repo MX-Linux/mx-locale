@@ -8,7 +8,6 @@
 #include <QProcessEnvironment>
 #include <QStandardPaths>
 
-#include "common.h"
 #include <unistd.h>
 
 namespace {
@@ -28,9 +27,7 @@ Cmd::Cmd(QObject *parent)
       elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"},
       helper {[&] {
           const QString localHelper = QDir(QCoreApplication::applicationDirPath()).filePath("helper");
-          return QFileInfo::exists(localHelper) ? localHelper
-                                                : QDir(Paths::usrLib).filePath(QCoreApplication::applicationName()
-                                                                               + "/helper");
+          return QFileInfo::exists(localHelper) ? localHelper : QString::fromUtf8(HELPER_PATH);
       }()}
 {
     connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
