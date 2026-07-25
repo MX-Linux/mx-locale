@@ -21,8 +21,23 @@
  **********************************************************************/
 #pragma once
 
+#include <QFileInfo>
 #include <QRegularExpression>
+#include <QStandardPaths>
 #include <QString>
+
+namespace ExecutableResolution
+{
+inline QString resolveExecutable(const QString &program)
+{
+    if (QFileInfo(program).isAbsolute()) {
+        return program;
+    }
+
+    const QString resolved = QStandardPaths::findExecutable(program, {"/usr/sbin", "/usr/bin", "/sbin", "/bin"});
+    return resolved.isEmpty() ? program : resolved;
+}
+} // namespace ExecutableResolution
 
 namespace LocaleValidation
 {

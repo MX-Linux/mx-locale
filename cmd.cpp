@@ -6,20 +6,12 @@
 #include <QEventLoop>
 #include <QFileInfo>
 #include <QProcessEnvironment>
-#include <QStandardPaths>
 
+#include "common.h"
 #include <unistd.h>
 
 namespace {
-QString resolveExecutable(const QString &program)
-{
-    if (QFileInfo(program).isAbsolute()) {
-        return program;
-    }
-
-    const QString resolved = QStandardPaths::findExecutable(program, {"/usr/sbin", "/usr/bin", "/sbin", "/bin"});
-    return resolved.isEmpty() ? program : resolved;
-}
+using ExecutableResolution::resolveExecutable;
 } // namespace
 
 Cmd::Cmd(QObject *parent)

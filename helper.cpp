@@ -15,24 +15,9 @@
 #include <unistd.h>
 
 namespace {
+using ExecutableResolution::resolveExecutable;
 using LocaleValidation::isSafeLocaleGenLine;
 using LocaleValidation::isSafeLocaleToken;
-
-QString resolveExecutable(const QString &program)
-{
-    if (QFileInfo(program).isAbsolute()) {
-        return program;
-    }
-
-    const QStringList searchPaths {"/usr/sbin", "/usr/bin", "/sbin", "/bin"};
-    for (const QString &path : searchPaths) {
-        const QString candidate = QDir(path).filePath(program);
-        if (QFileInfo::exists(candidate)) {
-            return candidate;
-        }
-    }
-    return program;
-}
 
 bool fail(const QString &message)
 {
