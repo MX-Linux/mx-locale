@@ -1,7 +1,7 @@
 /**********************************************************************
  *  main.cpp
  **********************************************************************
- * Copyright (C) 2024 MX Authors
+ * Copyright (C) 2024-2026 MX Authors
  *
  * Authors: Dolphin Oracle
  *          MX Linux <http://mxlinux.org>
