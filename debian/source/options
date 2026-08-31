@@ -1,0 +1,4 @@
+tar-ignore = "build-check"
+tar-ignore = "build-check2"
+tar-ignore = "build-deb"
+tar-ignore = "debian/mx-locale"

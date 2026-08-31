@@ -1,3 +1,12 @@
+mx-locale (26.03.1) mx; urgency=medium
+
+  * Fix packaging lintian issues: use DEP-5 copyright format referencing
+    the common GPL-3 license, drop the non-standard
+    XSBC-Original-Maintainer field in favor of Uploaders, and exclude
+    stray local CMake build directories from the source tarball.
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 30 Aug 2026 21:40:16 -0400
+
 mx-locale (26.03) mx; urgency=medium
 
   * Show Help and License directly inside the application.
