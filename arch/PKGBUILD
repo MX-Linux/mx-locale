@@ -11,7 +11,7 @@
 
 pkgname=mx-locale
 pkgver=26.09
-pkgrel=1
+pkgrel=2
 pkgdesc="GUI configuration tool for locales"
 arch=('x86_64' 'i686')
 url="https://github.com/MX-Linux/mx-locale"
