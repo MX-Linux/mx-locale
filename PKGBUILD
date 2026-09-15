@@ -1,6 +1,6 @@
 # Maintainer: Dolphin Oracle <dolphinoracle@gmail.com>
 pkgname=mx-locale
-pkgver=${PKGVER:-25.10.1}
+pkgver=${PKGVER:-26.09}
 pkgrel=1
 pkgdesc="GUI configuration tool for locales"
 arch=('x86_64' 'i686')
