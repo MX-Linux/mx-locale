@@ -1,3 +1,13 @@
+mx-locale (26.09) mx; urgency=medium
+
+  * Explain that a desktop session is needed when the program is started
+    without one, instead of failing with an unclear error.
+  * Add a manual page describing the program and its command-line options,
+    available with "man mx-locale".
+  * List the program under the MX Setup section of the application menu.
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 15 Sep 2026 01:17:01 -0400
+
 mx-locale (26.03.1) mx; urgency=medium
 
   * Fix packaging lintian issues: use DEP-5 copyright format referencing
