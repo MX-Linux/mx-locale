@@ -153,7 +153,14 @@ bool resetSubvariables(const QStringList &arguments)
     }
 
 #ifdef MX_LOCALE_ARCH
-    return runExternal("localectl", {"set-locale", "LANG=" + arguments.at(0)});
+    QStringList localeArguments {"set-locale", "LANG=" + arguments.at(0)};
+    const QStringList categories {"LC_CTYPE", "LC_NUMERIC", "LC_TIME", "LC_COLLATE", "LC_MONETARY", "LC_MESSAGES",
+                                  "LC_PAPER", "LC_NAME", "LC_ADDRESS", "LC_TELEPHONE", "LC_MEASUREMENT",
+                                  "LC_IDENTIFICATION"};
+    for (const QString &category : categories) {
+        localeArguments.append(category + '=' + arguments.at(0));
+    }
+    return runExternal("localectl", localeArguments);
 #else
     const QString localeConf = QStringLiteral("/etc/locale.conf");
     const QString targetPath = QFile::exists(localeConf) ? localeConf : Paths::defaultLocale;
