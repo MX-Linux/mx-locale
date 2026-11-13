@@ -12,6 +12,7 @@
 
 #include "common.h"
 
+#include <algorithm>
 #include <unistd.h>
 
 namespace {
@@ -40,6 +41,25 @@ bool isSafePackageName(const QString &value)
 QString normalizeLocaleValue(QString value)
 {
     return value.trimmed().replace(".utf8", ".UTF-8", Qt::CaseInsensitive);
+}
+
+bool parseLocaleAssignment(const QString &line, QString &key, QString &value)
+{
+    static const QRegularExpression regex(
+        R"re(^\s*([A-Z_]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^#\s]+))\s*(?:#.*)?$)re");
+    const auto match = regex.match(line);
+    if (!match.hasMatch()) {
+        return false;
+    }
+    key = match.captured(1);
+    value = match.captured(2);
+    if (value.isEmpty()) {
+        value = match.captured(3);
+    }
+    if (value.isEmpty()) {
+        value = match.captured(4);
+    }
+    return isSafeLocaleToken(value);
 }
 
 QString resolveWritablePath(const QString &path)
@@ -186,17 +206,30 @@ bool filterLocaleGen(const QStringList &arguments)
         return false;
     }
 
+    QStringList localeSettings;
+    if (!readLines(Paths::defaultLocale, localeSettings, true)) {
+        return false;
+    }
+    QStringList protectedLocales = arguments;
+    for (const QString &line : std::as_const(localeSettings)) {
+        QString key;
+        QString value;
+        if (parseLocaleAssignment(line, key, value) && key.startsWith("LC_")) {
+            protectedLocales.append(value);
+        }
+    }
+
     QStringList updatedLines;
-    const QString currentLang = arguments.at(0);
-    const QString sessionLang = arguments.size() == 2 ? arguments.at(1) : QString {};
     bool changed = false;
 
     for (const QString &line : std::as_const(lines)) {
         const QString trimmed = line.trimmed();
         const bool commented = trimmed.startsWith('#');
         const QString body = commented ? trimmed.mid(1).trimmed() : trimmed;
-        if (trimmed.isEmpty() || commented || LocaleValidation::localeMatchesGenLine(currentLang, body)
-            || (!sessionLang.isEmpty() && LocaleValidation::localeMatchesGenLine(sessionLang, body))) {
+        if (trimmed.isEmpty() || commented
+            || std::any_of(protectedLocales.cbegin(), protectedLocales.cend(), [&body](const QString &locale) {
+                   return LocaleValidation::localeMatchesGenLine(locale, body);
+               })) {
             updatedLines.append(line);
             continue;
         }
