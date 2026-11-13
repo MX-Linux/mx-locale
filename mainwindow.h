@@ -84,6 +84,7 @@ private:
     QButtonGroup *buttonGroup;
     QHash<QString, QString> hashLocale;
     bool localeGenChanged {false};
+    bool localeOperationInProgress {false};
     int countEnabled {};
 
     [[nodiscard]] QString getCurrentLang() const;

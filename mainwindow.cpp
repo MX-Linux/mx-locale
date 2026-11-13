@@ -24,11 +24,15 @@
 #include "about.h"
 #include "ui_mainwindow.h"
 
+#include <QApplication>
 #include <QDebug>
 #include <QDirIterator>
 #include <QFileDialog>
 #include <QProgressDialog>
+#include <QPointer>
 #include <QScrollBar>
+#include <QScopedValueRollback>
+#include <QScopeGuard>
 #include <QSignalBlocker>
 #include <QTextStream>
 #include <QUrl>
@@ -219,6 +223,19 @@ QString MainWindow::getCurrentSessionLang() const
 
 void MainWindow::disableAllButCurrent()
 {
+    if (localeOperationInProgress) {
+        return;
+    }
+    const QScopedValueRollback<bool> operationGuard(localeOperationInProgress, true);
+    const QPointer<QWidget> previousFocus = QApplication::focusWidget();
+    disableGUI(true);
+    const auto restoreGui = qScopeGuard([this, previousFocus] {
+        disableGUI(false);
+        if (previousFocus && previousFocus->isEnabled() && previousFocus->isVisible()) {
+            previousFocus->setFocus();
+        }
+    });
+
     const QString currentLang = ui->buttonLang->text();
     const QString sessionLang = getCurrentSessionLang();
     if (!isSafeLocaleToken(currentLang)) {
@@ -361,6 +378,19 @@ void MainWindow::onFilterChanged(const QString &text)
 
 void MainWindow::listItemChanged(QListWidgetItem *item)
 {
+    if (localeOperationInProgress) {
+        return;
+    }
+    const QScopedValueRollback<bool> operationGuard(localeOperationInProgress, true);
+    const QPointer<QWidget> previousFocus = QApplication::focusWidget();
+    disableGUI(true);
+    const auto restoreGui = qScopeGuard([this, previousFocus] {
+        disableGUI(false);
+        if (previousFocus && previousFocus->isEnabled() && previousFocus->isVisible()) {
+            previousFocus->setFocus();
+        }
+    });
+
     // Check for disabling of running locale
     QString localeCode = item->text().section(' ', 0, 0);
     QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
@@ -637,6 +667,19 @@ void MainWindow::removeManuals()
 
 void MainWindow::resetLocaleGen()
 {
+    if (localeOperationInProgress) {
+        return;
+    }
+    const QScopedValueRollback<bool> operationGuard(localeOperationInProgress, true);
+    const QPointer<QWidget> previousFocus = QApplication::focusWidget();
+    disableGUI(true);
+    const auto restoreGui = qScopeGuard([this, previousFocus] {
+        disableGUI(false);
+        if (previousFocus && previousFocus->isEnabled() && previousFocus->isVisible()) {
+            previousFocus->setFocus();
+        }
+    });
+
     Cmd cmd;
     if (!cmd.runAsRoot("reset-locale-gen")) {
         showCommandError(this, cmd);
