@@ -188,9 +188,8 @@ bool filterLocaleGen(const QStringList &arguments)
         const QString trimmed = line.trimmed();
         const bool commented = trimmed.startsWith('#');
         const QString body = commented ? trimmed.mid(1).trimmed() : trimmed;
-        const QString localeCode = body.section(' ', 0, 0);
-        if (trimmed.isEmpty() || commented || localeCode == currentLang
-            || (!sessionLang.isEmpty() && localeCode == sessionLang)) {
+        if (trimmed.isEmpty() || commented || LocaleValidation::localeMatchesGenLine(currentLang, body)
+            || (!sessionLang.isEmpty() && LocaleValidation::localeMatchesGenLine(sessionLang, body))) {
             updatedLines.append(line);
             continue;
         }

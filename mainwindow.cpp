@@ -363,8 +363,10 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
 {
     // Check for disabling of running locale
     QString localeCode = item->text().section(' ', 0, 0);
+    QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
     if (item->checkState() == Qt::Unchecked
-        && (localeCode == getCurrentLang() || localeCode == getCurrentSessionLang())) {
+        && (LocaleValidation::localeMatchesGenLine(getCurrentLang(), text)
+            || LocaleValidation::localeMatchesGenLine(getCurrentSessionLang(), text))) {
         const QSignalBlocker blocker(ui->listWidget);
         item->setCheckState(Qt::Checked);
         QMessageBox::warning(this, tr("Error"),
@@ -374,7 +376,6 @@ void MainWindow::listItemChanged(QListWidgetItem *item)
         return;
     }
     ui->listWidget->disconnect();
-    QString text = item->text().section(QRegularExpression(R"(\s*\t)"), 0, 0);
     if (!isSafeLocaleGenLine(text) || !isSafeLocaleToken(localeCode)) {
         QMessageBox::critical(this, tr("Error"), tr("Invalid locale value."));
         connect(ui->listWidget, &QListWidget::itemChanged, this, &MainWindow::listItemChanged);
