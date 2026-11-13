@@ -248,7 +248,7 @@ bool enableLocale(const QStringList &arguments)
         return false;
     }
 
-    const QString entry = arguments.at(0);
+    const QString entry = arguments.at(0).simplified();
     QStringList updatedLines;
     bool found = false;
     bool changed = false;
@@ -257,7 +257,7 @@ bool enableLocale(const QStringList &arguments)
         const QString trimmed = line.trimmed();
         const bool commented = trimmed.startsWith('#');
         const QString body = commented ? trimmed.mid(1).trimmed() : trimmed;
-        if (body == entry) {
+        if (body.simplified() == entry) {
             if (!found) {
                 updatedLines.append(entry);
                 found = true;
@@ -284,7 +284,7 @@ bool disableLocale(const QStringList &arguments)
         return fail(QObject::tr("Invalid locale value"));
     }
 
-    const QString entry = arguments.at(0);
+    const QString entry = arguments.at(0).simplified();
     QStringList localeGenLines;
     if (!readLines(Paths::localeGen, localeGenLines)) {
         return false;
@@ -297,7 +297,7 @@ bool disableLocale(const QStringList &arguments)
         const QString trimmed = line.trimmed();
         const bool commented = trimmed.startsWith('#');
         const QString body = commented ? trimmed.mid(1).trimmed() : trimmed;
-        if (body == entry) {
+        if (body.simplified() == entry) {
             if (!handled) {
                 const QString commentedLine = "# " + entry;
                 updatedLocaleGen.append(commentedLine);

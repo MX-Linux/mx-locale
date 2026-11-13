@@ -488,7 +488,7 @@ bool MainWindow::readEnabledLocales(const QString &filePath, QStringList &enable
     QRegularExpression localeRegex("^[a-z]{2,3}([^_]|_[A-Z]{2})");
 
     while (!in.atEnd()) {
-        QString line = in.readLine().trimmed();
+        QString line = in.readLine().simplified();
         if (localeRegex.match(line).hasMatch()) {
             enabledLocales.append(line);
         }
@@ -581,7 +581,7 @@ void MainWindow::readLocaleFile(QFile &file, const QStringList &enabledLocale)
     QTextStream in(&file);
     QRegularExpression localeRegex("^[a-z]{2,3}([^_]|_[A-Z]{2})");
     while (!in.atEnd()) {
-        QString line = in.readLine().trimmed();
+        QString line = in.readLine().simplified();
         if (localeRegex.match(line).hasMatch()) {
             auto item = new QListWidgetItem;
             item->setCheckState(enabledLocale.contains(line) ? Qt::Checked : Qt::Unchecked);
