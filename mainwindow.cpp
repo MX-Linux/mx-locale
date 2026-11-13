@@ -108,10 +108,11 @@ void MainWindow::setup()
 // Check if there are subvariables different than LANG
 bool MainWindow::anyDifferentSubvars() const
 {
-    // Skip the first button: ButtonID::LANG
     const auto buttons = buttonGroup->buttons();
-    return std::any_of(std::next(buttons.begin()), buttons.end(),
-                       [this](const auto *button) { return button->text() != ui->buttonLang->text(); });
+    const auto *langButton = buttonGroup->button(ButtonID::Lang);
+    return std::any_of(buttons.cbegin(), buttons.cend(), [langButton](const auto *button) {
+        return button != langButton && button->text() != langButton->text();
+    });
 }
 
 void MainWindow::disableGUI(bool disable)
